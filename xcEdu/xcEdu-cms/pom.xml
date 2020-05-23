@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>xcEdu</artifactId>
+        <groupId>com.xuecheng.parent</groupId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.xuecheng.cms</groupId>
+    <artifactId>xcEdu-cms</artifactId>
+    <description>CMS服务工程：对各各网站页面进行管理</description>
+    <version>1.0.0-SNAPSHOT</version>
+    <dependencies>
+        <!-- xcEdu接口工程 -->
+        <dependency>
+            <groupId>com.xuecheng.api</groupId>
+            <artifactId>xcEdu-api</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+        <!-- xcEdu模型工程 -->
+        <dependency>
+            <groupId>com.xuecheng.model</groupId>
+            <artifactId>xcEdu-model</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+        <!-- xcEdu工具类工程 -->
+        <dependency>
+            <groupId>com.xuecheng.utils</groupId>
+            <artifactId>xcEdu-utils</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+        <!-- xcEdu通用工程 -->
+        <dependency>
+            <groupId>com.xuecheng.common</groupId>
+            <artifactId>xcEdu-common</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+        <!-- web启动器 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <!-- freemarker模板引擎 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-freemarker</artifactId>
+        </dependency>
+        <!-- mongodb启动器 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-mongodb</artifactId>
+        </dependency>
+        <!-- 消息中间件RabbitMQ -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-amqp</artifactId>
+        </dependency>
+        <!-- http客户端 -->
+        <dependency>
+            <groupId>com.squareup.okhttp3</groupId>
+            <artifactId>okhttp</artifactId>
+        </dependency>
+        <!-- 单元测试 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+        </dependency>
+        <!-- eureka客户端 -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
+        <!-- 统一认证授权 -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-oauth2</artifactId>
+        </dependency>
+    </dependencies>
+</project>

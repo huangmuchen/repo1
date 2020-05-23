@@ -1,0 +1,36 @@
+package com.xuecheng.model.domain.ucenter;
+
+import lombok.Data;
+import lombok.ToString;
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
+import java.util.Date;
+
+/**
+ * @author: HuangMuChen
+ * @date: 2019/9/18 11:32
+ * @version: V1.0
+ * @Description: TODO
+ */
+@Data
+@ToString
+@Entity
+@Table(name = "xc_role")
+@GenericGenerator(name = "jpa-uuid", strategy = "uuid")
+public class XcRole {
+    @Id
+    @GeneratedValue(generator = "jpa-uuid")
+    @Column(length = 32)
+    private String id;
+    @Column(name = "role_name")
+    private String roleName;
+    @Column(name = "roleCode")
+    private String role_code;
+    private String description;
+    private String status;
+    @Column(name = "createTime")
+    private Date create_time;
+    @Column(name = "update_time")
+    private Date updateTime;
+}
