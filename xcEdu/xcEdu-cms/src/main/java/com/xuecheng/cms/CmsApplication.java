@@ -2,6 +2,9 @@ package com.xuecheng.cms;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.context.annotation.ComponentScan;
 
 /**
  * @author: HuangMuChen
@@ -10,6 +13,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @Description: cms服务启动器
  */
 @SpringBootApplication
+@EnableDiscoveryClient
+@EntityScan("com.xuecheng.model.domain.cms") // 扫描实体类
+@ComponentScan(basePackages = {"com.xuecheng.api"}) // 扫描api接口
+@ComponentScan(basePackages = {"com.xuecheng.cms"}) // 扫描本项目下的所有类
 public class CmsApplication {
     public static void main(String[] args) {
         SpringApplication.run(CmsApplication.class, args);

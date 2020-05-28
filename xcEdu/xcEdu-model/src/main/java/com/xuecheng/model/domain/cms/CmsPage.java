@@ -23,6 +23,7 @@ public class CmsPage {
     private String siteId; // 站点ID
     private String pageName; // 页面名称
     private String pageAliase; // 别名
+    private String templateId; // 模版id
     private String pageWebPath; // 访问地址
     private String pageParameter; // 参数
     private String pagePhysicalPath;  // 物理路径
@@ -31,9 +32,7 @@ public class CmsPage {
     private String pageHtml; // 页面静态化内容
     private String pageStatus; // 状态
     private Date pageCreateTime; // 创建时间
-    private String templateId; // 模版id
-    private List<CmsPageParam> pageParams; // 参数列表
-    // private String templateFileId; // 模版文件Id
+    private List<CmsPageParam> pageParams; // 参数列表,暂时不用
     private String htmlFileId; // 静态文件Id
     private String dataUrl; // 数据Url
 }

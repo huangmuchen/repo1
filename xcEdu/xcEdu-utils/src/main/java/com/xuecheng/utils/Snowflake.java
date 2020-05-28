@@ -10,7 +10,7 @@ import java.util.concurrent.atomic.AtomicLong;
 /**
  * java edition of Twitter <b>Snowflake</b>, a network service for generating
  * unique ID numbers at high scale with some simple guarantees.
- * <p>
+ *
  * https://github.com/twitter/snowflake
  */
 public class Snowflake {

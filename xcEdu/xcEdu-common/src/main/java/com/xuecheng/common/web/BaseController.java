@@ -10,7 +10,7 @@ import javax.servlet.http.HttpSession;
  * @author: HuangMuChen
  * @date: 2020/5/23 16:51
  * @version: V1.0
- * @Description: 通过控制层
+ * @Description: 通用控制层
  */
 public class BaseController {
     protected HttpServletRequest request;

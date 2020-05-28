@@ -11,19 +11,14 @@
 
     <groupId>com.xuecheng.cms</groupId>
     <artifactId>xcEdu-cms</artifactId>
-    <description>CMS服务工程：对各各网站页面进行管理</description>
+    <description>CMS服务工程：对各个网站页面进行管理</description>
     <version>1.0.0-SNAPSHOT</version>
+
     <dependencies>
-        <!-- xcEdu接口工程 -->
+        <!-- xcEdu API工程 -->
         <dependency>
             <groupId>com.xuecheng.api</groupId>
             <artifactId>xcEdu-api</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
-        </dependency>
-        <!-- xcEdu模型工程 -->
-        <dependency>
-            <groupId>com.xuecheng.model</groupId>
-            <artifactId>xcEdu-model</artifactId>
             <version>1.0.0-SNAPSHOT</version>
         </dependency>
         <!-- xcEdu工具类工程 -->
@@ -31,17 +26,6 @@
             <groupId>com.xuecheng.utils</groupId>
             <artifactId>xcEdu-utils</artifactId>
             <version>1.0.0-SNAPSHOT</version>
-        </dependency>
-        <!-- xcEdu通用工程 -->
-        <dependency>
-            <groupId>com.xuecheng.common</groupId>
-            <artifactId>xcEdu-common</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
-        </dependency>
-        <!-- web启动器 -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <!-- freemarker模板引擎 -->
         <dependency>
@@ -63,20 +47,15 @@
             <groupId>com.squareup.okhttp3</groupId>
             <artifactId>okhttp</artifactId>
         </dependency>
-        <!-- 单元测试 -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-        </dependency>
         <!-- eureka客户端 -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
         <!-- 统一认证授权 -->
-        <dependency>
+        <!--<dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-oauth2</artifactId>
-        </dependency>
+        </dependency>-->
     </dependencies>
 </project>

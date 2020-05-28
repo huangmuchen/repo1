@@ -13,9 +13,10 @@
         <module>xcEdu-utils</module>
         <module>xcEdu-api</module>
         <module>xcEdu-cms</module>
+        <module>xcEdu-registry</module>
     </modules>
     <packaging>pom</packaging>
-    <name>xuecheng</name>
+    <name>xcEdu</name>
     <description>父工程：提供依赖管理</description>
 
     <!--起步依赖,进行依赖的传递-->
@@ -179,6 +180,28 @@
         </dependencies>
     </dependencyManagement>
 
+    <dependencies>
+        <!-- apache工具包 -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+        </dependency>
+        <!-- @Data注解 -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+        <!-- json解析工具 -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+        </dependency>
+        <!-- IO 工具类 -->
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+        </dependency>
+    </dependencies>
     <build>
         <!-- 最后打出jar包的名字 -->
         <finalName>${project.artifactId}</finalName>
@@ -201,5 +224,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>

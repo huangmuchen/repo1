@@ -27,6 +27,12 @@
       <change afterPath="$PROJECT_DIR$/../leiyou/leyou-auth/leyou-auth-common/src/main/java/com/leyou/auth/utils/ObjectUtils.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../leiyou/leyou-auth/leyou-auth-common/src/main/java/com/leyou/auth/utils/RsaUtils.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../leiyou/leyou-auth/leyou-auth-common/src/test/java/com/leyou/auth/JwtTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../leiyou/leyou-auth/leyou-auth-common/target/classes/com/leyou/auth/entity/UserInfo.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../leiyou/leyou-auth/leyou-auth-common/target/classes/com/leyou/auth/utils/JwtConstans.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../leiyou/leyou-auth/leyou-auth-common/target/classes/com/leyou/auth/utils/JwtUtils.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../leiyou/leyou-auth/leyou-auth-common/target/classes/com/leyou/auth/utils/ObjectUtils.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../leiyou/leyou-auth/leyou-auth-common/target/classes/com/leyou/auth/utils/RsaUtils.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../leiyou/leyou-auth/leyou-auth-common/target/test-classes/com/leyou/auth/JwtTest.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../leiyou/leyou-auth/leyou-auth-service/pom.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../leiyou/leyou-auth/leyou-auth-service/src/main/java/com/leyou/LeyouAuthApplication.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../leiyou/leyou-auth/leyou-auth-service/src/main/java/com/leyou/auth/client/UserClient.java" afterDir="false" />
@@ -57,6 +63,16 @@
       <change afterPath="$PROJECT_DIR$/../leiyou/leyou-common/src/main/java/com/leyou/common/utils/NumberUtils.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../leiyou/leyou-common/src/main/java/com/leyou/common/vo/ExceptionResult.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../leiyou/leyou-common/src/main/java/com/leyou/common/vo/PageResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../leiyou/leyou-common/target/classes/com/leyou/common/advice/CommonExceptionHandler.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../leiyou/leyou-common/target/classes/com/leyou/common/enums/ExceptionEnum.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../leiyou/leyou-common/target/classes/com/leyou/common/exception/LeyouException.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../leiyou/leyou-common/target/classes/com/leyou/common/utils/CodecUtils.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../leiyou/leyou-common/target/classes/com/leyou/common/utils/CookieUtils.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../leiyou/leyou-common/target/classes/com/leyou/common/utils/IdWorker.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../leiyou/leyou-common/target/classes/com/leyou/common/utils/JsonUtils.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../leiyou/leyou-common/target/classes/com/leyou/common/utils/NumberUtils.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../leiyou/leyou-common/target/classes/com/leyou/common/vo/ExceptionResult.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../leiyou/leyou-common/target/classes/com/leyou/common/vo/PageResult.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../leiyou/leyou-gateway/pom.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../leiyou/leyou-gateway/src/main/java/com/leyou/LeyouGatewayApplication.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../leiyou/leyou-gateway/src/main/java/com/leyou/gateway/config/FilterProperties.java" afterDir="false" />
@@ -64,6 +80,12 @@
       <change afterPath="$PROJECT_DIR$/../leiyou/leyou-gateway/src/main/java/com/leyou/gateway/config/LeyouCorsConfig.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../leiyou/leyou-gateway/src/main/java/com/leyou/gateway/filter/LoginFilter.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../leiyou/leyou-gateway/src/main/resources/application.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../leiyou/leyou-gateway/target/classes/application.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../leiyou/leyou-gateway/target/classes/com/leyou/LeyouGatewayApplication.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../leiyou/leyou-gateway/target/classes/com/leyou/gateway/config/FilterProperties.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../leiyou/leyou-gateway/target/classes/com/leyou/gateway/config/JwtProperties.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../leiyou/leyou-gateway/target/classes/com/leyou/gateway/config/LeyouCorsConfig.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../leiyou/leyou-gateway/target/classes/com/leyou/gateway/filter/LoginFilter.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../leiyou/leyou-item/leyou-item-interface/pom.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../leiyou/leyou-item/leyou-item-interface/src/main/java/com/leyou/item/api/BrandApi.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../leiyou/leyou-item/leyou-item-interface/src/main/java/com/leyou/item/api/CategoryApi.java" afterDir="false" />
@@ -110,7 +132,7 @@
       <change afterPath="$PROJECT_DIR$/../leiyou/leyou-order/src/main/java/com/leyou/order/config/IdWorkerConfig.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../leiyou/leyou-order/src/main/java/com/leyou/order/config/MvcConfig.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../leiyou/leyou-order/src/main/java/com/leyou/order/config/PayConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../leiyou/leyou-order/src/main/java/com/leyou/order/config/SwaggerConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../leiyou/leyou-order/src/main/java/com/leyou/order/config/Swagger2Config.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../leiyou/leyou-order/src/main/java/com/leyou/order/controller/AddressController.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../leiyou/leyou-order/src/main/java/com/leyou/order/controller/OrderController.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../leiyou/leyou-order/src/main/java/com/leyou/order/interceptor/LoginInterceptor.java" afterDir="false" />
@@ -150,6 +172,8 @@
       <change afterPath="$PROJECT_DIR$/../leiyou/leyou-registry/pom.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../leiyou/leyou-registry/src/main/java/com/leyou/LeyouRegistryApplication.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../leiyou/leyou-registry/src/main/resources/application.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../leiyou/leyou-registry/target/classes/application.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../leiyou/leyou-registry/target/classes/com/leyou/LeyouRegistryApplication.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../leiyou/leyou-search/leyou-search.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../leiyou/leyou-search/pom.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../leiyou/leyou-search/src/main/java/com/leyou/LeyouSearchApplication.java" afterDir="false" />
@@ -189,6 +213,8 @@
       <change afterPath="$PROJECT_DIR$/../leiyou/leyou-user/leyou-user-interface/pom.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../leiyou/leyou-user/leyou-user-interface/src/main/java/com/leyou/user/api/UserApi.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../leiyou/leyou-user/leyou-user-interface/src/main/java/com/leyou/user/pojo/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../leiyou/leyou-user/leyou-user-interface/target/classes/com/leyou/user/api/UserApi.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../leiyou/leyou-user/leyou-user-interface/target/classes/com/leyou/user/pojo/User.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../leiyou/leyou-user/leyou-user-service/pom.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../leiyou/leyou-user/leyou-user-service/src/main/java/com/leyou/LeyouUserApplication.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../leiyou/leyou-user/leyou-user-service/src/main/java/com/leyou/user/controller/UserController.java" afterDir="false" />
@@ -200,8 +226,61 @@
       <change afterPath="$PROJECT_DIR$/../leiyou/leyou-user/leyou-user-service/src/test/java/com/leyou/user/UserTest.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../leiyou/leyou-user/pom.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../leiyou/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xcEdu-cms/src/main/java/com/xuecheng/cms/controller/CmsPageController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xcEdu-cms/src/main/java/com/xuecheng/cms/dao/CmsPageRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xcEdu-cms/src/main/java/com/xuecheng/cms/service/ICmsPageService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xcEdu-cms/src/main/java/com/xuecheng/cms/service/impl/CmsPageServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xcEdu-cms/src/test/java/com/xuecheng/cms/dao/CmsPageRepositoryTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xcEdu-cms/src/test/java/com/xuecheng/cms/service/impl/CmsPageServiceImplTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xcEdu-registry/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xcEdu-registry/src/main/java/com/xuecheng/RegistryApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xcEdu-registry/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xcEdu-registry/xcEdu-registry.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xcEdu-api/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-api/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xcEdu-api/src/main/java/com/xuecheng/api/cms/CmsPageControllerApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-api/src/main/java/com/xuecheng/api/cms/CmsPageControllerApi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xcEdu-api/src/main/java/com/xuecheng/api/config/Swagger2Configuration.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-api/src/main/java/com/xuecheng/api/config/Swagger2Config.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xcEdu-cms/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-cms/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xcEdu-cms/src/main/java/com/xuecheng/cms/CmsApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-cms/src/main/java/com/xuecheng/cms/CmsApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xcEdu-cms/src/main/java/com/xuecheng/cms/config/ResourceServerConfig.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/xcEdu-cms/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-cms/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xcEdu-common/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-common/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xcEdu-common/src/main/java/com/xuecheng/common/client/XcServiceList.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-common/src/main/java/com/xuecheng/common/client/XcServiceList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xcEdu-common/src/main/java/com/xuecheng/common/model/response/ResultCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-common/src/main/java/com/xuecheng/common/model/response/ResultCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xcEdu-common/src/main/java/com/xuecheng/common/web/BaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-common/src/main/java/com/xuecheng/common/web/BaseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xcEdu-model/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-model/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/cms/CmsPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/cms/CmsPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/cms/request/QueryPageRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/cms/request/QueryPageRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/ucenter/XcCompany.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/ucenter/XcCompanyUser.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/ucenter/XcMenu.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/ucenter/XcPermission.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/ucenter/XcRole.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/ucenter/XcTeacher.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/ucenter/XcUser.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/ucenter/XcUserRole.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/ucenter/ext/AuthToken.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/ucenter/ext/UserBasicInfo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/ucenter/ext/UserToken.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/ucenter/ext/UserTokenStore.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/ucenter/ext/XcMenuExt.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/ucenter/ext/XcUserExt.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/ucenter/request/LoginRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/ucenter/response/AuthCode.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/ucenter/response/JwtResult.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/ucenter/response/LoginResult.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/ucenter/response/UcenterCode.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/xcEdu-utils/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-utils/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xcEdu-utils/src/main/java/com/xuecheng/utils/MD5Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-utils/src/main/java/com/xuecheng/utils/MD5Util.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xcEdu-utils/src/main/java/com/xuecheng/utils/Mp4VideoUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-utils/src/main/java/com/xuecheng/utils/Mp4VideoUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xcEdu-utils/src/main/java/com/xuecheng/utils/Oauth2Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-utils/src/main/java/com/xuecheng/utils/Oauth2Util.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xcEdu-utils/src/main/java/com/xuecheng/utils/Snowflake.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-utils/src/main/java/com/xuecheng/utils/Snowflake.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xcEdu-utils/src/main/java/com/xuecheng/utils/SnowflakeIdWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-utils/src/main/java/com/xuecheng/utils/SnowflakeIdWorker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xcEdu-utils/src/main/java/com/xuecheng/utils/XcOauth2Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-utils/src/main/java/com/xuecheng/utils/XcOauth2Util.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -222,6 +301,8 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
+        <option value="JUnit3 Test Class" />
       </list>
     </option>
   </component>
@@ -254,40 +335,50 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit3" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit3" value="junit.framework.TestCase" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/xcEdu-cms/src/main/resources" />
     <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.68505746" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.xuecheng.cms.service.impl" />
+      <recent name="com.xuecheng.cms.dao" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="junit.framework.TestCase" />
+      <recent name="" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\IdeaProjects\xcEdu\xcEdu-cms\src\main\resources" />
+      <recent name="D:\IdeaProjects\xcEdu\xcEdu-registry\src\main\resources" />
       <recent name="D:\IdeaProjects\xcEdu\xcEdu-cms\src\main\java\com\xuecheng\cms\config" />
       <recent name="D:\IdeaProjects\xcEdu\xcEdu-model\src\main\java\com\xuecheng\model\domain" />
       <recent name="D:\IdeaProjects\xcEdu\xcEdu-model\src\main\java\com\xuecheng\framework\domain" />
-      <recent name="D:\IdeaProjects\xcEdu\xcEdu-model\src\main\java\com\xuecheng\framework\domian" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.HlsVideoUtil">
-    <configuration name="HlsVideoUtil" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.xuecheng.utils.HlsVideoUtil" />
-      <module name="xcEdu-utils" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.xuecheng.utils.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.RegistryApplication">
     <configuration name="CmsApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="xcEdu-cms" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.xuecheng.cms.CmsApplication" />
@@ -295,9 +386,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="RegistryApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="xcEdu-registry" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.xuecheng.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.xuecheng.RegistryApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Spring Boot.CmsApplication" />
+      <item itemvalue="Spring Boot.RegistryApplication" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.HlsVideoUtil" />
+        <item itemvalue="Spring Boot.RegistryApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -316,7 +424,9 @@
       <workItem from="1590228418776" duration="20041000" />
       <workItem from="1590255259654" duration="1403000" />
       <workItem from="1590285122172" duration="600000" />
-      <workItem from="1590285747239" duration="2009000" />
+      <workItem from="1590285747239" duration="2052000" />
+      <workItem from="1590476234127" duration="9272000" />
+      <workItem from="1590561739104" duration="30244000" />
     </task>
     <task id="LOCAL-00001" summary="搭建学成在线基础工程">
       <created>1590256307928</created>
@@ -332,7 +442,14 @@
       <option name="project" value="LOCAL" />
       <updated>1590285151606</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="搭建学成在线基础工程">
+      <created>1590330092716</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1590330092716</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -356,49 +473,97 @@
     <option name="LAST_COMMIT_MESSAGE" value="搭建学成在线基础工程" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="185" y="0" key="#Project_Structure" timestamp="1590222636676">
+    <state x="565" y="225" key="#Notifications" timestamp="1590476265745">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="185" y="0" key="#Project_Structure/0.0.1366.728@0.0.1366.728" timestamp="1590222636676" />
-    <state x="788" y="107" key="#com.intellij.ide.util.MemberChooser" timestamp="1590225224502">
+    <state x="565" y="225" key="#Notifications/0.0.1366.728@0.0.1366.728" timestamp="1590476265745" />
+    <state x="185" y="0" key="#Project_Structure" timestamp="1590674421310">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="788" y="107" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1590225224502" />
-    <state x="269" y="286" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1590241346666">
+    <state x="185" y="0" key="#Project_Structure/0.0.1366.728@0.0.1366.728" timestamp="1590674421310" />
+    <state x="137" y="18" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1590670987604">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="269" y="286" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1366.728@0.0.1366.728" timestamp="1590241346666" />
+    <state x="137" y="18" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1590670987604" />
+    <state x="788" y="107" key="#com.intellij.ide.util.MemberChooser" timestamp="1590657554554">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="788" y="107" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1590657554554" />
+    <state x="269" y="286" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1590500513613">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="269" y="286" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1366.728@0.0.1366.728" timestamp="1590500513613" />
+    <state x="446" y="226" width="447" height="276" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1590562340636">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="446" y="226" width="447" height="276" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1366.728@0.0.1366.728" timestamp="1590562340636" />
     <state x="485" y="118" key="FileChooserDialogImpl" timestamp="1590256057229">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="485" y="118" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1590256057229" />
-    <state width="1322" height="190" key="GridCell.Tab.0.bottom" timestamp="1590255886930">
+    <state width="1322" height="330" key="GridCell.Tab.0.bottom" timestamp="1590678661525">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1322" height="190" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1590255886930" />
-    <state width="1322" height="190" key="GridCell.Tab.0.center" timestamp="1590255886929">
+    <state width="1322" height="330" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1590678661525" />
+    <state width="1322" height="330" key="GridCell.Tab.0.center" timestamp="1590678661525">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1322" height="190" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1590255886929" />
-    <state width="1322" height="190" key="GridCell.Tab.0.left" timestamp="1590255886929">
+    <state width="1322" height="330" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1590678661525" />
+    <state width="1322" height="330" key="GridCell.Tab.0.left" timestamp="1590678661524">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1322" height="190" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1590255886929" />
-    <state width="1322" height="190" key="GridCell.Tab.0.right" timestamp="1590255886930">
+    <state width="1322" height="330" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1590678661524" />
+    <state width="1322" height="330" key="GridCell.Tab.0.right" timestamp="1590678661525">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1322" height="190" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1590255886930" />
-    <state x="229" y="0" key="SettingsEditor" timestamp="1590245637794">
+    <state width="1322" height="330" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1590678661525" />
+    <state width="1083" height="195" key="GridCell.Tab.1.bottom" timestamp="1590678650281">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="229" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1590245637794" />
-    <state x="401" y="104" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1590238105011">
+    <state width="1083" height="195" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1590678650281" />
+    <state width="1083" height="195" key="GridCell.Tab.1.center" timestamp="1590678650281">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="401" y="104" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.1366.728@0.0.1366.728" timestamp="1590238105011" />
-    <state x="107" y="32" key="new project wizard" timestamp="1590248280434">
+    <state width="1083" height="195" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1590678650281" />
+    <state width="1083" height="195" key="GridCell.Tab.1.left" timestamp="1590678650280">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="107" y="32" key="new project wizard/0.0.1366.728@0.0.1366.728" timestamp="1590248280434" />
+    <state width="1083" height="195" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1590678650280" />
+    <state width="1083" height="195" key="GridCell.Tab.1.right" timestamp="1590678650281">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1083" height="195" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1590678650281" />
+    <state width="1322" height="112" key="GridCell.Tab.2.bottom" timestamp="1590647183632">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1322" height="112" key="GridCell.Tab.2.bottom/0.0.1366.728@0.0.1366.728" timestamp="1590647183632" />
+    <state width="1322" height="112" key="GridCell.Tab.2.center" timestamp="1590647183632">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1322" height="112" key="GridCell.Tab.2.center/0.0.1366.728@0.0.1366.728" timestamp="1590647183632" />
+    <state width="1322" height="112" key="GridCell.Tab.2.left" timestamp="1590647183632">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1322" height="112" key="GridCell.Tab.2.left/0.0.1366.728@0.0.1366.728" timestamp="1590647183632" />
+    <state width="1322" height="112" key="GridCell.Tab.2.right" timestamp="1590647183632">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1322" height="112" key="GridCell.Tab.2.right/0.0.1366.728@0.0.1366.728" timestamp="1590647183632" />
+    <state x="229" y="0" key="SettingsEditor" timestamp="1590659577992">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="229" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1590659577992" />
+    <state x="401" y="104" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1590661001286">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="401" y="104" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.1366.728@0.0.1366.728" timestamp="1590661001286" />
+    <state x="107" y="37" width="1259" height="691" key="new project wizard" timestamp="1590498605054">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="107" y="37" width="1259" height="691" key="new project wizard/0.0.1366.728@0.0.1366.728" timestamp="1590498605054" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1590633979506">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1590633979506" />
   </component>
 </project>

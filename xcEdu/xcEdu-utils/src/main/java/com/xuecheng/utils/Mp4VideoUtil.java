@@ -4,9 +4,6 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by admin on 2018/3/6.
- */
 public class Mp4VideoUtil extends VideoUtil {
     // ffmpeg的安装位置
     String ffmpeg_path = "D:/ffmpeg-20180227-fa0c9d6-win64-static/bin/ffmpeg.exe";
