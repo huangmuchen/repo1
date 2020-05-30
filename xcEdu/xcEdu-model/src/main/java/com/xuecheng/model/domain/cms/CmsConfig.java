@@ -17,7 +17,7 @@ import java.util.List;
 @ToString
 @Document(collection = "cms_config")
 public class CmsConfig {
-    @Id
+    @Id // 声明主键
     private String id;
     private String name;
     private List<CmsConfigModel> model;

@@ -15,6 +15,7 @@ import lombok.ToString;
 @ToString
 @AllArgsConstructor
 public enum UcenterCode implements ResultCode {
+    // 枚举类型的实例对象建议全大写,且必须在最前面先定义，且必须按顺序维护枚举自定义的成员变量
     UCENTER_USERNAME_NONE(false, 23001, "请输入账号！"),
     UCENTER_PASSWORD_NONE(false, 23002, "请输入密码！"),
     UCENTER_VERIFYCODE_NONE(false, 23003, "请输入验证码！"),

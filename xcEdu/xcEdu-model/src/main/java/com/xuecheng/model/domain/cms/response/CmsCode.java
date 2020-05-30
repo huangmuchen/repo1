@@ -1,6 +1,7 @@
 package com.xuecheng.model.domain.cms.response;
 
 import com.xuecheng.common.model.response.ResultCode;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.ToString;
 
@@ -13,6 +14,7 @@ import lombok.ToString;
 @ToString
 @AllArgsConstructor
 public enum CmsCode implements ResultCode {
+    // 枚举类型的实例对象建议全大写,且必须在最前面先定义，且必须按顺序维护枚举自定义的成员变量
     CMS_ADDPAGE_EXISTSNAME(false, 24001, "页面名称已存在！"),
     CMS_GENERATEHTML_DATAURLISNULL(false, 24002, "从页面信息中找不到获取数据的url！"),
     CMS_GENERATEHTML_DATAISNULL(false, 24003, "根据页面的数据url获取不到数据！"),
@@ -22,10 +24,15 @@ public enum CmsCode implements ResultCode {
     CMS_COURSE_PERVIEWISNULL(false, 24007, "预览页面为空！");
 
     // 操作是否成功
+    @ApiModelProperty(value = "操作是否成功", example = "true", required = true)
     boolean success;
+
     // 操作代码
+    @ApiModelProperty(value = "操作代码", example = "22001", required = true)
     int code;
+
     // 提示信息
+    @ApiModelProperty(value = "操作提示", example = "操作过于频繁！", required = true)
     String message;
 
     @Override
