@@ -17,6 +17,7 @@ import java.io.Serializable;
 @ToString
 @Entity
 @Table(name = "course_base")
+// @GenericGenerator(name = "jpa-assigned", strategy = "assigned")
 @GenericGenerator(name = "jpa-uuid", strategy = "uuid")
 public class CourseBase implements Serializable {
     private static final long serialVersionUID = -916357110051689486L;

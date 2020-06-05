@@ -15,7 +15,6 @@ import lombok.ToString;
 @ToString
 @AllArgsConstructor
 public enum CourseCode implements ResultCode {
-    // 枚举类型的实例对象建议全大写,且必须在最前面先定义，且必须按顺序维护枚举自定义的成员变量
     COURSE_DENIED_DELETE(false, 31001, "删除课程失败，只允许删除本机构的课程！"),
     COURSE_PUBLISH_PERVIEWISNULL(false, 31002, "还没有进行课程预览！"),
     COURSE_PUBLISH_CDETAILERROR(false, 31003, "创建课程详情页面出错！"),
@@ -27,6 +26,7 @@ public enum CourseCode implements ResultCode {
     // 操作是否成功
     @ApiModelProperty(value = "操作是否成功", example = "true", required = true)
     boolean success;
+
     // 操作代码
     @ApiModelProperty(value = "操作代码", example = "22001", required = true)
     int code;

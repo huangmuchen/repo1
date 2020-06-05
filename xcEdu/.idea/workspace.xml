@@ -10,11 +10,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3637ca18-00b3-47fa-8770-412f4aca64b0" name="Default Changelist" comment="完成页面查询接口开发">
+    <list default="true" id="3637ca18-00b3-47fa-8770-412f4aca64b0" name="Default Changelist" comment="搭建学成在线基础工程">
       <change afterPath="$PROJECT_DIR$/../leiyou/.idea/compiler.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../leiyou/.idea/encodings.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../leiyou/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../leiyou/.idea/jarRepositories.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../leiyou/.idea/misc.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../leiyou/.idea/uiDesigner.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../leiyou/.idea/vcs.xml" afterDir="false" />
@@ -200,8 +199,17 @@
       <change afterPath="$PROJECT_DIR$/../leiyou/leyou-user/leyou-user-service/src/test/java/com/leyou/user/UserTest.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../leiyou/leyou-user/pom.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../leiyou/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xcEdu-gateway/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xcEdu-gateway/src/main/java/com/xuecheng/GatewayApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xcEdu-gateway/src/main/resources/application.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xcEdu-gateway/src/main/resources/logback-spring.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xcEdu-cms/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-cms/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/xcEdu-cms/src/main/java/com/xuecheng/cms/CmsApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-cms/src/main/java/com/xuecheng/cms/CmsApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xcEdu-model/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-model/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/cms/CmsConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/cms/CmsConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/cms/response/CmsCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/cms/response/CmsCode.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/course/CourseBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/course/CourseBase.java" afterDir="false" />
@@ -231,9 +239,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
         <option value="JUnit3 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -279,7 +287,7 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit3" value="junit.framework.TestCase" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/xcEdu-cms/src/main/resources" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/xcEdu-gateway/src/main/resources" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.68505746" />
@@ -295,11 +303,11 @@
       <recent name="" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\IdeaProjects\xcEdu\xcEdu-gateway\src\main\resources" />
       <recent name="D:\IdeaProjects\xcEdu\xcEdu-cms\src\main\resources" />
       <recent name="D:\IdeaProjects\xcEdu\xcEdu-registry\src\main\resources" />
       <recent name="D:\IdeaProjects\xcEdu\xcEdu-cms\src\main\java\com\xuecheng\cms\config" />
       <recent name="D:\IdeaProjects\xcEdu\xcEdu-model\src\main\java\com\xuecheng\model\domain" />
-      <recent name="D:\IdeaProjects\xcEdu\xcEdu-model\src\main\java\com\xuecheng\framework\domain" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -309,10 +317,17 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.RegistryApplication">
+  <component name="RunManager" selected="Spring Boot.GatewayApplication">
     <configuration name="CmsApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="xcEdu-cms" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.xuecheng.cms.CmsApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="xcEdu-gateway" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.xuecheng.GatewayApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -333,9 +348,11 @@
     <list>
       <item itemvalue="Spring Boot.CmsApplication" />
       <item itemvalue="Spring Boot.RegistryApplication" />
+      <item itemvalue="Spring Boot.GatewayApplication" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Spring Boot.GatewayApplication" />
         <item itemvalue="Spring Boot.RegistryApplication" />
       </list>
     </recent_temporary>
@@ -357,8 +374,8 @@
       <workItem from="1590285122172" duration="600000" />
       <workItem from="1590285747239" duration="2052000" />
       <workItem from="1590476234127" duration="9272000" />
-      <workItem from="1590561739104" duration="30531000" />
-      <workItem from="1590735041111" duration="7753000" />
+      <workItem from="1590561739104" duration="30244000" />
+      <workItem from="1591342192303" duration="2231000" />
     </task>
     <task id="LOCAL-00001" summary="搭建学成在线基础工程">
       <created>1590256307928</created>
@@ -381,14 +398,7 @@
       <option name="project" value="LOCAL" />
       <updated>1590330092716</updated>
     </task>
-    <task id="LOCAL-00004" summary="完成页面查询接口开发">
-      <created>1590678769068</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1590678769068</updated>
-    </task>
-    <option name="localTasksCounter" value="5" />
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -409,8 +419,7 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="搭建学成在线基础工程" />
-    <MESSAGE value="完成页面查询接口开发" />
-    <option name="LAST_COMMIT_MESSAGE" value="完成页面查询接口开发" />
+    <option name="LAST_COMMIT_MESSAGE" value="搭建学成在线基础工程" />
   </component>
   <component name="WindowStateProjectService">
     <state x="565" y="225" key="#Notifications" timestamp="1590476265745">
@@ -429,10 +438,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="788" y="107" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1590657554554" />
-    <state x="269" y="286" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1590753873877">
+    <state x="269" y="286" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1590500513613">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="269" y="286" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1366.728@0.0.1366.728" timestamp="1590753873877" />
+    <state x="269" y="286" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1366.728@0.0.1366.728" timestamp="1590500513613" />
     <state x="446" y="226" width="447" height="276" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1590562340636">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -441,38 +450,38 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="485" y="118" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1590256057229" />
-    <state width="1083" height="195" key="GridCell.Tab.0.bottom" timestamp="1590678957326">
+    <state width="1013" height="250" key="GridCell.Tab.0.bottom" timestamp="1591343563694">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1083" height="195" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1590678957326" />
-    <state width="1083" height="195" key="GridCell.Tab.0.center" timestamp="1590678957326">
+    <state width="1013" height="250" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1591343563694" />
+    <state width="1013" height="250" key="GridCell.Tab.0.center" timestamp="1591343563694">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1083" height="195" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1590678957326" />
-    <state width="1083" height="195" key="GridCell.Tab.0.left" timestamp="1590678957326">
+    <state width="1013" height="250" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1591343563694" />
+    <state width="1013" height="250" key="GridCell.Tab.0.left" timestamp="1591343563694">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1083" height="195" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1590678957326" />
-    <state width="1083" height="195" key="GridCell.Tab.0.right" timestamp="1590678957326">
+    <state width="1013" height="250" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1591343563694" />
+    <state width="1013" height="250" key="GridCell.Tab.0.right" timestamp="1591343563694">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1083" height="195" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1590678957326" />
-    <state width="1083" height="195" key="GridCell.Tab.1.bottom" timestamp="1590678957327">
+    <state width="1013" height="250" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1591343563694" />
+    <state width="1013" height="250" key="GridCell.Tab.1.bottom" timestamp="1591343563695">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1083" height="195" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1590678957327" />
-    <state width="1083" height="195" key="GridCell.Tab.1.center" timestamp="1590678957327">
+    <state width="1013" height="250" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1591343563695" />
+    <state width="1013" height="250" key="GridCell.Tab.1.center" timestamp="1591343563694">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1083" height="195" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1590678957327" />
-    <state width="1083" height="195" key="GridCell.Tab.1.left" timestamp="1590678957326">
+    <state width="1013" height="250" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1591343563694" />
+    <state width="1013" height="250" key="GridCell.Tab.1.left" timestamp="1591343563694">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1083" height="195" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1590678957326" />
-    <state width="1083" height="195" key="GridCell.Tab.1.right" timestamp="1590678957327">
+    <state width="1013" height="250" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1591343563694" />
+    <state width="1013" height="250" key="GridCell.Tab.1.right" timestamp="1591343563695">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1083" height="195" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1590678957327" />
+    <state width="1013" height="250" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1591343563695" />
     <state width="1322" height="112" key="GridCell.Tab.2.bottom" timestamp="1590647183632">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -493,18 +502,14 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="229" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1590659577992" />
-    <state x="275" y="96" key="Vcs.Push.Dialog.v2" timestamp="1590678804486">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="275" y="96" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1590678804486" />
     <state x="401" y="104" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1590661001286">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="401" y="104" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.1366.728@0.0.1366.728" timestamp="1590661001286" />
-    <state x="107" y="37" width="1259" height="691" key="new project wizard" timestamp="1590498605054">
+    <state x="107" y="37" width="1259" height="691" key="new project wizard" timestamp="1591342265253">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="107" y="37" width="1259" height="691" key="new project wizard/0.0.1366.728@0.0.1366.728" timestamp="1590498605054" />
+    <state x="107" y="37" width="1259" height="691" key="new project wizard/0.0.1366.728@0.0.1366.728" timestamp="1591342265253" />
     <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1590633979506">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

@@ -15,7 +15,6 @@ import lombok.ToString;
 @ToString
 @AllArgsConstructor
 public enum OrderCode implements ResultCode {
-    // 枚举类型的实例对象建议全大写,且必须在最前面先定义，且必须按顺序维护枚举自定义的成员变量
     ORDER_ADD_ITEMISNULL(false, 41001, "创建订单未选择课程！"),
     ORDER_ADD_ORDERNUMERROR(false, 41002, "生成订单号错误！"),
     ORDER_ADD_GETCOURSEERROR(false, 41003, "找不到课程信息！"),

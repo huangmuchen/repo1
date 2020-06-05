@@ -16,7 +16,7 @@ import org.springframework.context.annotation.ComponentScan;
 @EnableDiscoveryClient
 @EntityScan("com.xuecheng.model.domain.cms") // 扫描实体类
 @ComponentScan(basePackages = {"com.xuecheng.api"}) // 扫描api接口
-@ComponentScan(basePackages = {"com.xuecheng.cms"}) // 扫描本项目下的所有类，可不写，SpringBoot默认的扫描路径就是启动类当前的包和子包
+@ComponentScan(basePackages = {"com.xuecheng.cms"}) // 扫描本项目下的所有类
 public class CmsApplication {
     public static void main(String[] args) {
         SpringApplication.run(CmsApplication.class, args);

@@ -1,0 +1,29 @@
+server:
+  port: 50201
+spring:
+  application:
+    name: xcEdu-gateway
+eureka:
+  client:
+    registry-fetch-interval-seconds: 10 # 拉取服务的间隔时间，单位s
+    service-url:
+      defaultZone: http://127.0.0.1:50101/eureka,http://localhost:50102/eureka/
+  instance:
+    preferIpAddress: true # 当调用getHostname获取实例的hostname时，返回ip而不是host名称
+    ipAddress: 127.0.0.1 # 指定自己的ip信息，不指定的话会自己寻找
+    instanceId: ${spring.application.name}:${server.port}
+zuul:
+  prefix: /api # 添加路由前缀
+  retryable: true # 开启zuul网关的请求重试策略
+  routes:
+    cms: # 这里是路由id，随意写
+      path: /cms/** # 这里是映射路径
+      serviceId: xcEdu-cms # 指定服务名称
+      strip-prefix: false # 代理转发时是否去掉前缀，即把/cms去掉，这里不去掉，因为我们的课程服务就是以/cms打头的
+      sensitiveHeaders: # 配置禁止使用的头信息,这里设置为null,不屏蔽cookie,否则set-cookie无效
+ribbon:
+  ConnectTimeout: 100000 # 连接超时时间(ms),如果路由方式是serviceId的方式,那么ribbon的生效
+  ReadTimeout: 100000 # 通信超时时间(ms),如果路由方式是serviceId的方式,那么ribbon的生效
+  MaxAutoRetriesNextServer: 0 # 同一服务不同实例的重试次数
+  MaxAutoRetries: 2 # 同一实例的最大重试次数，当Eureka中可以找到服务，但是服务连不上时将会重试，如果eureka中找不到服务则直接走断路器
+  OkToRetryOnAllOperations: false #对所有操作请求都进行重试，如果是get则可以，如果是post，put等操作没有实现幂等的情况下是很危险的,所以设置为false

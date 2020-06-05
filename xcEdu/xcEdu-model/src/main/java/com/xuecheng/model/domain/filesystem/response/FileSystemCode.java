@@ -2,7 +2,6 @@ package com.xuecheng.model.domain.filesystem.response;
 
 import com.google.common.collect.ImmutableMap;
 import com.xuecheng.common.model.response.ResultCode;
-import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.ToString;
 
@@ -15,7 +14,6 @@ import lombok.ToString;
 @ToString
 @AllArgsConstructor
 public enum FileSystemCode implements ResultCode {
-    // 枚举类型的实例对象建议全大写,且必须在最前面先定义，且必须按顺序维护枚举自定义的成员变量
     FS_UPLOADFILE_FILEISNULL(false, 25001, "上传文件为空！"),
     FS_UPLOADFILE_BUSINESSISNULL(false, 25002, "业务Id为空！"),
     FS_UPLOADFILE_SERVERFAIL(false, 25003, "上传文件服务器失败！"),
@@ -26,13 +24,10 @@ public enum FileSystemCode implements ResultCode {
     FS_UPLOADFILE_USERISNULL(false, 25008, "上传文件用户为空！");
 
     // 操作是否成功
-    @ApiModelProperty(value = "操作是否成功", example = "true", required = true)
     boolean success;
     // 操作代码
-    @ApiModelProperty(value = "操作代码", example = "22001", required = true)
     int code;
     // 提示信息
-    @ApiModelProperty(value = "操作提示", example = "操作过于频繁！", required = true)
     String message;
 
     private static final ImmutableMap<Integer, FileSystemCode> CACHE;

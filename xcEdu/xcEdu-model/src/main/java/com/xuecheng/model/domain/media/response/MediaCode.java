@@ -15,7 +15,6 @@ import lombok.ToString;
 @ToString
 @AllArgsConstructor
 public enum MediaCode implements ResultCode {
-    // 枚举类型的实例对象建议全大写,且必须在最前面先定义，且必须按顺序维护枚举自定义的成员变量
     UPLOAD_FILE_REGISTER_FAIL(false, 22001, "上传文件在系统注册失败，请刷新页面重试！"),
     UPLOAD_FILE_REGISTER_EXIST(false, 22002, "上传文件在系统已存在！"),
     CHUNK_FILE_EXIST_CHECK(true, 22003, "分块文件在系统已存在！"),

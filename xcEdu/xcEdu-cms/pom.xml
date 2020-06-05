@@ -15,13 +15,13 @@
     <version>1.0.0-SNAPSHOT</version>
 
     <dependencies>
-        <!-- xcEdu API工程 -->
+        <!-- xcEdu-api工程 -->
         <dependency>
             <groupId>com.xuecheng.api</groupId>
             <artifactId>xcEdu-api</artifactId>
             <version>1.0.0-SNAPSHOT</version>
         </dependency>
-        <!-- xcEdu工具类工程 -->
+        <!-- xcEdu-utils工程 -->
         <dependency>
             <groupId>com.xuecheng.utils</groupId>
             <artifactId>xcEdu-utils</artifactId>

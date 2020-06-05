@@ -13,6 +13,7 @@
         <module name="xcEdu-utils" />
         <module name="xcEdu-common" />
         <module name="xcEdu-model" />
+        <module name="xcEdu-gateway" />
       </profile>
     </annotationProcessing>
   </component>
@@ -21,6 +22,7 @@
       <module name="xcEdu-api" options="-parameters" />
       <module name="xcEdu-cms" options="-parameters" />
       <module name="xcEdu-common" options="-parameters" />
+      <module name="xcEdu-gateway" options="-parameters" />
       <module name="xcEdu-model" options="-parameters" />
       <module name="xcEdu-registry" options="-parameters" />
       <module name="xcEdu-utils" options="-parameters" />
