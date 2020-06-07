@@ -8,7 +8,7 @@ import lombok.ToString;
  * @author: HuangMuChen
  * @date: 2019/9/18 11:32
  * @version: V1.0
- * @Description: TODO
+ * @Description: CMS相关响应状态码
  */
 @ToString
 @AllArgsConstructor
@@ -19,7 +19,8 @@ public enum CmsCode implements ResultCode {
     CMS_GENERATEHTML_TEMPLATEISNULL(false, 24004, "页面模板为空！"),
     CMS_GENERATEHTML_HTMLISNULL(false, 24005, "生成的静态html为空！"),
     CMS_GENERATEHTML_SAVEHTMLERROR(false, 24005, "保存静态html出错！"),
-    CMS_COURSE_PERVIEWISNULL(false, 24007, "预览页面为空！");
+    CMS_COURSE_PERVIEWISNULL(false, 24007, "预览页面为空！"),
+    CMS_ADDPAGE_PARAM_ERROR(false,24008,"参数异常");
 
     // 操作是否成功
     boolean success;

@@ -9,7 +9,7 @@ import lombok.Data;
  * @author: HuangMuChen
  * @date: 2019/9/18 11:32
  * @version: V1.0
- * @Description: TODO
+ * @Description: cms页面添加响应模型
  */
 @Data
 public class CmsPageResult extends ResponseResult {

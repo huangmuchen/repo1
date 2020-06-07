@@ -7,6 +7,6 @@ package com.xuecheng.common.model.response;
  * @Description: 定义响应接口
  */
 public interface Response {
-    public static final boolean SUCCESS = true;
-    public static final int SUCCESS_CODE = 10000;
+    boolean SUCCESS = true;
+    int SUCCESS_CODE = 10000;
 }

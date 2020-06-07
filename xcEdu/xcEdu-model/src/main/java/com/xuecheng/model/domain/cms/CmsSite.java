@@ -21,8 +21,8 @@ public class CmsSite {
     @Id // 主键
     private String siteId; // 站点ID
     private String siteName; // 站点名称
-    private String siteDomain; // 站点名称
+    private String siteDomain; // 站点访问地址
     private String sitePort; // 站点端口
-    private String siteWebPath; // 站点访问地址
+    private String siteWebPath; // 站点路径
     private Date siteCreateTime; // 创建时间
 }

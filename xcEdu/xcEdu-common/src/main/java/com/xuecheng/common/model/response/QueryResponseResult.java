@@ -7,7 +7,7 @@ import lombok.ToString;
  * @author: HuangMuChen
  * @date: 2020/5/23 23:01
  * @version: V1.0
- * @Description: 响应结果类型
+ * @Description: cms（页面、站点、模板）查询响应模型
  */
 @Data
 @ToString

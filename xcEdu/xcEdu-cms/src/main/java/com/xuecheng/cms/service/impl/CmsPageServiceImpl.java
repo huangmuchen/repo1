@@ -2,14 +2,18 @@ package com.xuecheng.cms.service.impl;
 
 import com.xuecheng.cms.dao.CmsPageRepository;
 import com.xuecheng.cms.service.ICmsPageService;
+import com.xuecheng.common.exception.CustomException;
 import com.xuecheng.common.model.response.CommonCode;
 import com.xuecheng.common.model.response.QueryResponseResult;
 import com.xuecheng.common.model.response.QueryResult;
 import com.xuecheng.model.domain.cms.CmsPage;
 import com.xuecheng.model.domain.cms.request.QueryPageRequest;
-import org.springframework.beans.BeanUtils;
+import com.xuecheng.model.domain.cms.response.CmsCode;
+import com.xuecheng.model.domain.cms.response.CmsPageResult;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
+import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
@@ -31,10 +35,10 @@ public class CmsPageServiceImpl implements ICmsPageService {
      * @param page             页码
      * @param size             每页显示的条数
      * @param queryPageRequest 查询条件
-     * @return                 页面列表
+     * @return 页面列表
      */
     @Override
-    public QueryResponseResult findList(int page, int size, QueryPageRequest queryPageRequest) {
+    public QueryResponseResult findCmsPageList(int page, int size, QueryPageRequest queryPageRequest) {
         try {
             // 初始化page
             if (page <= 0) {
@@ -48,14 +52,19 @@ public class CmsPageServiceImpl implements ICmsPageService {
             if (queryPageRequest == null) {
                 queryPageRequest = new QueryPageRequest();
             }
+            // 条件匹配器，页面名称和页面别名模糊查询(%{pageName}%、%{pageAliase}%)，需要自定义字符串的匹配器实现模糊查询
+            ExampleMatcher matcher = ExampleMatcher.matching()
+                    .withMatcher("pageAliase", ExampleMatcher.GenericPropertyMatchers.contains())
+                    .withMatcher("pageName", ExampleMatcher.GenericPropertyMatchers.contains());
+            // 构建查询CmsPage
+            CmsPage cmsPage = new CmsPage();
+            // 校验并设置查询条件
+            checkAndSet(cmsPage, queryPageRequest);
+            // 构建条件实例
+            Example<CmsPage> example = Example.of(cmsPage, matcher);
             // 封装分页对象,默认从0开始索引页(为了适应mongodb的接口将页码减1)
             PageRequest pageRequest = PageRequest.of(page - 1, size);
-            // 构建Example对象
-            CmsPage cmsPage = new CmsPage();
-            // 属性复制
-            BeanUtils.copyProperties(queryPageRequest, cmsPage);
-            Example<CmsPage> example = Example.of(cmsPage);
-            // 分页查询
+            // 分页自定义查询
             Page<CmsPage> all = this.cmsPageRepository.findAll(example, pageRequest);
             // 构建返回结果对象,并封装查询结果
             QueryResult<CmsPage> queryResult = new QueryResult<>();
@@ -70,5 +79,64 @@ public class CmsPageServiceImpl implements ICmsPageService {
             // 返回查询失败结果
             return new QueryResponseResult(CommonCode.FAIL, new QueryResult<CmsPage>());
         }
+    }
+
+    /**
+     * 设置查询条件
+     *
+     * @param cmsPage          查询类
+     * @param queryPageRequest 查询条件
+     */
+    private void checkAndSet(CmsPage cmsPage, QueryPageRequest queryPageRequest) {
+        // 设置站点id作为查询条件
+        if (StringUtils.isNotEmpty(queryPageRequest.getSiteId())) {
+            cmsPage.setSiteId(queryPageRequest.getSiteId());
+        }
+        // 设置模板id作为查询条件
+        if (StringUtils.isNotEmpty(queryPageRequest.getTemplateId())) {
+            cmsPage.setTemplateId(queryPageRequest.getTemplateId());
+        }
+        // 设置页面别名作为查询条件
+        if (StringUtils.isNotEmpty(queryPageRequest.getPageAliase())) {
+            cmsPage.setPageAliase(queryPageRequest.getPageAliase());
+        }
+        // 设置页面名称作为查询条件
+        if (StringUtils.isNotBlank(queryPageRequest.getPageName())) {
+            cmsPage.setPageName(queryPageRequest.getPageName());
+        }
+        // 设置页面类型作为查询条件
+        if (StringUtils.isNotBlank(queryPageRequest.getPageType())) {
+            cmsPage.setPageType(queryPageRequest.getPageType());
+        }
+        // 设置页面ID作为查询条件
+        if (StringUtils.isNotBlank(queryPageRequest.getPageId())) {
+            cmsPage.setPageId(queryPageRequest.getPageId());
+        }
+    }
+
+    /**
+     * 页面添加
+     *
+     * @param cmsPage
+     * @return
+     */
+    @Override
+    public CmsPageResult add(CmsPage cmsPage) {
+        if (cmsPage == null) {
+            // 非法参数异常
+            throw new CustomException(CmsCode.CMS_ADDPAGE_PARAM_ERROR);
+        }
+        // 校验页面是否存在：根据页面名称、站点Id、页面webpath查询
+        CmsPage page = this.cmsPageRepository.findByPageNameAndSiteIdAndPageWebPath(cmsPage.getPageName(), cmsPage.getSiteId(), cmsPage.getPageWebPath());
+        // 判断
+        if (page != null) {
+            throw new CustomException(CmsCode.CMS_ADDPAGE_EXISTSNAME);
+        }
+        // 主键(pageId)由spring data自动生成
+        cmsPage.setPageId(null);
+        // 保存数据到mongodb
+        CmsPage result = this.cmsPageRepository.save(cmsPage);
+        // 返回保存结果
+        return new CmsPageResult(CommonCode.SUCCESS, result);
     }
 }

@@ -22,7 +22,7 @@ public class CmsPageServiceImplTest {
 
     @Test
     public void testFindList() {
-        QueryResponseResult result = this.cmsPageService.findList(1, 10, null);
+        QueryResponseResult result = this.cmsPageService.findCmsPageList(1, 10, null);
         System.out.println(result);
     }
 }
