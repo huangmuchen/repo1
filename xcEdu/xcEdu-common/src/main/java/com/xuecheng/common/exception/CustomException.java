@@ -13,7 +13,8 @@ public class CustomException extends RuntimeException {
     ResultCode resultCode;
 
     public CustomException(ResultCode resultCode) {
-        super(resultCode.message());
+        // 异常信息为：错误状态码 + 异常信息
+        super("错误状态码：" + resultCode.code() + "，异常信息：" + resultCode.message());
         this.resultCode = resultCode;
     }
 

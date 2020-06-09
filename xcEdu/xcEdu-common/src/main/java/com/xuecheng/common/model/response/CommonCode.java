@@ -12,6 +12,7 @@ import lombok.ToString;
 @ToString
 @AllArgsConstructor // 生成各种带参构造
 public enum CommonCode implements ResultCode {
+    INVALID_PARAM(false,10003,"非法参数！"),
     SUCCESS(true, 10000, "操作成功！"),
     FAIL(false, 11111, "操作失败！"),
     UNAUTHENTICATED(false, 10001, "此操作需要登陆系统！"),
@@ -27,16 +28,16 @@ public enum CommonCode implements ResultCode {
 
     @Override
     public boolean success() {
-        return success;
+        return this.success;
     }
 
     @Override
     public int code() {
-        return code;
+        return this.code;
     }
 
     @Override
     public String message() {
-        return message;
+        return this.message;
     }
 }

@@ -1,6 +1,7 @@
 package com.xuecheng.api.cms;
 
 import com.xuecheng.common.model.response.QueryResponseResult;
+import com.xuecheng.common.model.response.ResponseResult;
 import com.xuecheng.model.domain.cms.CmsPage;
 import com.xuecheng.model.domain.cms.request.QueryPageRequest;
 import com.xuecheng.model.domain.cms.response.CmsPageResult;
@@ -41,4 +42,32 @@ public interface CmsPageControllerApi {
      */
     @ApiOperation("页面添加")
     CmsPageResult add(CmsPage cmsPage);
+
+    /**
+     * 根据pageId查询页面
+     *
+     * @param pageId
+     * @return
+     */
+    @ApiOperation("查询某个页面")
+    CmsPage findByPageId(String pageId);
+
+    /**
+     * 页面修改
+     *
+     * @param pageId
+     * @param cmsPage
+     * @return
+     */
+    @ApiOperation("页面修改")
+    CmsPageResult edit(String pageId, CmsPage cmsPage);
+
+    /**
+     * 根据pageId删除页面
+     *
+     * @param pageId
+     * @return
+     */
+    @ApiOperation("页面删除")
+    ResponseResult del(String pageId);
 }

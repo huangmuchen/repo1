@@ -6,6 +6,7 @@ import com.xuecheng.common.exception.CustomException;
 import com.xuecheng.common.model.response.CommonCode;
 import com.xuecheng.common.model.response.QueryResponseResult;
 import com.xuecheng.common.model.response.QueryResult;
+import com.xuecheng.common.model.response.ResponseResult;
 import com.xuecheng.model.domain.cms.CmsPage;
 import com.xuecheng.model.domain.cms.request.QueryPageRequest;
 import com.xuecheng.model.domain.cms.response.CmsCode;
@@ -17,6 +18,8 @@ import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 /**
  * @author: HuangMuChen
@@ -117,11 +120,12 @@ public class CmsPageServiceImpl implements ICmsPageService {
     /**
      * 页面添加
      *
-     * @param cmsPage
-     * @return
+     * @param cmsPage 新增页面
+     * @return 新增结果
      */
     @Override
     public CmsPageResult add(CmsPage cmsPage) {
+        // 校验cmsPage是否为空
         if (cmsPage == null) {
             // 非法参数异常
             throw new CustomException(CmsCode.CMS_ADDPAGE_PARAM_ERROR);
@@ -130,13 +134,87 @@ public class CmsPageServiceImpl implements ICmsPageService {
         CmsPage page = this.cmsPageRepository.findByPageNameAndSiteIdAndPageWebPath(cmsPage.getPageName(), cmsPage.getSiteId(), cmsPage.getPageWebPath());
         // 判断
         if (page != null) {
-            throw new CustomException(CmsCode.CMS_ADDPAGE_EXISTSNAME);
+            throw new CustomException(CmsCode.CMS_ADDPAGE_EXISTS);
         }
         // 主键(pageId)由spring data自动生成
         cmsPage.setPageId(null);
         // 保存数据到mongodb
-        CmsPage result = this.cmsPageRepository.save(cmsPage);
-        // 返回保存结果
-        return new CmsPageResult(CommonCode.SUCCESS, result);
+        CmsPage save = this.cmsPageRepository.save(cmsPage);
+        // 判断
+        if (save == null) {
+            // 保存失败抛出异常
+            throw new CustomException(CmsCode.CMS_SAVEPAGE_ERROR);
+        }
+        // 返回保存成功结果
+        return new CmsPageResult(CommonCode.SUCCESS, save);
+    }
+
+    /**
+     * 根据页面id查询页面
+     *
+     * @param pageId 页面id
+     * @return 查询结果
+     */
+    @Override
+    public CmsPage findByPageId(String pageId) {
+        // 调用dao层进行查询
+        Optional<CmsPage> optional = this.cmsPageRepository.findById(pageId);
+        // 返回查询结果
+        return optional.orElse(null);
+    }
+
+    /**
+     * 页面修改
+     *
+     * @param pageId  页面id
+     * @param cmsPage 要修改的值
+     * @return 更新结果
+     */
+    @Override
+    public CmsPageResult update(String pageId, CmsPage cmsPage) {
+        // 根据id查询页面信息
+        CmsPage page = this.findByPageId(pageId);
+        // 存在才更新
+        if (page == null) {
+            throw new CustomException(CmsCode.CMS_FINDPAGE_NOTEXIST);
+        }
+        // 更新数据
+        page.setTemplateId(cmsPage.getTemplateId());
+        page.setSiteId(cmsPage.getSiteId());
+        page.setPageName(cmsPage.getPageName());
+        page.setPageAliase(cmsPage.getPageAliase());
+        page.setPageWebPath(cmsPage.getPageWebPath());
+        page.setPagePhysicalPath(cmsPage.getPagePhysicalPath());
+        page.setDataUrl(cmsPage.getDataUrl());
+        page.setPageType(cmsPage.getPageType());
+        // 保存更新后的数据到mongodb
+        CmsPage save = this.cmsPageRepository.save(page);
+        // 判断
+        if (save == null) {
+            // 保存失败抛出异常
+            throw new CustomException(CmsCode.CMS_SAVEPAGE_ERROR);
+        }
+        // 返回保存成功结果
+        return new CmsPageResult(CommonCode.SUCCESS, save);
+    }
+
+    /**
+     * 根据pageId删除页面
+     *
+     * @param pageId 页面id
+     * @return 删除结果
+     */
+    @Override
+    public ResponseResult del(String pageId) {
+        // 根据id查询页面信息
+        CmsPage page = this.findByPageId(pageId);
+        // 存在才删除
+        if (page == null) {
+            throw new CustomException(CmsCode.CMS_FINDPAGE_NOTEXIST);
+        }
+        // 调用dao层进行删除
+        this.cmsPageRepository.deleteById(pageId); // delete(page)也可以
+        // 返回删除结果
+        return ResponseResult.SUCCESS();
     }
 }

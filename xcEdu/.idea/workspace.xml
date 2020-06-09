@@ -10,7 +10,17 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3637ca18-00b3-47fa-8770-412f4aca64b0" name="Default Changelist" comment="完成zuul工程搭建">
+    <list default="true" id="3637ca18-00b3-47fa-8770-412f4aca64b0" name="Default Changelist" comment="完成CmsPage添加功能">
+      <change afterPath="$PROJECT_DIR$/../freemarker-demo/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../freemarker-demo/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../freemarker-demo/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../freemarker-demo/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../freemarker-demo/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../freemarker-demo/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../freemarker-demo/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../freemarker-demo/freemarker-demo.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../freemarker-demo/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../freemarker-demo/src/main/java/com/xuecheng/FreemarkerApplication.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../leiyou/.idea/compiler.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../leiyou/.idea/encodings.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../leiyou/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
@@ -199,35 +209,18 @@
       <change afterPath="$PROJECT_DIR$/../leiyou/leyou-user/leyou-user-service/src/test/java/com/leyou/user/UserTest.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../leiyou/leyou-user/pom.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../leiyou/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations/GatewayApplication.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations/RegistryApplication.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xcEdu-api/src/main/java/com/xuecheng/api/cms/CmsSiteControllerApi.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xcEdu-api/src/main/java/com/xuecheng/api/cms/CmsTemplateControllerApi.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xcEdu-cms/src/main/java/com/xuecheng/cms/controller/CmsSiteController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xcEdu-cms/src/main/java/com/xuecheng/cms/controller/CmsTemplateController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xcEdu-cms/src/main/java/com/xuecheng/cms/dao/CmsSiteRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xcEdu-cms/src/main/java/com/xuecheng/cms/dao/CmsTemplateRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xcEdu-cms/src/main/java/com/xuecheng/cms/service/ICmsSiteService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xcEdu-cms/src/main/java/com/xuecheng/cms/service/ICmsTemplateService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xcEdu-cms/src/main/java/com/xuecheng/cms/service/impl/CmsSiteServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xcEdu-cms/src/main/java/com/xuecheng/cms/service/impl/CmsTemplateServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xcEdu-common/src/main/java/com/xuecheng/common/exception/CustomException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations/CmsApplication.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xcEdu-common/src/main/java/com/xuecheng/common/exception/CommonExceptionHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/xcEdu-api/src/main/java/com/xuecheng/api/cms/CmsPageControllerApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-api/src/main/java/com/xuecheng/api/cms/CmsPageControllerApi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xcEdu-cms/src/main/java/com/xuecheng/cms/CmsApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-cms/src/main/java/com/xuecheng/CmsApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/xcEdu-cms/src/main/java/com/xuecheng/cms/controller/CmsPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-cms/src/main/java/com/xuecheng/cms/controller/CmsPageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xcEdu-cms/src/main/java/com/xuecheng/cms/dao/CmsPageRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-cms/src/main/java/com/xuecheng/cms/dao/CmsPageRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/xcEdu-cms/src/main/java/com/xuecheng/cms/service/ICmsPageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-cms/src/main/java/com/xuecheng/cms/service/ICmsPageService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/xcEdu-cms/src/main/java/com/xuecheng/cms/service/impl/CmsPageServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-cms/src/main/java/com/xuecheng/cms/service/impl/CmsPageServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xcEdu-cms/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-cms/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xcEdu-cms/src/test/java/com/xuecheng/cms/service/impl/CmsPageServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-cms/src/test/java/com/xuecheng/cms/service/impl/CmsPageServiceImplTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xcEdu-common/src/main/java/com/xuecheng/common/client/XcServiceList.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-common/src/main/java/com/xuecheng/common/client/XcServiceList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xcEdu-common/src/main/java/com/xuecheng/common/model/response/QueryResponseResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-common/src/main/java/com/xuecheng/common/model/response/QueryResponseResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xcEdu-common/src/main/java/com/xuecheng/common/model/response/Response.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-common/src/main/java/com/xuecheng/common/model/response/Response.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/cms/CmsPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/cms/CmsPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/cms/CmsSite.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/cms/CmsSite.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/cms/request/QueryPageRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/cms/request/QueryPageRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xcEdu-common/src/main/java/com/xuecheng/common/exception/CustomException.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-common/src/main/java/com/xuecheng/common/exception/CustomException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xcEdu-common/src/main/java/com/xuecheng/common/model/response/CommonCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-common/src/main/java/com/xuecheng/common/model/response/CommonCode.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/cms/response/CmsCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/cms/response/CmsCode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/cms/response/CmsPageResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/cms/response/CmsPageResult.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -295,12 +288,13 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit3" value="junit.framework.TestCase" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/xcEdu-cms/src/main/java/com/xuecheng" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/xcEdu-common/src/main/java/com/xuecheng/common/exception" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.68505746" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
@@ -327,24 +321,11 @@
     </option>
   </component>
   <component name="RunManager" selected="Spring Boot.GatewayApplication">
-    <configuration name="CmsApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <module name="xcEdu-cms" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.xuecheng.cms.CmsApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
       <item itemvalue="Spring Boot.CmsApplication" />
-      <item itemvalue="Spring Boot.RegistryApplication" />
       <item itemvalue="Spring Boot.GatewayApplication" />
+      <item itemvalue="Spring Boot.RegistryApplication" />
     </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Spring Boot.GatewayApplication" />
-        <item itemvalue="Spring Boot.RegistryApplication" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -366,7 +347,11 @@
       <workItem from="1590561739104" duration="30244000" />
       <workItem from="1591342192303" duration="8700000" />
       <workItem from="1591426396833" duration="13954000" />
-      <workItem from="1591516143558" duration="15706000" />
+      <workItem from="1591516143558" duration="15797000" />
+      <workItem from="1591553752751" duration="28000" />
+      <workItem from="1591579990385" duration="11243000" />
+      <workItem from="1591617877180" duration="14440000" />
+      <workItem from="1591701754781" duration="6333000" />
     </task>
     <task id="LOCAL-00001" summary="搭建学成在线基础工程">
       <created>1590256307928</created>
@@ -396,7 +381,14 @@
       <option name="project" value="LOCAL" />
       <updated>1591344802460</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="完成CmsPage添加功能">
+      <created>1591553602139</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1591553602139</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -418,116 +410,125 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="搭建学成在线基础工程" />
     <MESSAGE value="完成zuul工程搭建" />
-    <option name="LAST_COMMIT_MESSAGE" value="完成zuul工程搭建" />
+    <MESSAGE value="完成CmsPage添加功能" />
+    <option name="LAST_COMMIT_MESSAGE" value="完成CmsPage添加功能" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="313" y="0" width="753" height="728" key="#GatewayApplication" timestamp="1591534418004">
+    <state x="313" y="0" width="753" height="728" key="#CmsApplication" timestamp="1591685891508">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="313" y="0" width="753" height="728" key="#GatewayApplication/0.0.1366.728@0.0.1366.728" timestamp="1591534418004" />
+    <state x="313" y="0" width="753" height="728" key="#CmsApplication/0.0.1366.728@0.0.1366.728" timestamp="1591685891508" />
+    <state x="313" y="0" width="753" height="728" key="#GatewayApplication" timestamp="1591685902180">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="313" y="0" width="753" height="728" key="#GatewayApplication/0.0.1366.728@0.0.1366.728" timestamp="1591685902180" />
     <state x="565" y="225" key="#Notifications" timestamp="1590476265745">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="565" y="225" key="#Notifications/0.0.1366.728@0.0.1366.728" timestamp="1590476265745" />
-    <state x="185" y="0" key="#Project_Structure" timestamp="1591553522344">
+    <state x="185" y="0" key="#Project_Structure" timestamp="1591623889155">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="185" y="0" key="#Project_Structure/0.0.1366.728@0.0.1366.728" timestamp="1591553522344" />
-    <state x="313" y="0" width="753" height="728" key="#RegistryApplication" timestamp="1591533932828">
+    <state x="185" y="0" key="#Project_Structure/0.0.1366.728@0.0.1366.728" timestamp="1591623889155" />
+    <state x="313" y="0" width="753" height="728" key="#RegistryApplication" timestamp="1591685907996">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="313" y="0" width="753" height="728" key="#RegistryApplication/0.0.1366.728@0.0.1366.728" timestamp="1591533932828" />
-    <state x="137" y="18" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1591459830580">
+    <state x="313" y="0" width="753" height="728" key="#RegistryApplication/0.0.1366.728@0.0.1366.728" timestamp="1591685907996" />
+    <state x="137" y="18" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1591618041118">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="137" y="18" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1591459830580" />
-    <state x="788" y="107" key="#com.intellij.ide.util.MemberChooser" timestamp="1591521986429">
+    <state x="137" y="18" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1591618041118" />
+    <state x="788" y="107" key="#com.intellij.ide.util.MemberChooser" timestamp="1591624688195">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="788" y="107" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1591521986429" />
+    <state x="788" y="107" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1591624688195" />
     <state x="269" y="286" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1590500513613">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="269" y="286" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1366.728@0.0.1366.728" timestamp="1590500513613" />
-    <state x="446" y="226" width="447" height="276" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1590562340636">
+    <state x="446" y="226" width="447" height="276" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1591685693411">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="446" y="226" width="447" height="276" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1366.728@0.0.1366.728" timestamp="1590562340636" />
+    <state x="446" y="226" width="447" height="276" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1366.728@0.0.1366.728" timestamp="1591685693410" />
     <state x="485" y="118" key="FileChooserDialogImpl" timestamp="1590256057229">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="485" y="118" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1590256057229" />
-    <state width="1013" height="150" key="GridCell.Tab.0.bottom" timestamp="1591553530268">
+    <state width="1322" height="330" key="GridCell.Tab.0.bottom" timestamp="1591701787097">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1013" height="150" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1591553530268" />
-    <state width="1013" height="150" key="GridCell.Tab.0.center" timestamp="1591553530268">
+    <state width="1322" height="330" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1591701787097" />
+    <state width="1322" height="330" key="GridCell.Tab.0.center" timestamp="1591701787097">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1013" height="150" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1591553530268" />
-    <state width="1013" height="150" key="GridCell.Tab.0.left" timestamp="1591553530268">
+    <state width="1322" height="330" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1591701787097" />
+    <state width="1322" height="330" key="GridCell.Tab.0.left" timestamp="1591701787097">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1013" height="150" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1591553530268" />
-    <state width="1013" height="150" key="GridCell.Tab.0.right" timestamp="1591553530268">
+    <state width="1322" height="330" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1591701787097" />
+    <state width="1322" height="330" key="GridCell.Tab.0.right" timestamp="1591701787097">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1013" height="150" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1591553530268" />
-    <state width="1013" height="150" key="GridCell.Tab.1.bottom" timestamp="1591553530269">
+    <state width="1322" height="330" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1591701787097" />
+    <state width="1013" height="276" key="GridCell.Tab.1.bottom" timestamp="1591691727408">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1013" height="150" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1591553530269" />
-    <state width="1013" height="150" key="GridCell.Tab.1.center" timestamp="1591553530269">
+    <state width="1013" height="276" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1591691727408" />
+    <state width="1013" height="276" key="GridCell.Tab.1.center" timestamp="1591691727408">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1013" height="150" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1591553530269" />
-    <state width="1013" height="150" key="GridCell.Tab.1.left" timestamp="1591553530269">
+    <state width="1013" height="276" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1591691727408" />
+    <state width="1013" height="276" key="GridCell.Tab.1.left" timestamp="1591691727408">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1013" height="150" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1591553530269" />
-    <state width="1013" height="150" key="GridCell.Tab.1.right" timestamp="1591553530269">
+    <state width="1013" height="276" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1591691727408" />
+    <state width="1013" height="276" key="GridCell.Tab.1.right" timestamp="1591691727408">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1013" height="150" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1591553530269" />
-    <state width="1013" height="308" key="GridCell.Tab.2.bottom" timestamp="1591450624452">
+    <state width="1013" height="276" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1591691727408" />
+    <state width="1013" height="266" key="GridCell.Tab.2.bottom" timestamp="1591606885380">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1013" height="308" key="GridCell.Tab.2.bottom/0.0.1366.728@0.0.1366.728" timestamp="1591450624452" />
-    <state width="1013" height="308" key="GridCell.Tab.2.center" timestamp="1591450624451">
+    <state width="1013" height="266" key="GridCell.Tab.2.bottom/0.0.1366.728@0.0.1366.728" timestamp="1591606885380" />
+    <state width="1013" height="266" key="GridCell.Tab.2.center" timestamp="1591606885380">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1013" height="308" key="GridCell.Tab.2.center/0.0.1366.728@0.0.1366.728" timestamp="1591450624451" />
-    <state width="1013" height="308" key="GridCell.Tab.2.left" timestamp="1591450624451">
+    <state width="1013" height="266" key="GridCell.Tab.2.center/0.0.1366.728@0.0.1366.728" timestamp="1591606885380" />
+    <state width="1013" height="266" key="GridCell.Tab.2.left" timestamp="1591606885380">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1013" height="308" key="GridCell.Tab.2.left/0.0.1366.728@0.0.1366.728" timestamp="1591450624451" />
-    <state width="1013" height="308" key="GridCell.Tab.2.right" timestamp="1591450624451">
+    <state width="1013" height="266" key="GridCell.Tab.2.left/0.0.1366.728@0.0.1366.728" timestamp="1591606885380" />
+    <state width="1013" height="266" key="GridCell.Tab.2.right" timestamp="1591606885380">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1013" height="308" key="GridCell.Tab.2.right/0.0.1366.728@0.0.1366.728" timestamp="1591450624451" />
-    <state x="229" y="0" key="SettingsEditor" timestamp="1590659577992">
+    <state width="1013" height="266" key="GridCell.Tab.2.right/0.0.1366.728@0.0.1366.728" timestamp="1591606885380" />
+    <state x="229" y="0" key="SettingsEditor" timestamp="1591687956897">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="229" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1590659577992" />
-    <state x="275" y="96" key="Vcs.Push.Dialog.v2" timestamp="1591344870334">
+    <state x="229" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1591687956897" />
+    <state x="275" y="96" key="Vcs.Push.Dialog.v2" timestamp="1591553617868">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="96" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1591344870334" />
+    <state x="275" y="96" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1591553617868" />
+    <state x="482" y="140" key="chooseDestDirectoryDialog" timestamp="1591685775832">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="482" y="140" key="chooseDestDirectoryDialog/0.0.1366.728@0.0.1366.728" timestamp="1591685775832" />
     <state x="401" y="104" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1590661001286">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="401" y="104" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.1366.728@0.0.1366.728" timestamp="1590661001286" />
-    <state x="107" y="37" width="1259" height="691" key="new project wizard" timestamp="1591342265253">
+    <state x="107" y="37" width="1259" height="691" key="new project wizard" timestamp="1591712143921">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="107" y="37" width="1259" height="691" key="new project wizard/0.0.1366.728@0.0.1366.728" timestamp="1591342265253" />
+    <state x="107" y="37" width="1259" height="691" key="new project wizard/0.0.1366.728@0.0.1366.728" timestamp="1591712143921" />
     <state x="339" y="157" key="run.anything.popup" timestamp="1591447503860">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="339" y="157" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1591447503860" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1590633979506">
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1591623951677">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1590633979506" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1591623951677" />
   </component>
 </project>

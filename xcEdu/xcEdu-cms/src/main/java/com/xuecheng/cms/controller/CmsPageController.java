@@ -3,6 +3,7 @@ package com.xuecheng.cms.controller;
 import com.xuecheng.api.cms.CmsPageControllerApi;
 import com.xuecheng.cms.service.ICmsPageService;
 import com.xuecheng.common.model.response.QueryResponseResult;
+import com.xuecheng.common.model.response.ResponseResult;
 import com.xuecheng.model.domain.cms.CmsPage;
 import com.xuecheng.model.domain.cms.request.QueryPageRequest;
 import com.xuecheng.model.domain.cms.response.CmsPageResult;
@@ -39,12 +40,49 @@ public class CmsPageController implements CmsPageControllerApi {
     /**
      * 页面添加
      *
-     * @param cmsPage
-     * @return
+     * @param cmsPage 新增页面
+     * @return 添加结果
      */
     @Override
     @PostMapping("/add")
-    public CmsPageResult add(@RequestBody CmsPage cmsPage) { //
+    public CmsPageResult add(@RequestBody CmsPage cmsPage) { // 前端返回json格式的字符串（Vue使用axios请求数据，默认post请求传参是json字符串格式）
         return this.cmsPageService.add(cmsPage);
+    }
+
+    /**
+     * 根据页面id查询页面
+     *
+     * @param pageId 页面id
+     * @return 查询结果
+     */
+    @Override
+    @GetMapping("/find/{pageId}")
+    public CmsPage findByPageId(@PathVariable("pageId") String pageId) {
+        return this.cmsPageService.findByPageId(pageId);
+    }
+
+    /**
+     * 页面修改
+     *
+     * @param pageId  页面id
+     * @param cmsPage 要修改的值
+     * @return 修改结果
+     */
+    @Override
+    @PutMapping("/edit/{pageId}")
+    public CmsPageResult edit(@PathVariable("pageId") String pageId, @RequestBody CmsPage cmsPage) {
+        return this.cmsPageService.update(pageId, cmsPage);
+    }
+
+    /**
+     * 根据pageId删除页面
+     *
+     * @param pageId 页面id
+     * @return 删除结果
+     */
+    @Override
+    @DeleteMapping("/del/{pageId}")
+    public ResponseResult del(@PathVariable("pageId") String pageId) {
+        return this.cmsPageService.del(pageId);
     }
 }
