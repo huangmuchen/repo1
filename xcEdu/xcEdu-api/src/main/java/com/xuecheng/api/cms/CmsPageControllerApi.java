@@ -50,6 +50,7 @@ public interface CmsPageControllerApi {
      * @return
      */
     @ApiOperation("查询某个页面")
+    @ApiImplicitParam(name = "pageId", value = "页面id", required = true, paramType = "path", dataType = "String")
     CmsPage findByPageId(String pageId);
 
     /**
@@ -60,6 +61,7 @@ public interface CmsPageControllerApi {
      * @return
      */
     @ApiOperation("页面修改")
+    @ApiImplicitParam(name = "pageId", value = "页面id", required = true, paramType = "path", dataType = "String")
     CmsPageResult edit(String pageId, CmsPage cmsPage);
 
     /**
@@ -69,5 +71,6 @@ public interface CmsPageControllerApi {
      * @return
      */
     @ApiOperation("页面删除")
+    @ApiImplicitParam(name = "pageId", value = "页面id", required = true, paramType = "path", dataType = "String")
     ResponseResult del(String pageId);
 }

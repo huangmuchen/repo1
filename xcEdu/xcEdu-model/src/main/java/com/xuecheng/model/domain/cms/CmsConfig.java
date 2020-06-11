@@ -11,14 +11,14 @@ import java.util.List;
  * @author: HuangMuChen
  * @date: 2019/9/18 11:32
  * @version: V1.0
- * @Description: TODO
+ * @Description: 数据模型
  */
 @Data
 @ToString
 @Document(collection = "cms_config")
 public class CmsConfig {
-    @Id
+    @Id // 主键
     private String id;
-    private String name;
-    private List<CmsConfigModel> model;
+    private String name; // 数据模型的名称
+    private List<CmsConfigModel> model; // 数据模型项目
 }

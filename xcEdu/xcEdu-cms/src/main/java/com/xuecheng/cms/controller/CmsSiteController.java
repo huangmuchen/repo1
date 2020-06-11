@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author: HuangMuChen
  * @date: 2020/6/6 20:36
  * @version: V1.0
- * @Description: 站点模型控制层
+ * @Description: cms站点模型控制层
  */
 @RestController
 @RequestMapping("/cms/site")
@@ -28,6 +28,7 @@ public class CmsSiteController implements CmsSiteControllerApi {
     @Override
     @GetMapping("/list")
     public QueryResponseResult findCmsSiteList() {
+        // 调用service进行查询，并返回查询结果
         return this.cmsSiteService.findCmsSiteList();
     }
 }

@@ -91,7 +91,7 @@
                 <artifactId>druid</artifactId>
                 <version>${druid.version}</version>
             </dependency>
-            <!-- OKHttp是一个高效的http客户端：用于替代JDK的HttpUrlConnection和Apache的HttpClient -->
+            <!-- OKHttp是一个高效的http客户端：用于替代JDK的HttpUrlConnection和Apache的HttpClient，供RestTemplate实现http的请求 -->
             <dependency>
                 <groupId>com.squareup.okhttp3</groupId>
                 <artifactId>okhttp</artifactId>

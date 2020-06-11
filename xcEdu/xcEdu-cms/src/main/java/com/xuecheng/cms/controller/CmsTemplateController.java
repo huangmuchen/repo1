@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author: HuangMuChen
  * @date: 2020/6/6 23:48
  * @version: V1.0
- * @Description: TODO
+ * @Description: cms模板控制层
  */
 @RestController
 @RequestMapping("/cms/template")
@@ -28,6 +28,7 @@ public class CmsTemplateController implements CmsTemplateControllerApi {
     @Override
     @GetMapping("/list")
     public QueryResponseResult findCmsTemplateList() {
+        // 调用service进行查询，并返回查询结果
         return cmsTemplateService.findCmsTemplateList();
     }
 }
