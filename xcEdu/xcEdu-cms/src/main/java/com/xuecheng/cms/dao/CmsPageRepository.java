@@ -5,6 +5,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
+import java.util.List;
+
 /**
  * @author: HuangMuChen
  * @date: 2020/5/28 13:49
@@ -58,4 +60,12 @@ public interface CmsPageRepository extends MongoRepository<CmsPage, String> { //
      * @return
      */
     CmsPage findByPageNameAndSiteIdAndPageWebPath(String pageName, String siteId, String pageWebPath);
+
+    /**
+     * 根据模板Id查询页面列表
+     *
+     * @param templateId
+     * @return
+     */
+    List<CmsPage> findByTemplateId(String templateId);
 }

@@ -12,6 +12,8 @@ import lombok.ToString;
 @ToString
 @AllArgsConstructor // 生成各种带参构造
 public enum CommonCode implements ResultCode {
+    REQUIRED_METHOD_ERROR(false,402,"请求方法错误！"),
+    CHARSET_NAME_ERROR(false,10004,"字符编码名称错误！"),
     INVALID_PARAM(false,10003,"非法参数！"),
     SUCCESS(true, 10000, "操作成功！"),
     FAIL(false, 11111, "操作失败！"),

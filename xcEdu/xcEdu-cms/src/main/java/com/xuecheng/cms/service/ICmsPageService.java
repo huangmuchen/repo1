@@ -56,4 +56,12 @@ public interface ICmsPageService {
      * @return 删除结果
      */
     ResponseResult del(String pageId);
+
+    /**
+     * 页面预览
+     *
+     * @param pageId 页面id
+     * @return htmlString
+     */
+    String preview(String pageId);
 }

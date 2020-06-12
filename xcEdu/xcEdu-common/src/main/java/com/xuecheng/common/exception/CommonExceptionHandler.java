@@ -6,8 +6,12 @@ import com.xuecheng.common.model.response.ResponseResult;
 import com.xuecheng.common.model.response.ResultCode;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.converter.HttpMessageNotReadableException;
+import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.multipart.MultipartException;
+
+import java.nio.charset.IllegalCharsetNameException;
 
 /**
  * @author: HuangMuChen
@@ -26,6 +30,9 @@ public class CommonExceptionHandler {
     // 在静态代码块中定义异常类型所对应的错误代码
     static {
         builder.put(HttpMessageNotReadableException.class, CommonCode.INVALID_PARAM);
+        builder.put(IllegalCharsetNameException.class, CommonCode.CHARSET_NAME_ERROR);
+        builder.put(MultipartException.class, CommonCode.INVALID_PARAM);
+        builder.put(HttpRequestMethodNotSupportedException.class, CommonCode.REQUIRED_METHOD_ERROR);
     }
 
     @ExceptionHandler(CustomException.class)
