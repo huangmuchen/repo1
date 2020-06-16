@@ -15,6 +15,7 @@
         <module>xcEdu-cms</module>
         <module>xcEdu-registry</module>
         <module>xcEdu-gateway</module>
+        <module>xcEdu-cms-client</module>
     </modules>
     <packaging>pom</packaging>
     <name>xcEdu</name>
@@ -201,6 +202,17 @@
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
+        </dependency>
+        <!-- 主要是使用其中的IOUtils工具类 -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-io</artifactId>
+        </dependency>
+        <!--Junit的单元测试-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
         </dependency>
     </dependencies>
     <build>

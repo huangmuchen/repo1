@@ -25,4 +25,5 @@ public class CmsSite {
     private String sitePort; // 站点端口
     private String siteWebPath; // 站点路径
     private Date siteCreateTime; // 创建时间
+    private String sitePhysicalPath;  // 站点物理路径
 }

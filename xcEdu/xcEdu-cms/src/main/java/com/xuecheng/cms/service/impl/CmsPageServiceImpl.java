@@ -1,5 +1,6 @@
 package com.xuecheng.cms.service.impl;
 
+import com.alibaba.fastjson.JSON;
 import com.mongodb.client.gridfs.GridFSBucket;
 import com.mongodb.client.gridfs.GridFSDownloadStream;
 import com.mongodb.client.gridfs.model.GridFSFile;
@@ -19,8 +20,15 @@ import com.xuecheng.model.domain.cms.response.CmsPageResult;
 import freemarker.cache.StringTemplateLoader;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.bson.types.ObjectId;
+import org.springframework.amqp.core.Message;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.amqp.rabbit.core.RabbitTemplate.ConfirmCallback;
+import org.springframework.amqp.rabbit.core.RabbitTemplate.ReturnCallback;
+import org.springframework.amqp.rabbit.support.CorrelationData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
@@ -36,9 +44,12 @@ import org.springframework.ui.freemarker.FreeMarkerTemplateUtils;
 import org.springframework.util.CollectionUtils;
 import org.springframework.web.client.RestTemplate;
 
+import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
+import java.util.UUID;
 
 /**
  * @author: HuangMuChen
@@ -46,8 +57,9 @@ import java.util.Optional;
  * @version: V1.0
  * @Description: 页面信息业务层实现类
  */
+@Slf4j
 @Service
-public class CmsPageServiceImpl implements ICmsPageService {
+public class CmsPageServiceImpl implements ICmsPageService, ConfirmCallback, ReturnCallback {
     @Autowired
     private CmsPageRepository cmsPageRepository;
     @Autowired
@@ -58,6 +70,8 @@ public class CmsPageServiceImpl implements ICmsPageService {
     private GridFsTemplate gridFsTemplate;
     @Autowired
     private GridFSBucket gridFSBucket;
+    @Autowired
+    private RabbitTemplate rabbitTemplate;
 
     /**
      * 分页查询页面信息
@@ -278,11 +292,58 @@ public class CmsPageServiceImpl implements ICmsPageService {
     }
 
     /**
+     * 根据pageId发布页面
+     *
+     * @param pageId 页面id
+     * @return 发布结果
+     */
+    @Override
+    public ResponseResult release(String pageId) {
+        // 根据pageId获取html文件
+        String html = this.preview(pageId);
+        // 保存html文件到GridFS
+        saveHtml(pageId, html);
+        // 发送消息到RabbitMQ
+        sendReleaseMsg(pageId);
+        // 响应发布结果
+        return ResponseResult.SUCCESS();
+    }
+
+    /**
+     * 保存html文件到GridFS
+     *
+     * @param pageId 页面id
+     * @param html   静态文件
+     */
+    private void saveHtml(String pageId, String html) {
+        // 根据id查询cmsPage
+        CmsPage cmsPage = this.findByPageId(pageId);
+        // 判断
+        if (cmsPage == null) {
+            throw new CustomException(CmsCode.CMS_FIND_PAGE_NOTEXIST);
+        }
+        // 获取htmlFileId
+        String htmlFileId = cmsPage.getHtmlFileId();
+        // 判断，存储之前先删除旧的静态文件
+        if (StringUtils.isNotBlank(htmlFileId)) {
+            this.gridFsTemplate.delete(Query.query(Criteria.where("_id").is(htmlFileId)));
+        }
+        // 将html字符串转化为输入流
+        InputStream in = IOUtils.toInputStream(html, StandardCharsets.UTF_8);
+        // 保存html文件到GridFS，fileName为pageName
+        ObjectId objectId = this.gridFsTemplate.store(in, cmsPage.getPageName());
+        // 获取templateFileId作为htmlFileId
+        cmsPage.setHtmlFileId(objectId.toString());
+        // 更新cmsPage
+        this.cmsPageRepository.save(cmsPage);
+    }
+
+    /**
      * 基于ftl模板字符串生成html文件
      *
-     * @param templateFile
-     * @param model
-     * @return
+     * @param templateFile 模板文件
+     * @param model        数据模型
+     * @return html静态文件
      */
     private String generateHtml(String templateFile, Map model) {
         try {
@@ -305,8 +366,8 @@ public class CmsPageServiceImpl implements ICmsPageService {
     /**
      * 根据页面id获取页面模板文件(.ftl)
      *
-     * @param pageId
-     * @return
+     * @param pageId 页面id
+     * @return 模板文件
      */
     private String getTemplateFileByPageId(String pageId) {
         // 根据pageId获取cmsPage
@@ -343,8 +404,8 @@ public class CmsPageServiceImpl implements ICmsPageService {
     /**
      * 获取数据模型
      *
-     * @param pageId
-     * @return
+     * @param pageId 页面id
+     * @return 数据模型
      */
     private Map getModelByPageId(String pageId) {
         // 根据pageId获取cmsPage
@@ -363,5 +424,69 @@ public class CmsPageServiceImpl implements ICmsPageService {
         ResponseEntity<Map> entity = this.restTemplate.getForEntity(dataUrl, Map.class);
         // 返回查询结果
         return entity.getBody();
+    }
+
+    /**
+     * 发送消息到RabbitMQ
+     *
+     * @param pageId 页面id
+     */
+    private void sendReleaseMsg(String pageId) {
+        // 根据id查询cmsPage
+        CmsPage cmsPage = this.findByPageId(pageId);
+        // 校验cmsPage
+        if (cmsPage == null) {
+            throw new CustomException(CmsCode.CMS_FIND_PAGE_NOTEXIST);
+        }
+        // 获取站点id作为routingKey
+        String siteId = cmsPage.getSiteId();
+        // 设置消息内容为页面ID。（采用json格式，方便日后扩展）
+        Map<String, String> map = new HashMap<>();
+        map.put("pageId", pageId);
+        // 消息内容
+        String msg = JSON.toJSONString(map);
+
+        // 开启强制委托模式
+        this.rabbitTemplate.setMandatory(true);
+        // 设置消息发送给交换机的回调
+        this.rabbitTemplate.setConfirmCallback(this);
+        // 设置消息从交换机发送给队列的回调
+        this.rabbitTemplate.setReturnCallback(this);
+        // 关联数据
+        CorrelationData correlationData = new CorrelationData(UUID.randomUUID().toString());
+        // 发送消息给交换机(如果不指定，将发给.yml文件中默认的交换机))，并将站点id作为routingKey
+        this.rabbitTemplate.convertAndSend("xcEdu.cms.releasePage.exchange", siteId, msg, correlationData);
+    }
+
+    /**
+     * 消息是否成功到达交换机
+     *
+     * @param correlationData
+     * @param ack
+     * @param cause
+     */
+    @Override
+    public void confirm(CorrelationData correlationData, boolean ack, String cause) {
+        if (ack) {
+            // 消息成功到达交换机
+            log.info("回调消息ID为：{}，消息成功发送到交换机！", correlationData.getId());
+        } else {
+            // 消息到达交换机失败
+            log.error("回调消息ID为：{}，消发送到交换机失败！原因：[{}]", correlationData.getId(), cause);
+        }
+    }
+
+    /**
+     * 消息是否成功从交换机到达队列：成功，则returnedMessage方法不会执行，失败，returnedMessage方法会执行
+     *
+     * @param message
+     * @param replyCode
+     * @param replyText
+     * @param exchange
+     * @param routingKey
+     */
+    @Override
+    public void returnedMessage(Message message, int replyCode, String replyText, String exchange, String routingKey) {
+        log.error("发送消息：{}，错误码：{}，错误原因：{}，exchange：{}，routingKey：{}",new String(message.getBody(), StandardCharsets.UTF_8),replyCode,replyText,exchange,routingKey);
     }
 }

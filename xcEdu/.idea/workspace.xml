@@ -10,7 +10,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3637ca18-00b3-47fa-8770-412f4aca64b0" name="Default Changelist" comment="完成CmsPage删除功能">
+    <list default="true" id="3637ca18-00b3-47fa-8770-412f4aca64b0" name="Default Changelist" comment="完成CmsTemplate增删改查功能,完成页面静态化功能">
       <change afterPath="$PROJECT_DIR$/../freemarker-demo/.idea/.gitignore" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../freemarker-demo/.idea/compiler.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../freemarker-demo/.idea/encodings.xml" afterDir="false" />
@@ -218,27 +218,61 @@
       <change afterPath="$PROJECT_DIR$/../leiyou/leyou-user/leyou-user-service/src/test/java/com/leyou/user/UserTest.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../leiyou/leyou-user/pom.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../leiyou/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xcEdu-cms/src/main/java/com/xuecheng/cms/config/MongoConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xcEdu-cms/src/main/java/com/xuecheng/cms/controller/CmsPagePreviewController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xcEdu-cms/src/test/java/com/xuecheng/cms/other/GridFsTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/cms/request/QueryTemplateRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/cms/response/CmsTemplateResult.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/cms/response/CmsUploadResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rabbitmq-demo/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rabbitmq-demo/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rabbitmq-demo/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rabbitmq-demo/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rabbitmq-demo/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rabbitmq-demo/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rabbitmq-demo/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rabbitmq-demo/rabbitmq-demo.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rabbitmq-demo/src/main/java/cn/muchen/rabbitmq/direct/Recv.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rabbitmq-demo/src/main/java/cn/muchen/rabbitmq/direct/Recv2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rabbitmq-demo/src/main/java/cn/muchen/rabbitmq/direct/Send.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rabbitmq-demo/src/main/java/cn/muchen/rabbitmq/fanout/Recv.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rabbitmq-demo/src/main/java/cn/muchen/rabbitmq/fanout/Recv2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rabbitmq-demo/src/main/java/cn/muchen/rabbitmq/fanout/Send.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rabbitmq-demo/src/main/java/cn/muchen/rabbitmq/simple/Recv.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rabbitmq-demo/src/main/java/cn/muchen/rabbitmq/simple/Recv2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rabbitmq-demo/src/main/java/cn/muchen/rabbitmq/simple/Send.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rabbitmq-demo/src/main/java/cn/muchen/rabbitmq/spring/Application.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rabbitmq-demo/src/main/java/cn/muchen/rabbitmq/spring/Listener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rabbitmq-demo/src/main/java/cn/muchen/rabbitmq/topic/Recv.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rabbitmq-demo/src/main/java/cn/muchen/rabbitmq/topic/Recv2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rabbitmq-demo/src/main/java/cn/muchen/rabbitmq/topic/Send.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rabbitmq-demo/src/main/java/cn/muchen/rabbitmq/util/ConnectionUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rabbitmq-demo/src/main/java/cn/muchen/rabbitmq/work/Recv.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rabbitmq-demo/src/main/java/cn/muchen/rabbitmq/work/Recv2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rabbitmq-demo/src/main/java/cn/muchen/rabbitmq/work/Send.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rabbitmq-demo/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rabbitmq-demo/src/test/java/cn/muchen/rabbitmq/spring/MqDemo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xcEdu-cms-client/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xcEdu-cms-client/src/main/java/com/xuecheng/CmsClientApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xcEdu-cms-client/src/main/java/com/xuecheng/client/config/MongoConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xcEdu-cms-client/src/main/java/com/xuecheng/client/dao/CmsPageRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xcEdu-cms-client/src/main/java/com/xuecheng/client/dao/CmsSiteRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xcEdu-cms-client/src/main/java/com/xuecheng/client/mq/CmsReleasePageListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xcEdu-cms-client/src/main/java/com/xuecheng/client/service/ICmsPageService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xcEdu-cms-client/src/main/java/com/xuecheng/client/service/impl/CmsPageServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xcEdu-cms-client/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xcEdu-cms-client/src/main/resources/logback-spring.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xcEdu-api/src/main/java/com/xuecheng/api/cms/CmsConfigControllerApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-api/src/main/java/com/xuecheng/api/cms/CmsConfigControllerApi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xcEdu-api/src/main/java/com/xuecheng/api/cms/CmsTemplateControllerApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-api/src/main/java/com/xuecheng/api/cms/CmsTemplateControllerApi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xcEdu-cms/src/main/java/com/xuecheng/cms/controller/CmsTemplateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-cms/src/main/java/com/xuecheng/cms/controller/CmsTemplateController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xcEdu-cms/src/main/java/com/xuecheng/cms/dao/CmsPageRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-cms/src/main/java/com/xuecheng/cms/dao/CmsPageRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xcEdu-cms/src/main/java/com/xuecheng/cms/dao/CmsTemplateRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-cms/src/main/java/com/xuecheng/cms/dao/CmsTemplateRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xcEdu-api/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-api/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xcEdu-api/src/main/java/com/xuecheng/api/cms/CmsPageControllerApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-api/src/main/java/com/xuecheng/api/cms/CmsPageControllerApi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xcEdu-cms/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-cms/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xcEdu-cms/src/main/java/com/xuecheng/CmsApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-cms/src/main/java/com/xuecheng/CmsApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xcEdu-cms/src/main/java/com/xuecheng/cms/config/MongoConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-cms/src/main/java/com/xuecheng/cms/config/MongoConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xcEdu-cms/src/main/java/com/xuecheng/cms/controller/CmsPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-cms/src/main/java/com/xuecheng/cms/controller/CmsPageController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/xcEdu-cms/src/main/java/com/xuecheng/cms/service/ICmsPageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-cms/src/main/java/com/xuecheng/cms/service/ICmsPageService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xcEdu-cms/src/main/java/com/xuecheng/cms/service/ICmsTemplateService.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-cms/src/main/java/com/xuecheng/cms/service/ICmsTemplateService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/xcEdu-cms/src/main/java/com/xuecheng/cms/service/impl/CmsPageServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-cms/src/main/java/com/xuecheng/cms/service/impl/CmsPageServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xcEdu-cms/src/main/java/com/xuecheng/cms/service/impl/CmsTemplateServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-cms/src/main/java/com/xuecheng/cms/service/impl/CmsTemplateServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/xcEdu-cms/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-cms/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xcEdu-common/src/main/java/com/xuecheng/common/exception/CommonExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-common/src/main/java/com/xuecheng/common/exception/CommonExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xcEdu-common/src/main/java/com/xuecheng/common/model/response/CommonCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-common/src/main/java/com/xuecheng/common/model/response/CommonCode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/cms/response/CmsCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/cms/response/CmsCode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/cms/response/CmsPageResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/cms/response/CmsPageResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xcEdu-gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-gateway/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/cms/CmsSite.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/cms/CmsSite.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -307,12 +341,12 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/xcEdu-cms/src/main/java/com/xuecheng" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/cms/request" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/xcEdu-cms-client/src/main/java/com/xuecheng/client/dao" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.68505746" />
-    <property name="settings.editor.selected.configurable" value="GrepConsole" />
+    <property name="settings.editor.selected.configurable" value="spring.boot" />
   </component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
@@ -326,12 +360,15 @@
       <recent name="junit.framework.TestCase" />
       <recent name="" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.xuecheng.client.config" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\IdeaProjects\xcEdu\xcEdu-cms-client\src\main\java\com\xuecheng\client\dao" />
+      <recent name="D:\IdeaProjects\xcEdu\xcEdu-cms-client\src\main\java\com\xuecheng\client\config" />
+      <recent name="D:\IdeaProjects\xcEdu\xcEdu-cms-client\src\main\resources" />
       <recent name="D:\IdeaProjects\xcEdu\xcEdu-model\src\main\java\com\xuecheng\model\domain\cms\request" />
       <recent name="D:\IdeaProjects\xcEdu\xcEdu-cms\src\main\java\com\xuecheng\cms\config" />
-      <recent name="D:\IdeaProjects\xcEdu\xcEdu-common\src\main\java\com\xuecheng\common\exception" />
-      <recent name="D:\IdeaProjects\xcEdu\xcEdu-cms\src\main\java\com\xuecheng\cms\dao" />
-      <recent name="D:\IdeaProjects\xcEdu\xcEdu-gateway\src\main\resources" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -359,16 +396,20 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="JUnit.GridFsTest.testQueryFile" />
       <item itemvalue="Spring Boot.CmsApplication" />
       <item itemvalue="Spring Boot.GatewayApplication" />
       <item itemvalue="Spring Boot.RegistryApplication" />
-      <item itemvalue="JUnit.GridFsTest.testQueryFile" />
+      <item itemvalue="Spring Boot.CmsClientApplication" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.GridFsTest.testQueryFile" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="SpringBootOptions">
+    <option name="showAdditionalConfigNotification" value="false" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -401,7 +442,11 @@
       <workItem from="1591786459024" duration="7785000" />
       <workItem from="1591840542077" duration="3314000" />
       <workItem from="1591855900647" duration="7510000" />
-      <workItem from="1591923285789" duration="44544000" />
+      <workItem from="1591923285789" duration="44623000" />
+      <workItem from="1592116192339" duration="4564000" />
+      <workItem from="1592183550466" duration="6340000" />
+      <workItem from="1592206391245" duration="21888000" />
+      <workItem from="1592275272777" duration="9642000" />
     </task>
     <task id="LOCAL-00001" summary="搭建学成在线基础工程">
       <created>1590256307928</created>
@@ -452,7 +497,14 @@
       <option name="project" value="LOCAL" />
       <updated>1591840708542</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="完成CmsTemplate增删改查功能,完成页面静态化功能">
+      <created>1591991116730</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1591991116730</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -476,105 +528,114 @@
     <MESSAGE value="完成zuul工程搭建" />
     <MESSAGE value="完成CmsPage添加功能" />
     <MESSAGE value="完成CmsPage删除功能" />
-    <option name="LAST_COMMIT_MESSAGE" value="完成CmsPage删除功能" />
+    <MESSAGE value="完成CmsTemplate增删改查功能,完成页面静态化功能" />
+    <option name="LAST_COMMIT_MESSAGE" value="完成CmsTemplate增删改查功能,完成页面静态化功能" />
   </component>
   <component name="WindowStateProjectService">
     <state x="313" y="0" width="753" height="728" key="#CmsApplication" timestamp="1591685891508">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="313" y="0" width="753" height="728" key="#CmsApplication/0.0.1366.728@0.0.1366.728" timestamp="1591685891508" />
+    <state x="313" y="0" width="753" height="728" key="#CmsClientApplication" timestamp="1592186345914">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="313" y="0" width="753" height="728" key="#CmsClientApplication/0.0.1366.728@0.0.1366.728" timestamp="1592186345914" />
     <state x="313" y="0" width="753" height="728" key="#GatewayApplication" timestamp="1591685902180">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="313" y="0" width="753" height="728" key="#GatewayApplication/0.0.1366.728@0.0.1366.728" timestamp="1591685902180" />
+    <state x="309" y="41" key="#Inspections" timestamp="1592231212261">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="309" y="41" key="#Inspections/0.0.1366.728@0.0.1366.728" timestamp="1592231212261" />
     <state x="565" y="225" key="#Notifications" timestamp="1590476265745">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="565" y="225" key="#Notifications/0.0.1366.728@0.0.1366.728" timestamp="1590476265745" />
-    <state x="185" y="0" key="#Project_Structure" timestamp="1591623889155">
+    <state x="185" y="0" key="#Project_Structure" timestamp="1592185176956">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="185" y="0" key="#Project_Structure/0.0.1366.728@0.0.1366.728" timestamp="1591623889155" />
+    <state x="185" y="0" key="#Project_Structure/0.0.1366.728@0.0.1366.728" timestamp="1592185176956" />
     <state x="313" y="0" width="753" height="728" key="#RegistryApplication" timestamp="1591685907996">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="313" y="0" width="753" height="728" key="#RegistryApplication/0.0.1366.728@0.0.1366.728" timestamp="1591685907996" />
-    <state x="137" y="18" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1591952342248">
+    <state x="137" y="18" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1592210629677">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="137" y="18" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1591952342248" />
-    <state x="788" y="107" key="#com.intellij.ide.util.MemberChooser" timestamp="1591978629013">
+    <state x="137" y="18" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1592210629677" />
+    <state x="788" y="107" key="#com.intellij.ide.util.MemberChooser" timestamp="1592278187246">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="788" y="107" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1591978629013" />
+    <state x="788" y="107" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1592278187246" />
     <state x="269" y="286" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1590500513613">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="269" y="286" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1366.728@0.0.1366.728" timestamp="1590500513613" />
-    <state x="446" y="226" width="447" height="276" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1591685693411">
+    <state x="446" y="226" width="460" height="276" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1592207098490">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="446" y="226" width="447" height="276" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1366.728@0.0.1366.728" timestamp="1591685693410" />
+    <state x="446" y="226" width="460" height="276" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1366.728@0.0.1366.728" timestamp="1592207098490" />
     <state x="485" y="118" key="FileChooserDialogImpl" timestamp="1590256057229">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="485" y="118" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1590256057229" />
-    <state width="1322" height="170" key="GridCell.Tab.0.bottom" timestamp="1591991058550">
+    <state width="1002" height="169" key="GridCell.Tab.0.bottom" timestamp="1592284907016">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1322" height="170" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1591991058550" />
-    <state width="1322" height="170" key="GridCell.Tab.0.center" timestamp="1591991058550">
+    <state width="1002" height="169" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1592284907016" />
+    <state width="1002" height="169" key="GridCell.Tab.0.center" timestamp="1592284907016">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1322" height="170" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1591991058550" />
-    <state width="1322" height="170" key="GridCell.Tab.0.left" timestamp="1591991058550">
+    <state width="1002" height="169" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1592284907016" />
+    <state width="1002" height="169" key="GridCell.Tab.0.left" timestamp="1592284907016">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1322" height="170" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1591991058550" />
-    <state width="1322" height="170" key="GridCell.Tab.0.right" timestamp="1591991058550">
+    <state width="1002" height="169" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1592284907016" />
+    <state width="1002" height="169" key="GridCell.Tab.0.right" timestamp="1592284907016">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1322" height="170" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1591991058550" />
-    <state width="1054" height="168" key="GridCell.Tab.1.bottom" timestamp="1591991045282">
+    <state width="1002" height="169" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1592284907016" />
+    <state width="1002" height="169" key="GridCell.Tab.1.bottom" timestamp="1592284907016">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1054" height="168" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1591991045282" />
-    <state width="1054" height="168" key="GridCell.Tab.1.center" timestamp="1591991045282">
+    <state width="1002" height="169" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1592284907016" />
+    <state width="1002" height="169" key="GridCell.Tab.1.center" timestamp="1592284907016">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1054" height="168" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1591991045282" />
-    <state width="1054" height="168" key="GridCell.Tab.1.left" timestamp="1591991045281">
+    <state width="1002" height="169" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1592284907016" />
+    <state width="1002" height="169" key="GridCell.Tab.1.left" timestamp="1592284907016">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1054" height="168" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1591991045281" />
-    <state width="1054" height="168" key="GridCell.Tab.1.right" timestamp="1591991045282">
+    <state width="1002" height="169" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1592284907016" />
+    <state width="1002" height="169" key="GridCell.Tab.1.right" timestamp="1592284907016">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1054" height="168" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1591991045282" />
-    <state width="1054" height="224" key="GridCell.Tab.2.bottom" timestamp="1591965582569">
+    <state width="1002" height="169" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1592284907016" />
+    <state width="997" height="288" key="GridCell.Tab.2.bottom" timestamp="1592238835536">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1054" height="224" key="GridCell.Tab.2.bottom/0.0.1366.728@0.0.1366.728" timestamp="1591965582569" />
-    <state width="1054" height="224" key="GridCell.Tab.2.center" timestamp="1591965582569">
+    <state width="997" height="288" key="GridCell.Tab.2.bottom/0.0.1366.728@0.0.1366.728" timestamp="1592238835536" />
+    <state width="997" height="288" key="GridCell.Tab.2.center" timestamp="1592238835536">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1054" height="224" key="GridCell.Tab.2.center/0.0.1366.728@0.0.1366.728" timestamp="1591965582569" />
-    <state width="1054" height="224" key="GridCell.Tab.2.left" timestamp="1591965582569">
+    <state width="997" height="288" key="GridCell.Tab.2.center/0.0.1366.728@0.0.1366.728" timestamp="1592238835536" />
+    <state width="997" height="288" key="GridCell.Tab.2.left" timestamp="1592238835536">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1054" height="224" key="GridCell.Tab.2.left/0.0.1366.728@0.0.1366.728" timestamp="1591965582569" />
-    <state width="1054" height="224" key="GridCell.Tab.2.right" timestamp="1591965582569">
+    <state width="997" height="288" key="GridCell.Tab.2.left/0.0.1366.728@0.0.1366.728" timestamp="1592238835536" />
+    <state width="997" height="288" key="GridCell.Tab.2.right" timestamp="1592238835536">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1054" height="224" key="GridCell.Tab.2.right/0.0.1366.728@0.0.1366.728" timestamp="1591965582569" />
-    <state x="229" y="0" key="SettingsEditor" timestamp="1591777198551">
+    <state width="997" height="288" key="GridCell.Tab.2.right/0.0.1366.728@0.0.1366.728" timestamp="1592238835536" />
+    <state x="-22" y="0" key="SettingsEditor" timestamp="1592230203257">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="229" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1591777198551" />
-    <state x="275" y="96" key="Vcs.Push.Dialog.v2" timestamp="1591840869845">
+    <state x="-22" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1592230203257" />
+    <state x="275" y="96" key="Vcs.Push.Dialog.v2" timestamp="1591991128634">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="96" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1591840869845" />
+    <state x="275" y="96" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1591991128634" />
     <state x="482" y="140" key="chooseDestDirectoryDialog" timestamp="1591685775832">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -583,10 +644,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="401" y="104" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.1366.728@0.0.1366.728" timestamp="1590661001286" />
-    <state x="107" y="37" width="1259" height="691" key="new project wizard" timestamp="1591712143921">
+    <state x="107" y="17" width="1259" height="691" key="new project wizard" timestamp="1592183699520">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="107" y="37" width="1259" height="691" key="new project wizard/0.0.1366.728@0.0.1366.728" timestamp="1591712143921" />
+    <state x="107" y="17" width="1259" height="691" key="new project wizard/0.0.1366.728@0.0.1366.728" timestamp="1592183699520" />
     <state x="339" y="157" key="run.anything.popup" timestamp="1591447503860">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

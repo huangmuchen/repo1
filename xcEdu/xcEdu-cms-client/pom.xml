@@ -9,40 +9,27 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.xuecheng.gateway</groupId>
-    <artifactId>xcEdu-gateway</artifactId>
-    <description>网关zuul微服务</description>
+    <groupId>com.xuecheng.client</groupId>
+    <artifactId>xcEdu-cms-client</artifactId>
+    <description>CMS客户端工程：页面发布消费方</description>
     <version>1.0.0-SNAPSHOT</version>
 
     <dependencies>
-        <!--zuul-->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-zuul</artifactId>
-        </dependency>
-        <!--eureka客户端-->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-        </dependency>
         <!-- xcEdu-model工程 -->
         <dependency>
             <groupId>com.xuecheng.model</groupId>
             <artifactId>xcEdu-model</artifactId>
             <version>1.0.0-SNAPSHOT</version>
         </dependency>
-        <!--Redis启动器-->
+        <!-- 消息中间件RabbitMQ -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-redis</artifactId>
+            <artifactId>spring-boot-starter-amqp</artifactId>
         </dependency>
+        <!-- mongodb启动器 -->
         <dependency>
-            <groupId>com.squareup.okhttp3</groupId>
-            <artifactId>okhttp</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.netflix.feign</groupId>
-            <artifactId>feign-okhttp</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-mongodb</artifactId>
         </dependency>
     </dependencies>
 </project>

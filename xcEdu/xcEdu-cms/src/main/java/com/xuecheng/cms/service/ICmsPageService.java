@@ -64,4 +64,12 @@ public interface ICmsPageService {
      * @return htmlString
      */
     String preview(String pageId);
+
+    /**
+     * 根据pageId发布页面
+     *
+     * @param pageId 页面id
+     * @return 发布结果
+     */
+    ResponseResult release(String pageId);
 }
