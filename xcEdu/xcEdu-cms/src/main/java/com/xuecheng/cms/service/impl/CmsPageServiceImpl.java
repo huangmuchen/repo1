@@ -304,8 +304,22 @@ public class CmsPageServiceImpl implements ICmsPageService, ConfirmCallback, Ret
         // 保存html文件到GridFS
         saveHtml(pageId, html);
         // 发送消息到RabbitMQ
-        sendReleaseMsg(pageId);
+        sendMsgToMq(pageId, "release");
         // 响应发布结果
+        return ResponseResult.SUCCESS();
+    }
+
+    /**
+     * 根据pageId撤销页面发布
+     *
+     * @param pageId 页面id
+     * @return 撤销结果
+     */
+    @Override
+    public ResponseResult rollBack(String pageId) {
+        // 发送消息到RabbitMQ
+        sendMsgToMq(pageId, "rollBack");
+        // 响应撤销结果
         return ResponseResult.SUCCESS();
     }
 
@@ -324,9 +338,12 @@ public class CmsPageServiceImpl implements ICmsPageService, ConfirmCallback, Ret
         }
         // 获取htmlFileId
         String htmlFileId = cmsPage.getHtmlFileId();
-        // 判断，存储之前先删除旧的静态文件
+        // 判断，存储之前先备份旧的静态文件
         if (StringUtils.isNotBlank(htmlFileId)) {
-            this.gridFsTemplate.delete(Query.query(Criteria.where("_id").is(htmlFileId)));
+            if (StringUtils.isNotBlank(cmsPage.getPreHtmlFileId())) {
+                this.gridFsTemplate.delete(Query.query(Criteria.where("_id").is(cmsPage.getPreHtmlFileId())));
+            }
+            cmsPage.setPreHtmlFileId(htmlFileId);
         }
         // 将html字符串转化为输入流
         InputStream in = IOUtils.toInputStream(html, StandardCharsets.UTF_8);
@@ -431,7 +448,7 @@ public class CmsPageServiceImpl implements ICmsPageService, ConfirmCallback, Ret
      *
      * @param pageId 页面id
      */
-    private void sendReleaseMsg(String pageId) {
+    private void sendMsgToMq(String pageId, String type) {
         // 根据id查询cmsPage
         CmsPage cmsPage = this.findByPageId(pageId);
         // 校验cmsPage
@@ -443,9 +460,9 @@ public class CmsPageServiceImpl implements ICmsPageService, ConfirmCallback, Ret
         // 设置消息内容为页面ID。（采用json格式，方便日后扩展）
         Map<String, String> map = new HashMap<>();
         map.put("pageId", pageId);
+        map.put("type", type);
         // 消息内容
         String msg = JSON.toJSONString(map);
-
         // 开启强制委托模式
         this.rabbitTemplate.setMandatory(true);
         // 设置消息发送给交换机的回调
@@ -487,6 +504,6 @@ public class CmsPageServiceImpl implements ICmsPageService, ConfirmCallback, Ret
      */
     @Override
     public void returnedMessage(Message message, int replyCode, String replyText, String exchange, String routingKey) {
-        log.error("发送消息：{}，错误码：{}，错误原因：{}，exchange：{}，routingKey：{}",new String(message.getBody(), StandardCharsets.UTF_8),replyCode,replyText,exchange,routingKey);
+        log.error("发送消息：{}，错误码：{}，错误原因：{}，exchange：{}，routingKey：{}", new String(message.getBody(), StandardCharsets.UTF_8), replyCode, replyText, exchange, routingKey);
     }
 }

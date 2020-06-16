@@ -72,4 +72,12 @@ public interface ICmsPageService {
      * @return 发布结果
      */
     ResponseResult release(String pageId);
+
+    /**
+     * 根据pageId撤销页面发布
+     *
+     * @param pageId 页面id
+     * @return 撤销结果
+     */
+    ResponseResult rollBack(String pageId);
 }

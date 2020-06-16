@@ -5,10 +5,7 @@ import com.xuecheng.common.model.response.ResponseResult;
 import com.xuecheng.model.domain.cms.CmsPage;
 import com.xuecheng.model.domain.cms.request.QueryPageRequest;
 import com.xuecheng.model.domain.cms.response.CmsPageResult;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiImplicitParams;
-import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.*;
 
 /**
  * @author: HuangMuChen
@@ -72,6 +69,10 @@ public interface CmsPageControllerApi {
      */
     @ApiOperation("页面删除")
     @ApiImplicitParam(name = "pageId", value = "页面id", required = true, paramType = "path", dataType = "String")
+    @ApiResponses({
+            @ApiResponse(code = 10000, message = "操作成功"),
+            @ApiResponse(code = 11111, message = "操作失败")
+    })
     ResponseResult del(String pageId);
 
     /**
@@ -82,5 +83,23 @@ public interface CmsPageControllerApi {
      */
     @ApiOperation("页面发布")
     @ApiImplicitParam(name = "pageId", value = "页面id", required = true, paramType = "path", dataType = "String")
+    @ApiResponses({
+            @ApiResponse(code = 10000, message = "操作成功"),
+            @ApiResponse(code = 11111, message = "操作失败")
+    })
     ResponseResult release(String pageId);
+
+    /**
+     * 根据pageId撤销页面发布
+     *
+     * @param pageId
+     * @return
+     */
+    @ApiOperation("撤销页面发布")
+    @ApiImplicitParam(name = "pageId", value = "页面id", required = true, paramType = "path", dataType = "String")
+    @ApiResponses({
+            @ApiResponse(code = 10000, message = "操作成功"),
+            @ApiResponse(code = 11111, message = "操作失败")
+    })
+    ResponseResult rollBack(String pageId);
 }

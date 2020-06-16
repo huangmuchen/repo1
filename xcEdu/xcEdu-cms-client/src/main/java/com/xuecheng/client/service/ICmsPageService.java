@@ -15,8 +15,9 @@ public interface ICmsPageService {
      * 根据pageId，从GridFS中获取html保存到服务器指定路径上
      *
      * @param pageId 页面id
+     * @param type   发布类型
      */
-    void savePageToServerPath(String pageId);
+    void savePageToServerPath(String pageId, String type);
 
     /**
      * 根据id获取CmsSite

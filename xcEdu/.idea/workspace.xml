@@ -10,7 +10,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3637ca18-00b3-47fa-8770-412f4aca64b0" name="Default Changelist" comment="完成CmsTemplate增删改查功能,完成页面静态化功能">
+    <list default="true" id="3637ca18-00b3-47fa-8770-412f4aca64b0" name="Default Changelist" comment="完成页面发布功能，增加rabbitmq消息确认机制">
       <change afterPath="$PROJECT_DIR$/../freemarker-demo/.idea/.gitignore" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../freemarker-demo/.idea/compiler.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../freemarker-demo/.idea/encodings.xml" afterDir="false" />
@@ -246,33 +246,15 @@
       <change afterPath="$PROJECT_DIR$/../rabbitmq-demo/src/main/java/cn/muchen/rabbitmq/work/Send.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../rabbitmq-demo/src/main/resources/application.yml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../rabbitmq-demo/src/test/java/cn/muchen/rabbitmq/spring/MqDemo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xcEdu-cms-client/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xcEdu-cms-client/src/main/java/com/xuecheng/CmsClientApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xcEdu-cms-client/src/main/java/com/xuecheng/client/config/MongoConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xcEdu-cms-client/src/main/java/com/xuecheng/client/dao/CmsPageRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xcEdu-cms-client/src/main/java/com/xuecheng/client/dao/CmsSiteRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xcEdu-cms-client/src/main/java/com/xuecheng/client/mq/CmsReleasePageListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xcEdu-cms-client/src/main/java/com/xuecheng/client/service/ICmsPageService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xcEdu-cms-client/src/main/java/com/xuecheng/client/service/impl/CmsPageServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xcEdu-cms-client/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xcEdu-cms-client/src/main/resources/logback-spring.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xcEdu-api/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-api/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/xcEdu-api/src/main/java/com/xuecheng/api/cms/CmsPageControllerApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-api/src/main/java/com/xuecheng/api/cms/CmsPageControllerApi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xcEdu-cms/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-cms/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xcEdu-cms/src/main/java/com/xuecheng/CmsApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-cms/src/main/java/com/xuecheng/CmsApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xcEdu-cms/src/main/java/com/xuecheng/cms/config/MongoConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-cms/src/main/java/com/xuecheng/cms/config/MongoConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xcEdu-cms-client/src/main/java/com/xuecheng/client/mq/CmsReleasePageListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-cms-client/src/main/java/com/xuecheng/client/mq/CmsReleasePageListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xcEdu-cms-client/src/main/java/com/xuecheng/client/service/ICmsPageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-cms-client/src/main/java/com/xuecheng/client/service/ICmsPageService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xcEdu-cms-client/src/main/java/com/xuecheng/client/service/impl/CmsPageServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-cms-client/src/main/java/com/xuecheng/client/service/impl/CmsPageServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/xcEdu-cms/src/main/java/com/xuecheng/cms/controller/CmsPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-cms/src/main/java/com/xuecheng/cms/controller/CmsPageController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/xcEdu-cms/src/main/java/com/xuecheng/cms/service/ICmsPageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-cms/src/main/java/com/xuecheng/cms/service/ICmsPageService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/xcEdu-cms/src/main/java/com/xuecheng/cms/service/impl/CmsPageServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-cms/src/main/java/com/xuecheng/cms/service/impl/CmsPageServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xcEdu-cms/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-cms/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xcEdu-gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-gateway/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/cms/CmsSite.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/cms/CmsSite.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/cms/CmsPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/cms/CmsPage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -446,7 +428,8 @@
       <workItem from="1592116192339" duration="4564000" />
       <workItem from="1592183550466" duration="6340000" />
       <workItem from="1592206391245" duration="21888000" />
-      <workItem from="1592275272777" duration="9642000" />
+      <workItem from="1592275272777" duration="9941000" />
+      <workItem from="1592292666759" duration="7936000" />
     </task>
     <task id="LOCAL-00001" summary="搭建学成在线基础工程">
       <created>1590256307928</created>
@@ -504,7 +487,14 @@
       <option name="project" value="LOCAL" />
       <updated>1591991116730</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="完成页面发布功能，增加rabbitmq消息确认机制">
+      <created>1592285189879</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1592285189879</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -529,7 +519,8 @@
     <MESSAGE value="完成CmsPage添加功能" />
     <MESSAGE value="完成CmsPage删除功能" />
     <MESSAGE value="完成CmsTemplate增删改查功能,完成页面静态化功能" />
-    <option name="LAST_COMMIT_MESSAGE" value="完成CmsTemplate增删改查功能,完成页面静态化功能" />
+    <MESSAGE value="完成页面发布功能，增加rabbitmq消息确认机制" />
+    <option name="LAST_COMMIT_MESSAGE" value="完成页面发布功能，增加rabbitmq消息确认机制" />
   </component>
   <component name="WindowStateProjectService">
     <state x="313" y="0" width="753" height="728" key="#CmsApplication" timestamp="1591685891508">
@@ -564,10 +555,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="137" y="18" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1592210629677" />
-    <state x="788" y="107" key="#com.intellij.ide.util.MemberChooser" timestamp="1592278187246">
+    <state x="788" y="107" key="#com.intellij.ide.util.MemberChooser" timestamp="1592316413490">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="788" y="107" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1592278187246" />
+    <state x="788" y="107" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1592316413490" />
     <state x="269" y="286" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1590500513613">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -580,38 +571,38 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="485" y="118" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1590256057229" />
-    <state width="1002" height="169" key="GridCell.Tab.0.bottom" timestamp="1592284907016">
+    <state width="1322" height="170" key="GridCell.Tab.0.bottom" timestamp="1592320494644">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1002" height="169" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1592284907016" />
-    <state width="1002" height="169" key="GridCell.Tab.0.center" timestamp="1592284907016">
+    <state width="1322" height="170" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1592320494644" />
+    <state width="1322" height="170" key="GridCell.Tab.0.center" timestamp="1592320494643">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1002" height="169" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1592284907016" />
-    <state width="1002" height="169" key="GridCell.Tab.0.left" timestamp="1592284907016">
+    <state width="1322" height="170" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1592320494643" />
+    <state width="1322" height="170" key="GridCell.Tab.0.left" timestamp="1592320494643">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1002" height="169" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1592284907016" />
-    <state width="1002" height="169" key="GridCell.Tab.0.right" timestamp="1592284907016">
+    <state width="1322" height="170" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1592320494643" />
+    <state width="1322" height="170" key="GridCell.Tab.0.right" timestamp="1592320494644">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1002" height="169" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1592284907016" />
-    <state width="1002" height="169" key="GridCell.Tab.1.bottom" timestamp="1592284907016">
+    <state width="1322" height="170" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1592320494644" />
+    <state width="1002" height="230" key="GridCell.Tab.1.bottom" timestamp="1592320482157">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1002" height="169" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1592284907016" />
-    <state width="1002" height="169" key="GridCell.Tab.1.center" timestamp="1592284907016">
+    <state width="1002" height="230" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1592320482157" />
+    <state width="1002" height="230" key="GridCell.Tab.1.center" timestamp="1592320482156">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1002" height="169" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1592284907016" />
-    <state width="1002" height="169" key="GridCell.Tab.1.left" timestamp="1592284907016">
+    <state width="1002" height="230" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1592320482156" />
+    <state width="1002" height="230" key="GridCell.Tab.1.left" timestamp="1592320482156">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1002" height="169" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1592284907016" />
-    <state width="1002" height="169" key="GridCell.Tab.1.right" timestamp="1592284907016">
+    <state width="1002" height="230" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1592320482156" />
+    <state width="1002" height="230" key="GridCell.Tab.1.right" timestamp="1592320482157">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1002" height="169" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1592284907016" />
+    <state width="1002" height="230" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1592320482157" />
     <state width="997" height="288" key="GridCell.Tab.2.bottom" timestamp="1592238835536">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -632,10 +623,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="-22" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1592230203257" />
-    <state x="275" y="96" key="Vcs.Push.Dialog.v2" timestamp="1591991128634">
+    <state x="275" y="96" key="Vcs.Push.Dialog.v2" timestamp="1592285205563">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="96" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1591991128634" />
+    <state x="275" y="96" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1592285205563" />
     <state x="482" y="140" key="chooseDestDirectoryDialog" timestamp="1591685775832">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

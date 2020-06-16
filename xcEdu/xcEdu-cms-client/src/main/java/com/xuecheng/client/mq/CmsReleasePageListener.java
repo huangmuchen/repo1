@@ -42,13 +42,15 @@ public class CmsReleasePageListener {
             Map map = JSON.parseObject(msg, Map.class);
             // 获取页面id
             String pageId = (String) map.get("pageId");
+            // 获取发布类型
+            String type = (String) map.get("type");
             // deliveryTag是消息传送的次数，我这里是为了让消息队列的第一个消息到达的时候抛出异常，处理异常让消息重新回到队列，然后再次抛出异常，处理异常拒绝让消息重回队列
             if (message.getMessageProperties().getDeliveryTag() == 1 || message.getMessageProperties().getDeliveryTag() == 2) {
                 // 模拟一个算术异常
                 // System.out.println(1 / 0);
             }
             // 根据pageId，从GridFS中获取html保存到服务器指定路径上
-            this.cmsPageService.savePageToServerPath(pageId);
+            this.cmsPageService.savePageToServerPath(pageId, type);
             /*
              * 消息处理成功后，对消息进行确认
              * 参数明细：

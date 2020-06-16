@@ -38,7 +38,7 @@ public class CmsPageServiceImpl implements ICmsPageService {
      * @param pageId 页面id
      */
     @Override
-    public void savePageToServerPath(String pageId) {
+    public void savePageToServerPath(String pageId, String type) {
         // 根据pageId查询cmsPage
         CmsPage cmsPage = getCmsPageById(pageId);
         // 校验cmsPage
@@ -46,8 +46,16 @@ public class CmsPageServiceImpl implements ICmsPageService {
             log.error("页面不存在, pageId：{}", pageId);
             return;
         }
-        // 获取静态文件id
-        String htmlFileId = cmsPage.getHtmlFileId();
+        // 根据发布类型，获取静态文件id
+        String fileId;
+        if ("release".equals(type)) {
+            fileId = cmsPage.getHtmlFileId();
+        } else if ("rollBack".equals(type)) {
+            fileId = cmsPage.getPreHtmlFileId();
+        } else {
+            log.error("发布类型错误，type：{}", type);
+            return;
+        }
         // 根据siteId查询站点
         CmsSite cmsSite = getCmsSiteById(cmsPage.getSiteId());
         // 页面物理路径 = 站点物理路径 + 页面物理路径 + 页面名称
@@ -57,7 +65,7 @@ public class CmsPageServiceImpl implements ICmsPageService {
             // 创建输出流
             out = new FileOutputStream(new File(savePath));
             // 从GridFS下载静态文件到服务器指定路径
-            this.gridFSBucket.downloadToStream(new ObjectId(htmlFileId), out);
+            this.gridFSBucket.downloadToStream(new ObjectId(fileId), out);
         } catch (Exception e) {
             log.error("从GridFS下载静态文件到服务器指定路径出现异常，异常信息：{}", e.getMessage());
         } finally {

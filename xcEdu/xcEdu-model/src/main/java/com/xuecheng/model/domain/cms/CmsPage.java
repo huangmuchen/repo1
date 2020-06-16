@@ -34,5 +34,6 @@ public class CmsPage {
     private Date pageCreateTime; // 创建时间
     private List<CmsPageParam> pageParams; // 参数列表,暂时不用
     private String htmlFileId; // 静态文件Id
+    private String preHtmlFileId; // 旧的静态文件Id
     private String dataUrl; // 数据Url
 }

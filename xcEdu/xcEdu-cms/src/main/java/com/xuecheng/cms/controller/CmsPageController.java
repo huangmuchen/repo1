@@ -92,8 +92,21 @@ public class CmsPageController implements CmsPageControllerApi {
      * @param pageId 页面id
      * @return 发布结果
      */
+    @Override
     @PostMapping("/release/{pageId}")
     public ResponseResult release(@PathVariable("pageId") String pageId) {
         return this.cmsPageService.release(pageId);
+    }
+
+    /**
+     * 根据pageId撤销页面发布
+     *
+     * @param pageId
+     * @return
+     */
+    @Override
+    @PostMapping("/rollBack/{pageId}")
+    public ResponseResult rollBack(@PathVariable("pageId") String pageId) {
+        return this.cmsPageService.rollBack(pageId);
     }
 }
