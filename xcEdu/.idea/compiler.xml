@@ -14,6 +14,7 @@
         <module name="xcEdu-utils" />
         <module name="xcEdu-common" />
         <module name="xcEdu-model" />
+        <module name="xcEdu-course" />
         <module name="xcEdu-gateway" />
       </profile>
     </annotationProcessing>
@@ -24,6 +25,7 @@
       <module name="xcEdu-cms" options="-parameters" />
       <module name="xcEdu-cms-client" options="-parameters" />
       <module name="xcEdu-common" options="-parameters" />
+      <module name="xcEdu-course" options="-parameters" />
       <module name="xcEdu-gateway" options="-parameters" />
       <module name="xcEdu-model" options="-parameters" />
       <module name="xcEdu-registry" options="-parameters" />

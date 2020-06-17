@@ -1,12 +1,15 @@
-package com.xuecheng.client.mq;
+package com.xuecheng.cms_client.mq;
 
 import com.alibaba.fastjson.JSON;
-import com.xuecheng.client.service.ICmsPageService;
+import com.rabbitmq.client.Channel;
+import com.xuecheng.cms_client.service.ICmsPageService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.core.ExchangeTypes;
 import org.springframework.amqp.core.Message;
-import com.rabbitmq.client.Channel;
-import org.springframework.amqp.rabbit.annotation.*;
+import org.springframework.amqp.rabbit.annotation.Exchange;
+import org.springframework.amqp.rabbit.annotation.Queue;
+import org.springframework.amqp.rabbit.annotation.QueueBinding;
+import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

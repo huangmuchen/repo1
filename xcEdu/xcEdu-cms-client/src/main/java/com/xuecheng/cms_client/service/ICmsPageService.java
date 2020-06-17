@@ -1,4 +1,4 @@
-package com.xuecheng.client.service;
+package com.xuecheng.cms_client.service;
 
 import com.xuecheng.model.domain.cms.CmsPage;
 import com.xuecheng.model.domain.cms.CmsSite;

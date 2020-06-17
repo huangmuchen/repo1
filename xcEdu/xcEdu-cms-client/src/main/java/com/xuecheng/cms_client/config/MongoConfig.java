@@ -1,4 +1,4 @@
-package com.xuecheng.client.config;
+package com.xuecheng.cms_client.config;
 
 import com.mongodb.MongoClient;
 import com.mongodb.client.MongoDatabase;

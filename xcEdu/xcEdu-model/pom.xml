@@ -27,11 +27,13 @@
             <artifactId>xcEdu-utils</artifactId>
             <version>1.0.0-SNAPSHOT</version>
         </dependency>
+       <!-- @Id注解-->
         <dependency>
             <groupId>org.springframework.data</groupId>
             <artifactId>spring-data-commons</artifactId>
             <version>1.13.9.RELEASE</version>
         </dependency>
+        <!-- @Document注解-->
         <dependency>
             <groupId>org.springframework.data</groupId>
             <artifactId>spring-data-mongodb</artifactId>

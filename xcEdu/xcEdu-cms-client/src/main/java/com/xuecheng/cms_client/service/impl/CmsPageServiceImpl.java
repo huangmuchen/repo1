@@ -1,9 +1,9 @@
-package com.xuecheng.client.service.impl;
+package com.xuecheng.cms_client.service.impl;
 
 import com.mongodb.client.gridfs.GridFSBucket;
-import com.xuecheng.client.dao.CmsPageRepository;
-import com.xuecheng.client.dao.CmsSiteRepository;
-import com.xuecheng.client.service.ICmsPageService;
+import com.xuecheng.cms_client.dao.CmsPageRepository;
+import com.xuecheng.cms_client.dao.CmsSiteRepository;
+import com.xuecheng.cms_client.service.ICmsPageService;
 import com.xuecheng.model.domain.cms.CmsPage;
 import com.xuecheng.model.domain.cms.CmsSite;
 import lombok.extern.slf4j.Slf4j;

@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.xuecheng.client</groupId>
+    <groupId>com.xuecheng.cms_client</groupId>
     <artifactId>xcEdu-cms-client</artifactId>
     <description>CMS客户端工程：页面发布消费方</description>
     <version>1.0.0-SNAPSHOT</version>
