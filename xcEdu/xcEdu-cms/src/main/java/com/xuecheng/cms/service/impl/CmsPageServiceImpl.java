@@ -108,7 +108,7 @@ public class CmsPageServiceImpl implements ICmsPageService, ConfirmCallback, Ret
             Example<CmsPage> example = Example.of(cmsPage, matcher);
             // 封装分页对象,默认从0开始索引页(为了适应mongodb的接口将页码减1)
             PageRequest pageRequest = PageRequest.of(page - 1, size);
-            // 分页自定义查询
+            // 自定义分页查询
             Page<CmsPage> all = this.cmsPageRepository.findAll(example, pageRequest);
             // 构建返回结果对象,并封装查询结果
             QueryResult<CmsPage> queryResult = new QueryResult<>();

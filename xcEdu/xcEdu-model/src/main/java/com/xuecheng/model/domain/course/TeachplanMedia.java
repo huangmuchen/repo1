@@ -24,12 +24,12 @@ public class TeachplanMedia implements Serializable {
     @Id // 声明主键
     @GeneratedValue(generator = "jpa-assigned")
     @Column(name = "teachplan_id")
-    private String teachplanId;
+    private String teachplanId; // 课程计划id
     @Column(name = "media_id")
-    private String mediaId;
+    private String mediaId; // 媒资文件id
     @Column(name = "media_fileoriginalname")
-    private String mediaFileOriginalName;
+    private String mediaFileOriginalName; // 媒资文件的原始名称
     @Column(name = "media_url")
-    private String mediaUrl;
-    private String courseId;
+    private String mediaUrl; // 媒资文件访问地址
+    private String courseId; // 课程id
 }

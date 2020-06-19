@@ -11,7 +11,7 @@ import java.io.Serializable;
  * @author: HuangMuChen
  * @date: 2019/9/18 11:32
  * @version: V1.0
- * @Description: TODO
+ * @Description: 课程图片信息实体类
  */
 @Data
 @ToString
@@ -21,8 +21,8 @@ import java.io.Serializable;
 public class CoursePic implements Serializable {
     private static final long serialVersionUID = -916357110051689486L;
 
-    @Id
+    @Id // 主键
     @GeneratedValue(generator = "jpa-assigned")
-    private String courseid;
-    private String pic;
+    private String courseid; // 课程id
+    private String pic; // 图片id
 }

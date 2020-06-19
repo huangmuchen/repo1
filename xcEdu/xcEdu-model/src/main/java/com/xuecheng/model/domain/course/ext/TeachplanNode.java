@@ -10,10 +10,10 @@ import java.util.List;
  * @author: HuangMuChen
  * @date: 2019/9/18 11:32
  * @version: V1.0
- * @Description: TODO
+ * @Description: 课程计划结点类
  */
 @Data
 @ToString
 public class TeachplanNode extends Teachplan {
-    List<TeachplanNode> children;
+    List<TeachplanNode> children; // 所有节点集合
 }
