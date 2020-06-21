@@ -30,9 +30,9 @@ public class Teachplan implements Serializable {
     private String grade;// 层级，分为1、2、3级
     private String ptype;// 课程类型
     private String description;// 章节及课程时介绍
-    private String courseid;// 课程id
-    private String status;// 状态：未发布、已发布
-    private Integer orderby;// 排序字段
     private Double timelength;// 时长，单位分钟
+    private String courseid;// 课程id
+    private Integer orderby;// 排序字段
+    private String status;// 状态：未发布、已发布
     private String trylearn;// 是否试学
 }

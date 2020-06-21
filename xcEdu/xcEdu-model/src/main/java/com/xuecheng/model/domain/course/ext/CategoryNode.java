@@ -10,10 +10,10 @@ import java.util.List;
  * @author: HuangMuChen
  * @date: 2019/9/18 11:32
  * @version: V1.0
- * @Description: TODO
+ * @Description: 课程分类结点类
  */
 @Data
 @ToString
 public class CategoryNode extends Category {
-    List<CategoryNode> children;
+    List<CategoryNode> children; // 所有子节点集合
 }

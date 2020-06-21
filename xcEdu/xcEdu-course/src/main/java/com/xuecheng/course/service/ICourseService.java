@@ -1,6 +1,9 @@
 package com.xuecheng.course.service;
 
 import com.xuecheng.common.model.response.QueryResponseResult;
+import com.xuecheng.common.model.response.ResponseResult;
+import com.xuecheng.model.domain.course.Teachplan;
+import com.xuecheng.model.domain.course.ext.TeachplanNode;
 import com.xuecheng.model.domain.course.request.CourseListRequest;
 
 /**
@@ -20,4 +23,20 @@ public interface ICourseService {
      * @return
      */
     QueryResponseResult findCourseList(int page, int size, CourseListRequest courseListRequest);
+
+    /**
+     * 根据课程id查询课程计划列表
+     *
+     * @param courseId
+     * @return
+     */
+    TeachplanNode findTeachplanList(String courseId);
+
+    /**
+     * 添加课程计划
+     *
+     * @param teachplan
+     * @return
+     */
+    ResponseResult addTeachplan(Teachplan teachplan);
 }
