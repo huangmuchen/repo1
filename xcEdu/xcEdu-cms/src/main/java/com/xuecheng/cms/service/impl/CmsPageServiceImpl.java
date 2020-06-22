@@ -345,14 +345,18 @@ public class CmsPageServiceImpl implements ICmsPageService, ConfirmCallback, Ret
             }
             cmsPage.setPreHtmlFileId(htmlFileId);
         }
-        // 将html字符串转化为输入流
-        InputStream in = IOUtils.toInputStream(html, StandardCharsets.UTF_8);
-        // 保存html文件到GridFS，fileName为pageName
-        ObjectId objectId = this.gridFsTemplate.store(in, cmsPage.getPageName());
-        // 获取templateFileId作为htmlFileId
-        cmsPage.setHtmlFileId(objectId.toString());
-        // 更新cmsPage
-        this.cmsPageRepository.save(cmsPage);
+        try {
+            // 将html字符串转化为输入流
+            InputStream in = IOUtils.toInputStream(html, StandardCharsets.UTF_8);
+            // 保存html文件到GridFS，fileName为pageName
+            ObjectId objectId = this.gridFsTemplate.store(in, cmsPage.getPageName());
+            // 获取templateFileId作为htmlFileId
+            cmsPage.setHtmlFileId(objectId.toString());
+            // 更新cmsPage
+            this.cmsPageRepository.save(cmsPage);
+        } catch (Exception e) {
+            throw new CustomException(CmsCode.CMS_GENERATEHTML_SAVEHTML_ERROR);
+        }
     }
 
     /**

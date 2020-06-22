@@ -20,7 +20,7 @@ import java.io.Serializable;
 @GenericGenerator(name = "jpa-assigned", strategy = "assigned")
 // @GenericGenerator(name = "jpa-uuid", strategy = "uuid")
 public class Category implements Serializable {
-    private static final long serialVersionUID = -906357110051689484L;
+    private static final long serialVersionUID = 7013626493878528115L;
 
     @Id // 主键
     @GeneratedValue(generator = "jpa-assigned")

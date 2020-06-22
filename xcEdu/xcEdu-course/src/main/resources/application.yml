@@ -21,6 +21,9 @@ spring:
     user:
       name: huangmuchen
       password: 123456
+  jackson:
+    serialization:
+      FAIL_ON_EMPTY_BEANS: false # 将jackSon关闭
 eureka:
   client:
     service-url:

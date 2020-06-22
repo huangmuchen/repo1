@@ -10,20 +10,27 @@ import com.xuecheng.common.model.response.QueryResult;
 import com.xuecheng.common.model.response.ResponseResult;
 import com.xuecheng.course.dao.mapper.CourseMapper;
 import com.xuecheng.course.dao.repository.CourseBaseRepository;
+import com.xuecheng.course.dao.repository.CourseMarketRepository;
 import com.xuecheng.course.dao.repository.CoursePicRepository;
 import com.xuecheng.course.dao.repository.TeachplanRepository;
 import com.xuecheng.course.service.ICourseService;
 import com.xuecheng.model.domain.course.CourseBase;
+import com.xuecheng.model.domain.course.CourseMarket;
 import com.xuecheng.model.domain.course.Teachplan;
 import com.xuecheng.model.domain.course.ext.CourseInfo;
 import com.xuecheng.model.domain.course.ext.TeachplanNode;
 import com.xuecheng.model.domain.course.request.CourseListRequest;
+import com.xuecheng.model.domain.course.response.AddCourseResult;
+import com.xuecheng.model.domain.course.response.CourseCode;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 
 import java.util.List;
+import java.util.Optional;
 
 import static com.xuecheng.common.model.response.CommonCode.INVALID_PARAM;
 
@@ -43,6 +50,8 @@ public class CourseServiceImpl implements ICourseService {
     private CoursePicRepository coursePicRepository;
     @Autowired
     private TeachplanRepository teachplanRepository;
+    @Autowired
+    private CourseMarketRepository courseMarketRepository;
 
     /**
      * 分页查询课程列表
@@ -101,6 +110,7 @@ public class CourseServiceImpl implements ICourseService {
      * @param teachplan
      * @return
      */
+    @Transactional(rollbackFor = Exception.class)
     @Override
     public ResponseResult addTeachplan(Teachplan teachplan) {
         // 参数判断
@@ -117,7 +127,12 @@ public class CourseServiceImpl implements ICourseService {
             parentid = getTeachplanRoot(courseid);
         }
         // 获取父节点信息
-        Teachplan parent = this.teachplanRepository.getOne(parentid);
+        Optional<Teachplan> optional = this.teachplanRepository.findById(parentid);
+        // 校验父节点信息
+        if (!optional.isPresent()) {
+            throw new CustomException(CommonCode.INVALID_PARAM);
+        }
+        Teachplan parent = optional.get();
         // 获取父节点等级
         String parentGrade = parent.getGrade();
         // 计算当前课程计划的等级
@@ -138,18 +153,143 @@ public class CourseServiceImpl implements ICourseService {
     }
 
     /**
+     * 添加课程基础信息
+     *
+     * @param courseBase
+     * @return
+     */
+    @Override
+    // 在@Transactional注解中如果不配置rollbackFor属性,那么事物只会在遇到RuntimeException的时候才会回滚,加上rollbackFor=Exception.class,可以让事物在遇到非运行时异常时也回滚
+    @Transactional(rollbackFor = Exception.class)
+    public AddCourseResult addCourseBase(CourseBase courseBase) {
+        // 设置课程状态为未发布
+        courseBase.setStatus(CourseConstant.COURSEBASE_STATUS_NO);
+        // TODO：将course_base表中的company_id改为非必填，待认证功能开发完成再修改为必填
+        // 调用dao进行保存
+        CourseBase save = this.courseBaseRepository.save(courseBase);
+        // 返回课程id
+        return new AddCourseResult(CommonCode.SUCCESS, save.getId());
+    }
+
+    /**
+     * 查询课程基础信息
+     *
+     * @param courseId
+     * @return
+     */
+    @Override
+    public CourseBase getCourseBaseById(String courseId) {
+        // 调用dao进行查询
+        Optional<CourseBase> optional = this.courseBaseRepository.findById(courseId);
+        // 返回查询结果
+        return optional.orElse(null);
+    }
+
+    /**
+     * 更新课程基础信息
+     *
+     * @param courseId
+     * @param courseBase
+     * @return
+     */
+    @Transactional(rollbackFor = Exception.class)
+    @Override
+    public ResponseResult updateCoursebase(String courseId, CourseBase courseBase) {
+        // 根据课程id查询课程基础信息
+        CourseBase cb = this.getCourseBaseById(courseId);
+        // 校验课程基础信息
+        if (cb == null) {
+            throw new CustomException(CourseCode.COURSE_BASE_NOTEXIST);
+        }
+        // 封装数据
+        cb.setName(courseBase.getName());
+        cb.setMt(courseBase.getMt());
+        cb.setSt(courseBase.getSt());
+        cb.setGrade(courseBase.getGrade());
+        cb.setStudymodel(courseBase.getStudymodel());
+        cb.setUsers(courseBase.getUsers());
+        cb.setDescription(courseBase.getDescription());
+        try {
+            // 更新数据到数据库
+            this.courseBaseRepository.save(cb);
+            // 返回更新成功结果
+            return ResponseResult.SUCCESS();
+        } catch (Exception e) {
+            throw new CustomException(CourseCode.COURSE_BASE_UPDATE_ERROR);
+        }
+    }
+
+    /**
+     * 查询课程营销信息
+     *
+     * @param id
+     * @return
+     */
+    @Override
+    public CourseMarket getCourseMarketById(String id) {
+        // 调用dao进行查询
+        Optional<CourseMarket> optional = this.courseMarketRepository.findById(id);
+        // 返回查询结果
+        return optional.orElse(null);
+    }
+
+    /**
+     * 更新课程营销信息
+     *
+     * @param id
+     * @param courseMarket
+     * @return
+     */
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public ResponseResult updateCourseMarket(String id, CourseMarket courseMarket) {
+        // 根据id查询课程营销信息
+        CourseMarket cm = this.getCourseMarketById(id);
+        // 校验课程营销信息
+        if (cm == null) {
+            // 新增数据
+            cm = new CourseMarket();
+            // 复制数据
+            BeanUtils.copyProperties(courseMarket, cm);
+            // 设置id
+            cm.setId(id);
+        } else {
+            // 更新数据
+            cm.setCharge(courseMarket.getCharge());
+            cm.setPrice(courseMarket.getPrice());
+            cm.setValid(courseMarket.getValid());
+            cm.setStartTime(courseMarket.getStartTime());
+            cm.setEndTime(courseMarket.getEndTime());
+            cm.setQq(courseMarket.getQq());
+        }
+        try {
+            // 更新数据到数据库
+            this.courseMarketRepository.save(cm);
+            // 返回更新成功结果
+            return ResponseResult.SUCCESS();
+        } catch (Exception e) {
+            throw new CustomException(CourseCode.COURSE_MARKET_UPDATE_ERROR);
+        }
+    }
+
+    /**
      * 获取根结点，如果是新课，那么根结点不存在，需要创建根结点
      *
      * @param courseid
      * @return
      */
     public String getTeachplanRoot(String courseid) {
-        // 查询课程基本信息
-        CourseBase courseBase = this.courseBaseRepository.getOne(courseid);
         // 根据courseid和parentid获取根结点
         List<Teachplan> teachplanList = this.teachplanRepository.findByCourseidAndParentid(courseid, CourseConstant.TEACHPLAN_ROOT_PARENTID);
         // 判断，如果不存在，则为新课，需添加根结点
         if (CollectionUtils.isEmpty(teachplanList)) {
+            // 查询课程基本信息
+            Optional<CourseBase> optional = this.courseBaseRepository.findById(courseid);
+            // 校验课程基本信息
+            if (!optional.isPresent()) {
+                return null;
+            }
+            CourseBase courseBase = optional.get();
             // 构建根节点对象
             Teachplan root = new Teachplan();
             root.setPname(courseBase.getName());

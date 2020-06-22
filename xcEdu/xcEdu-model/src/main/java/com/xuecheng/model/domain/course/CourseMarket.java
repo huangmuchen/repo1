@@ -20,7 +20,7 @@ import java.util.Date;
 @Table(name = "course_market")
 @GenericGenerator(name = "jpa-assigned", strategy = "assigned")
 public class CourseMarket implements Serializable {
-    private static final long serialVersionUID = -916357110051689486L;
+    private static final long serialVersionUID = -9120729158815039609L;
 
     @Id // 主键
     @GeneratedValue(generator = "jpa-assigned")
@@ -34,6 +34,6 @@ public class CourseMarket implements Serializable {
     private Date expires; // 过期时间
     @Column(name = "start_time")
     private Date startTime; // 课程有效期-开始时间
-    @Column(name = "end_time") // 课程有效期-结束时间
-    private Date endTime;
+    @Column(name = "end_time")
+    private Date endTime; // 课程有效期-结束时间
 }

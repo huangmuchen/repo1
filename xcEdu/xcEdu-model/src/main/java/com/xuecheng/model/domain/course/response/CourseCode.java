@@ -10,11 +10,15 @@ import lombok.ToString;
  * @author: HuangMuChen
  * @date: 2019/9/18 11:32
  * @version: V1.0
- * @Description: TODO
+ * @Description: 课程响应状态码
  */
 @ToString
 @AllArgsConstructor
 public enum CourseCode implements ResultCode {
+    COURSE_MARKET_NOTEXIST(false,31008,"课程营销信息为空！"),
+    COURSE_MARKET_UPDATE_ERROR(false,31009,"课程营销信息更新失败！"),
+    COURSE_BASE_NOTEXIST(false,31006,"课程基础信息为空！"),
+    COURSE_BASE_UPDATE_ERROR(false,31007,"课程基础信息更新失败！"),
     COURSE_DENIED_DELETE(false, 31001, "删除课程失败，只允许删除本机构的课程！"),
     COURSE_PUBLISH_PERVIEWISNULL(false, 31002, "还没有进行课程预览！"),
     COURSE_PUBLISH_CDETAILERROR(false, 31003, "创建课程详情页面出错！"),

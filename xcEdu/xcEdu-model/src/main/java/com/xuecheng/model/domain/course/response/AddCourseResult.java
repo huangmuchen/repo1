@@ -9,12 +9,12 @@ import lombok.ToString;
  * @author: HuangMuChen
  * @date: 2019/9/18 11:32
  * @version: V1.0
- * @Description: TODO
+ * @Description: 新增课程响应结果
  */
 @Data
 @ToString
 public class AddCourseResult extends ResponseResult {
-    private String courseid;
+    private String courseid; // 课程id
 
     public AddCourseResult(ResultCode resultCode, String courseid) {
         super(resultCode);

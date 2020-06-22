@@ -12,7 +12,7 @@ import java.util.Date;
  * @author: HuangMuChen
  * @date: 2019/9/18 11:32
  * @version: V1.0
- * @Description: 课程发布实体类
+ * @Description: 课程发布实体类：课程信息分成了多张表，同步起来很复杂，所以使用course_pub表将所有数据整合起来，以供ES索引库维护
  */
 @Data
 @ToString
@@ -20,7 +20,7 @@ import java.util.Date;
 @Table(name = "course_pub")
 @GenericGenerator(name = "jpa-assigned", strategy = "assigned")
 public class CoursePub implements Serializable {
-    private static final long serialVersionUID = -916357110051689487L;
+    private static final long serialVersionUID = 5392709964739508348L;
 
     @Id // 主键
     @GeneratedValue(generator = "jpa-assigned")
@@ -34,7 +34,7 @@ public class CoursePub implements Serializable {
     private String studymodel; // 学习模式
     private String teachmode; // 教育模式
     private String description; // 课程介绍
-    private String pic; // 图片
+    private String pic; // 课程图片
     private Date timestamp; // 时间戳,logstash使用
     private String charge; // 收费规则，对应数据字典
     private String valid; // 有效性，对应数据字典

@@ -20,7 +20,7 @@ import java.util.Date;
 @Table(name = "course_index")
 @GenericGenerator(name = "jpa-assigned", strategy = "assigned")
 public class CourseIndex implements Serializable {
-    private static final long serialVersionUID = -916357110051689587L;
+    private static final long serialVersionUID = 2093920044978840752L;
 
     @Id
     @GeneratedValue(generator = "jpa-assigned")

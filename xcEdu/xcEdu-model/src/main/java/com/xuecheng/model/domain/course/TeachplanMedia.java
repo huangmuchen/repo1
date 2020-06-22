@@ -19,7 +19,7 @@ import java.io.Serializable;
 @Table(name = "teachplan_media")
 @GenericGenerator(name = "jpa-assigned", strategy = "assigned")
 public class TeachplanMedia implements Serializable {
-    private static final long serialVersionUID = -916357110051689485L;
+    private static final long serialVersionUID = -2380709909212668127L;
 
     @Id // 声明主键
     @GeneratedValue(generator = "jpa-assigned")

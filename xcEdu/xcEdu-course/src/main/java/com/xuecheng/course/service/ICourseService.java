@@ -2,9 +2,12 @@ package com.xuecheng.course.service;
 
 import com.xuecheng.common.model.response.QueryResponseResult;
 import com.xuecheng.common.model.response.ResponseResult;
+import com.xuecheng.model.domain.course.CourseBase;
+import com.xuecheng.model.domain.course.CourseMarket;
 import com.xuecheng.model.domain.course.Teachplan;
 import com.xuecheng.model.domain.course.ext.TeachplanNode;
 import com.xuecheng.model.domain.course.request.CourseListRequest;
+import com.xuecheng.model.domain.course.response.AddCourseResult;
 
 /**
  * @author: HuangMuChen
@@ -39,4 +42,46 @@ public interface ICourseService {
      * @return
      */
     ResponseResult addTeachplan(Teachplan teachplan);
+
+    /**
+     * 添加课程基础信息
+     *
+     * @param courseBase
+     * @return
+     */
+    AddCourseResult addCourseBase(CourseBase courseBase);
+
+    /**
+     * 查询课程基础信息
+     *
+     * @param courseId
+     * @return
+     */
+    CourseBase getCourseBaseById(String courseId);
+
+    /**
+     * 更新课程基础信息
+     *
+     * @param courseId
+     * @param courseBase
+     * @return
+     */
+    ResponseResult updateCoursebase(String courseId, CourseBase courseBase);
+
+    /**
+     * 查询课程营销信息
+     *
+     * @param id
+     * @return
+     */
+    CourseMarket getCourseMarketById(String id);
+
+    /**
+     * 更新课程营销信息
+     *
+     * @param id
+     * @param courseMarket
+     * @return
+     */
+    ResponseResult updateCourseMarket(String id, CourseMarket courseMarket);
 }

@@ -2,9 +2,12 @@ package com.xuecheng.api.course;
 
 import com.xuecheng.common.model.response.QueryResponseResult;
 import com.xuecheng.common.model.response.ResponseResult;
+import com.xuecheng.model.domain.course.CourseBase;
+import com.xuecheng.model.domain.course.CourseMarket;
 import com.xuecheng.model.domain.course.Teachplan;
 import com.xuecheng.model.domain.course.ext.TeachplanNode;
 import com.xuecheng.model.domain.course.request.CourseListRequest;
+import com.xuecheng.model.domain.course.response.AddCourseResult;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -52,4 +55,55 @@ public interface CourseControllerApi {
      */
     @ApiOperation("添加课程计划")
     ResponseResult addTeachplan(Teachplan teachplan);
+
+    /**
+     * 添加课程基础信息
+     *
+     * @param courseBase
+     * @return
+     */
+    @ApiOperation("添加课程基础信息")
+    AddCourseResult addCourseBase(CourseBase courseBase);
+
+    /**
+     * 查询课程基础信息
+     *
+     * @param courseId
+     * @return
+     */
+    @ApiOperation("查询课程基础信息")
+    @ApiImplicitParam(name = "courseId", value = "课程id", required = true, paramType = "path", dataType = "String")
+    CourseBase getCourseBaseById(String courseId);
+
+    /**
+     * 更新课程基础信息
+     *
+     * @param courseId
+     * @param courseBase
+     * @return
+     */
+    @ApiOperation("更新课程基础信息")
+    @ApiImplicitParam(name = "courseId", value = "课程id", required = true, paramType = "path", dataType = "String")
+    ResponseResult updateCourseBase(String courseId, CourseBase courseBase);
+
+    /**
+     * 查询课程营销信息
+     *
+     * @param id
+     * @return
+     */
+    @ApiOperation("查询课程营销信息")
+    @ApiImplicitParam(name = "id", value = "课程营销id", required = true, paramType = "path", dataType = "String")
+    CourseMarket getCourseMarketById(String id);
+
+    /**
+     * 更新课程营销信息
+     *
+     * @param id
+     * @param courseMarket
+     * @return
+     */
+    @ApiOperation("更新课程营销信息")
+    @ApiImplicitParam(name = "id", value = "课程营销id", required = true, paramType = "path", dataType = "String")
+    ResponseResult updateCourseMarket(String id, CourseMarket courseMarket);
 }
