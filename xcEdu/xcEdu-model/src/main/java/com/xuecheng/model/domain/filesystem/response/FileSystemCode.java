@@ -9,11 +9,13 @@ import lombok.ToString;
  * @author: HuangMuChen
  * @date: 2019/9/18 11:32
  * @version: V1.0
- * @Description: TODO
+ * @Description: 文件系统状态码
  */
 @ToString
 @AllArgsConstructor
 public enum FileSystemCode implements ResultCode {
+    FS_ILLEGAL_FILE_CONTENT(false,25010, "文件内容不合法"),
+    FS_INVALID_FILE_TYPE(false,25009, "无效的文件类型"),
     FS_UPLOADFILE_FILEISNULL(false, 25001, "上传文件为空！"),
     FS_UPLOADFILE_BUSINESSISNULL(false, 25002, "业务Id为空！"),
     FS_UPLOADFILE_SERVERFAIL(false, 25003, "上传文件服务器失败！"),

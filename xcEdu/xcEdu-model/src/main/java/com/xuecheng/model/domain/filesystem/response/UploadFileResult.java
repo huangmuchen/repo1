@@ -11,7 +11,7 @@ import lombok.ToString;
  * @author: HuangMuChen
  * @date: 2019/9/18 11:32
  * @version: V1.0
- * @Description: TODO
+ * @Description: 响应文件上传结果
  */
 @Data
 @ToString

@@ -9,7 +9,7 @@ import io.swagger.annotations.ApiOperation;
  * @author: HuangMuChen
  * @date: 2020/6/10 21:14
  * @version: V1.0
- * @Description: 和CmsConfig相关的对外暴露的接口：在CMS服务工程编写Controller类实现此接口
+ * @Description: CmsConfig相关的对外暴露的接口：在CMS服务工程编写Controller类实现此接口
  */
 @Api(value = "cms配置管理接口", description = "cms配置管理接口，提供数据模型的增、删、改、查", tags = "CmsConfigApi")
 public interface CmsConfigControllerApi {

@@ -9,7 +9,7 @@ import io.swagger.annotations.ApiOperation;
  * @author: HuangMuChen
  * @date: 2020/6/22 13:17
  * @version: V1.0
- * @Description: 和SysDictionary相关的对外暴露的接口：在CMS服务工程编写Controller类实现此接口
+ * @Description: SysDictionary相关的对外暴露的接口：在CMS服务工程编写Controller类实现此接口
  */
 @Api(value = "数据字典接口", description = "提供数据字典接口的管理、查询功能", tags = "SysDictionaryApi")
 public interface SysDictionaryControllerApi {

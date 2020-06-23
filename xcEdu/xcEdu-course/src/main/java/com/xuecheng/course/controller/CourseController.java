@@ -6,6 +6,7 @@ import com.xuecheng.common.model.response.ResponseResult;
 import com.xuecheng.course.service.ICourseService;
 import com.xuecheng.model.domain.course.CourseBase;
 import com.xuecheng.model.domain.course.CourseMarket;
+import com.xuecheng.model.domain.course.CoursePic;
 import com.xuecheng.model.domain.course.Teachplan;
 import com.xuecheng.model.domain.course.ext.TeachplanNode;
 import com.xuecheng.model.domain.course.request.CourseListRequest;
@@ -131,5 +132,45 @@ public class CourseController implements CourseControllerApi {
     public ResponseResult updateCourseMarket(@PathVariable("id") String id, @RequestBody CourseMarket courseMarket) {
         // 调用service层进行更新
         return this.courseService.updateCourseMarket(id, courseMarket);
+    }
+
+    /**
+     * 添加课程图片
+     *
+     * @param courseId
+     * @param pic
+     * @return
+     */
+    @Override
+    @PostMapping("/coursepic/add")
+    public ResponseResult addCoursePic(@RequestParam("courseId") String courseId, @RequestParam("pic") String pic) {
+        // 调用service层进行添加
+        return this.courseService.addCoursePic(courseId, pic);
+    }
+
+    /**
+     * 查询课程图片
+     *
+     * @param courseId
+     * @return
+     */
+    @Override
+    @GetMapping("/coursepic/list/{courseId}")
+    public CoursePic findCoursePic(@PathVariable("courseId") String courseId) {
+        // 调用service层进行查询
+        return this.courseService.findCoursePic(courseId);
+    }
+
+    /**
+     * 删除课程图片
+     *
+     * @param courseId
+     * @return
+     */
+    @Override
+    @DeleteMapping("/coursepic/delete/{courseId}")
+    public ResponseResult deleteCoursePic(@PathVariable("courseId") String courseId) {
+        // 调用service层进行删除
+        return this.courseService.deleteCoursePic(courseId);
     }
 }

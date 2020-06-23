@@ -4,6 +4,7 @@ import com.xuecheng.common.model.response.QueryResponseResult;
 import com.xuecheng.common.model.response.ResponseResult;
 import com.xuecheng.model.domain.course.CourseBase;
 import com.xuecheng.model.domain.course.CourseMarket;
+import com.xuecheng.model.domain.course.CoursePic;
 import com.xuecheng.model.domain.course.Teachplan;
 import com.xuecheng.model.domain.course.ext.TeachplanNode;
 import com.xuecheng.model.domain.course.request.CourseListRequest;
@@ -106,4 +107,38 @@ public interface CourseControllerApi {
     @ApiOperation("更新课程营销信息")
     @ApiImplicitParam(name = "id", value = "课程营销id", required = true, paramType = "path", dataType = "String")
     ResponseResult updateCourseMarket(String id, CourseMarket courseMarket);
+
+    /**
+     * 添加课程图片
+     *
+     * @param courseId
+     * @param pic
+     * @return
+     */
+    @ApiOperation("添加课程图片")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "courseId", value = "课程id", required = true, paramType = "path", dataType = "String"),
+            @ApiImplicitParam(name = "pic", value = "图片id", required = true, paramType = "path", dataType = "String")
+    })
+    ResponseResult addCoursePic(String courseId, String pic);
+
+    /**
+     * 查询课程图片
+     *
+     * @param courseId
+     * @return
+     */
+    @ApiOperation("查询课程图片")
+    @ApiImplicitParam(name = "courseId", value = "课程id", required = true, paramType = "path", dataType = "String")
+    CoursePic findCoursePic(String courseId);
+
+    /**
+     * 删除课程图片
+     *
+     * @param courseId
+     * @return
+     */
+    @ApiOperation("删除课程图片")
+    @ApiImplicitParam(name = "courseId", value = "课程id", required = true, paramType = "path", dataType = "String")
+    ResponseResult deleteCoursePic(String courseId);
 }

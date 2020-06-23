@@ -9,7 +9,7 @@ import lombok.ToString;
  * @author: HuangMuChen
  * @date: 2019/9/18 11:32
  * @version: V1.0
- * @Description: 新增课程响应结果
+ * @Description: 响应新增课程结果
  */
 @Data
 @ToString

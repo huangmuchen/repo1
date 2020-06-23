@@ -1,0 +1,46 @@
+server:
+  port: 22100
+spring:
+  application:
+    name: xcEdu-filesystem
+  #mongo配置
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017
+      database: xc_fs
+  #SpringMVC上传文件配置
+  servlet:
+    multipart:
+      #默认支持文件上传.
+      enabled: true
+      #支持文件写入磁盘.
+      file-size-threshold: 0
+      # 上传文件的临时目录
+      location:
+      # 最大支持文件大小
+      max-file-size: 5MB
+      # 最大支持请求大小
+      max-request-size: 30MB
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:50101/eureka,http://localhost:50102/eureka/
+    registry-fetch-interval-seconds: 5 # 拉取服务注册信息的间隔时间，单位s，默认为30秒
+  instance:
+    lease-renewal-interval-in-seconds: 5 # 5秒钟发送一次心跳
+    lease-expiration-duration-in-seconds: 10 # 10秒不发送就过期
+    prefer-ip-address: true # 当调用getHostname获取实例的hostname时，返回ip而不是host名称
+    ip-address: 127.0.0.1 # 指定自己的ip信息，不指定的话会自己寻找
+    instance-id: ${spring.application.name}:${server.port}
+fdfs:
+  so-timeout: 1501
+  connect-timeout: 601
+  tracker-list: # tracker地址
+    - 192.168.222.131:22122
+xuecheng:
+  upload:
+    suffixes: # 支持的上传文件类型
+      - image/jpeg
+      - image/png
+      - image/bmp
+      - image/jpg

@@ -17,6 +17,7 @@
         <module>xcEdu-gateway</module>
         <module>xcEdu-cms-client</module>
         <module>xcEdu-course</module>
+        <module>xcEdu-filesystem</module>
     </modules>
     <packaging>pom</packaging>
     <name>xcEdu</name>
@@ -51,7 +52,7 @@
         <lombok.version>1.16.20</lombok.version>
         <springfox-swagger.version>2.8.0</springfox-swagger.version>
         <fastjson.version>1.2.30</fastjson.version>
-        <fastdfs-client-java.version>1.27.0.0</fastdfs-client-java.version>
+        <fastdfs-client-java.version>1.26.1-RELEASE</fastdfs-client-java.version>
         <mysql-connector-java.version>5.1.40</mysql-connector-java.version>
         <guava.version>24.0-jre</guava.version>
         <pageHelper.starter.version>1.2.4</pageHelper.starter.version>
@@ -158,8 +159,8 @@
             </dependency>
             <!-- FastDFS客户端 -->
             <dependency>
-                <groupId>net.oschina.zcx7878</groupId>
-                <artifactId>fastdfs-client-java</artifactId>
+                <groupId>com.github.tobato</groupId>
+                <artifactId>fastdfs-client</artifactId>
                 <version>${fastdfs-client-java.version}</version>
             </dependency>
             <!--elasticsearch-->

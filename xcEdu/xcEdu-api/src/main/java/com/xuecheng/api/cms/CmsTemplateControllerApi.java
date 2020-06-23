@@ -16,7 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
  * @author: HuangMuChen
  * @date: 2020/6/6 23:48
  * @version: V1.0
- * @Description: 和CmsTemplate相关的对外暴露的接口：在CMS服务工程编写Controller类实现此接口
+ * @Description: CmsTemplate相关的对外暴露的接口：在CMS服务工程编写Controller类实现此接口
  */
 @Api(value = "cms模板管理接口", description = "cms模板管理接口，提供模板的增、删、改、查", tags = "CmsTemplateApi")
 public interface CmsTemplateControllerApi {

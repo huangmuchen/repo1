@@ -10,7 +10,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3637ca18-00b3-47fa-8770-412f4aca64b0" name="Default Changelist" comment="完成课程计划功能开发">
+    <list default="true" id="3637ca18-00b3-47fa-8770-412f4aca64b0" name="Default Changelist" comment="完成课程营销功能开发">
       <change afterPath="$PROJECT_DIR$/../freemarker-demo/.idea/.gitignore" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../freemarker-demo/.idea/compiler.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../freemarker-demo/.idea/encodings.xml" afterDir="false" />
@@ -246,32 +246,39 @@
       <change afterPath="$PROJECT_DIR$/../rabbitmq-demo/src/main/java/cn/muchen/rabbitmq/work/Send.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../rabbitmq-demo/src/main/resources/application.yml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../rabbitmq-demo/src/test/java/cn/muchen/rabbitmq/spring/MqDemo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xcEdu-api/src/main/java/com/xuecheng/api/cms/SysDictionaryControllerApi.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xcEdu-cms/src/main/java/com/xuecheng/cms/controller/SysDictionaryController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xcEdu-cms/src/main/java/com/xuecheng/cms/dao/SysDictionaryRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xcEdu-cms/src/main/java/com/xuecheng/cms/service/ISysDictionaryService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xcEdu-cms/src/main/java/com/xuecheng/cms/service/impl/SysDictionaryServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xcEdu-course/src/main/java/com/xuecheng/course/dao/repository/CourseMarketRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations/FileSystemApplication.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xcEdu-api/src/main/java/com/xuecheng/api/filesystem/FileSystemControllerApi.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xcEdu-filesystem/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xcEdu-filesystem/src/main/java/com/xuecheng/FileSystemApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xcEdu-filesystem/src/main/java/com/xuecheng/filesystem/config/FastClientImporter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xcEdu-filesystem/src/main/java/com/xuecheng/filesystem/config/UploadProperties.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xcEdu-filesystem/src/main/java/com/xuecheng/filesystem/controller/FileSystemController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xcEdu-filesystem/src/main/java/com/xuecheng/filesystem/dao/FileSystemRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xcEdu-filesystem/src/main/java/com/xuecheng/filesystem/service/IFileSystemService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xcEdu-filesystem/src/main/java/com/xuecheng/filesystem/service/impl/FileSystemServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xcEdu-filesystem/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xcEdu-filesystem/src/main/resources/logback-spring.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xcEdu-api/src/main/java/com/xuecheng/api/cms/CmsConfigControllerApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-api/src/main/java/com/xuecheng/api/cms/CmsConfigControllerApi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xcEdu-api/src/main/java/com/xuecheng/api/cms/CmsPageControllerApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-api/src/main/java/com/xuecheng/api/cms/CmsPageControllerApi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xcEdu-api/src/main/java/com/xuecheng/api/cms/CmsSiteControllerApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-api/src/main/java/com/xuecheng/api/cms/CmsSiteControllerApi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xcEdu-api/src/main/java/com/xuecheng/api/cms/CmsTemplateControllerApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-api/src/main/java/com/xuecheng/api/cms/CmsTemplateControllerApi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xcEdu-api/src/main/java/com/xuecheng/api/cms/SysDictionaryControllerApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-api/src/main/java/com/xuecheng/api/cms/SysDictionaryControllerApi.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/xcEdu-api/src/main/java/com/xuecheng/api/course/CourseControllerApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-api/src/main/java/com/xuecheng/api/course/CourseControllerApi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xcEdu-cms/src/main/java/com/xuecheng/cms/service/impl/CmsPageServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-cms/src/main/java/com/xuecheng/cms/service/impl/CmsPageServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xcEdu-common/src/main/java/com/xuecheng/common/client/XcServiceList.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-common/src/main/java/com/xuecheng/common/client/XcServiceList.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/xcEdu-course/src/main/java/com/xuecheng/course/controller/CourseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-course/src/main/java/com/xuecheng/course/controller/CourseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xcEdu-course/src/main/java/com/xuecheng/course/dao/repository/CoursePicRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-course/src/main/java/com/xuecheng/course/dao/repository/CoursePicRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/xcEdu-course/src/main/java/com/xuecheng/course/service/ICourseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-course/src/main/java/com/xuecheng/course/service/ICourseService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/xcEdu-course/src/main/java/com/xuecheng/course/service/impl/CourseServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-course/src/main/java/com/xuecheng/course/service/impl/CourseServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xcEdu-course/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-course/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/course/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/course/Category.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/course/CourseBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/course/CourseBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/course/CourseIndex.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/course/CourseIndex.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/course/CourseMarket.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/course/CourseMarket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/course/CourseOff.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/course/CourseOff.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/course/CoursePic.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/course/CoursePic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/course/CoursePre.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/course/CoursePre.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/course/CoursePub.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/course/CoursePub.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/course/TeachplanMedia.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/course/TeachplanMedia.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xcEdu-gateway/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-gateway/src/main/resources/application.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/course/response/AddCourseResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/course/response/AddCourseResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/course/response/CourseCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/course/response/CourseCode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/system/SysDictionary.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/system/SysDictionary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/system/SysDictionaryValue.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/system/SysDictionaryValue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/course/response/DeleteCourseResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/course/response/DeleteCourseResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/filesystem/FileSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/filesystem/FileSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/filesystem/response/FileSystemCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/filesystem/response/FileSystemCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/filesystem/response/UploadFileResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/filesystem/response/UploadFileResult.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -293,8 +300,8 @@
         <option value="JUnit5 Test Class" />
         <option value="FxmlFile" />
         <option value="JUnit3 Test Class" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -342,7 +349,7 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/xcEdu-cms/src/main/java/com/xuecheng" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/xcEdu-course/src/main/java/com/xuecheng/course/dao/repository" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/xcEdu-filesystem/src/main/resources" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -358,19 +365,20 @@
       <recent name="com.xuecheng.cms.service.impl" />
       <recent name="com.xuecheng.cms.dao" />
     </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.xuecheng.client.config" />
-    </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="junit.framework.TestCase" />
       <recent name="" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.xuecheng.filesystem.config" />
+      <recent name="com.xuecheng.client.config" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\IdeaProjects\xcEdu\xcEdu-filesystem\src\main\resources" />
       <recent name="D:\IdeaProjects\xcEdu\xcEdu-course\src\main\java\com\xuecheng\course\dao\repository" />
       <recent name="D:\IdeaProjects\xcEdu\xcEdu-common\src\main\java\com\xuecheng\common\constant" />
       <recent name="D:\IdeaProjects\xcEdu\xcEdu-cms-client\src\main\java\com\xuecheng" />
       <recent name="D:\IdeaProjects\xcEdu\xcEdu-course\src\main\resources" />
-      <recent name="D:\IdeaProjects\xcEdu\xcEdu-cms-client\src\main\java\com\xuecheng\client\dao" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -380,14 +388,20 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.CmsClientApplication">
+  <component name="RunManager" selected="Spring Boot.FileSystemApplication">
     <list>
       <item itemvalue="Spring Boot.CmsClientApplication" />
       <item itemvalue="Spring Boot.GatewayApplication" />
       <item itemvalue="Spring Boot.CmsApplication" />
       <item itemvalue="Spring Boot.RegistryApplication" />
       <item itemvalue="Spring Boot.CourseApplication" />
+      <item itemvalue="Spring Boot.FileSystemApplication" />
     </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.FileSystemApplication" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpringBootOptions">
     <option name="showAdditionalConfigNotification" value="false" />
@@ -434,7 +448,9 @@
       <workItem from="1592539468164" duration="4723000" />
       <workItem from="1592565343616" duration="12396000" />
       <workItem from="1592617804649" duration="58990000" />
-      <workItem from="1592800897770" duration="21998000" />
+      <workItem from="1592800897770" duration="22081000" />
+      <workItem from="1592842741859" duration="2844000" />
+      <workItem from="1592871862971" duration="30268000" />
     </task>
     <task id="LOCAL-00001" summary="搭建学成在线基础工程">
       <created>1590256307928</created>
@@ -527,7 +543,14 @@
       <option name="project" value="LOCAL" />
       <updated>1592763906040</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="完成课程营销功能开发">
+      <created>1592839891417</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1592839891417</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -557,7 +580,8 @@
     <MESSAGE value="完成课程管理工程搭建" />
     <MESSAGE value="完成查询我的课程功能开发" />
     <MESSAGE value="完成课程计划功能开发" />
-    <option name="LAST_COMMIT_MESSAGE" value="完成课程计划功能开发" />
+    <MESSAGE value="完成课程营销功能开发" />
+    <option name="LAST_COMMIT_MESSAGE" value="完成课程营销功能开发" />
   </component>
   <component name="WindowStateProjectService">
     <state x="582" y="252" width="455" height="223" key="#Assign_Data_Sources" timestamp="1592469982358">
@@ -576,6 +600,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="313" y="0" width="753" height="728" key="#CourseApplication/0.0.1366.728@0.0.1366.728" timestamp="1592377280310" />
+    <state x="613" y="0" width="753" height="728" key="#FileSystemApplication" timestamp="1592873481226">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="613" y="0" width="753" height="728" key="#FileSystemApplication/0.0.1366.728@0.0.1366.728" timestamp="1592873481226" />
     <state x="313" y="0" width="753" height="728" key="#GatewayApplication" timestamp="1591685902180">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -604,10 +632,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="137" y="18" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1592490273874" />
-    <state x="788" y="107" key="#com.intellij.ide.util.MemberChooser" timestamp="1592834419064">
+    <state x="788" y="107" key="#com.intellij.ide.util.MemberChooser" timestamp="1592916441835">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="788" y="107" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1592834419064" />
+    <state x="788" y="107" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1592916441835" />
     <state x="269" y="286" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1592581107014">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -620,38 +648,38 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="485" y="118" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1592469454363" />
-    <state width="1002" height="264" key="GridCell.Tab.0.bottom" timestamp="1592837366241">
+    <state width="1002" height="322" key="GridCell.Tab.0.bottom" timestamp="1592917083245">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1002" height="264" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1592837366241" />
-    <state width="1002" height="264" key="GridCell.Tab.0.center" timestamp="1592837366240">
+    <state width="1002" height="322" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1592917083245" />
+    <state width="1002" height="322" key="GridCell.Tab.0.center" timestamp="1592917083245">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1002" height="264" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1592837366240" />
-    <state width="1002" height="264" key="GridCell.Tab.0.left" timestamp="1592837366240">
+    <state width="1002" height="322" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1592917083245" />
+    <state width="1002" height="322" key="GridCell.Tab.0.left" timestamp="1592917083244">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1002" height="264" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1592837366240" />
-    <state width="1002" height="264" key="GridCell.Tab.0.right" timestamp="1592837366241">
+    <state width="1002" height="322" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1592917083244" />
+    <state width="1002" height="322" key="GridCell.Tab.0.right" timestamp="1592917083245">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1002" height="264" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1592837366241" />
-    <state width="1002" height="264" key="GridCell.Tab.1.bottom" timestamp="1592837366241">
+    <state width="1002" height="322" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1592917083245" />
+    <state width="1002" height="322" key="GridCell.Tab.1.bottom" timestamp="1592917083245">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1002" height="264" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1592837366241" />
-    <state width="1002" height="264" key="GridCell.Tab.1.center" timestamp="1592837366241">
+    <state width="1002" height="322" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1592917083245" />
+    <state width="1002" height="322" key="GridCell.Tab.1.center" timestamp="1592917083245">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1002" height="264" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1592837366241" />
-    <state width="1002" height="264" key="GridCell.Tab.1.left" timestamp="1592837366241">
+    <state width="1002" height="322" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1592917083245" />
+    <state width="1002" height="322" key="GridCell.Tab.1.left" timestamp="1592917083245">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1002" height="264" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1592837366241" />
-    <state width="1002" height="264" key="GridCell.Tab.1.right" timestamp="1592837366241">
+    <state width="1002" height="322" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1592917083245" />
+    <state width="1002" height="322" key="GridCell.Tab.1.right" timestamp="1592917083245">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1002" height="264" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1592837366241" />
+    <state width="1002" height="322" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1592917083245" />
     <state width="1002" height="169" key="GridCell.Tab.2.bottom" timestamp="1592812186502">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -676,10 +704,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="184" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1592811901321" />
-    <state x="275" y="96" key="Vcs.Push.Dialog.v2" timestamp="1592763914255">
+    <state x="275" y="96" key="Vcs.Push.Dialog.v2" timestamp="1592839902676">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="96" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1592763914255" />
+    <state x="275" y="96" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1592839902676" />
     <state x="482" y="140" key="chooseDestDirectoryDialog" timestamp="1591685775832">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -688,10 +716,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="401" y="104" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.1366.728@0.0.1366.728" timestamp="1592487116450" />
-    <state x="107" y="37" width="1259" height="691" key="new project wizard" timestamp="1592358058822">
+    <state x="46" y="16" width="1259" height="691" key="new project wizard" timestamp="1592880560059">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="107" y="37" width="1259" height="691" key="new project wizard/0.0.1366.728@0.0.1366.728" timestamp="1592358058822" />
+    <state x="46" y="16" width="1259" height="691" key="new project wizard/0.0.1366.728@0.0.1366.728" timestamp="1592880560059" />
     <state x="339" y="157" key="run.anything.popup" timestamp="1592755132615">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

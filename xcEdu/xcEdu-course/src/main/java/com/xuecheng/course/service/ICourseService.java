@@ -4,6 +4,7 @@ import com.xuecheng.common.model.response.QueryResponseResult;
 import com.xuecheng.common.model.response.ResponseResult;
 import com.xuecheng.model.domain.course.CourseBase;
 import com.xuecheng.model.domain.course.CourseMarket;
+import com.xuecheng.model.domain.course.CoursePic;
 import com.xuecheng.model.domain.course.Teachplan;
 import com.xuecheng.model.domain.course.ext.TeachplanNode;
 import com.xuecheng.model.domain.course.request.CourseListRequest;
@@ -84,4 +85,29 @@ public interface ICourseService {
      * @return
      */
     ResponseResult updateCourseMarket(String id, CourseMarket courseMarket);
+
+    /**
+     * 添加课程图片
+     *
+     * @param courseId
+     * @param pic
+     * @return
+     */
+    ResponseResult addCoursePic(String courseId, String pic);
+
+    /**
+     * 查询课程图片
+     *
+     * @param courseId
+     * @return
+     */
+    CoursePic findCoursePic(String courseId);
+
+    /**
+     * 删除课程图片
+     *
+     * @param courseId
+     * @return
+     */
+    ResponseResult deleteCoursePic(String courseId);
 }

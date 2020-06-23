@@ -16,6 +16,7 @@ import com.xuecheng.course.dao.repository.TeachplanRepository;
 import com.xuecheng.course.service.ICourseService;
 import com.xuecheng.model.domain.course.CourseBase;
 import com.xuecheng.model.domain.course.CourseMarket;
+import com.xuecheng.model.domain.course.CoursePic;
 import com.xuecheng.model.domain.course.Teachplan;
 import com.xuecheng.model.domain.course.ext.CourseInfo;
 import com.xuecheng.model.domain.course.ext.TeachplanNode;
@@ -270,6 +271,62 @@ public class CourseServiceImpl implements ICourseService {
         } catch (Exception e) {
             throw new CustomException(CourseCode.COURSE_MARKET_UPDATE_ERROR);
         }
+    }
+
+    /**
+     * 添加课程图片
+     *
+     * @param courseId
+     * @param pic
+     * @return
+     */
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public ResponseResult addCoursePic(String courseId, String pic) {
+        CoursePic coursePic;
+        // 需保证每门课程只有一张图片
+        Optional<CoursePic> optional = this.coursePicRepository.findById(courseId);
+        // 判断是更新还是新建
+        coursePic = optional.orElseGet(CoursePic::new);
+        // 封装数据
+        coursePic.setCourseid(courseId);
+        coursePic.setPic(pic);
+        // 调动dao进行保存
+        this.coursePicRepository.save(coursePic);
+        // 返回保存成功结果
+        return ResponseResult.SUCCESS();
+    }
+
+    /**
+     * 查询课程图片
+     *
+     * @param courseId
+     * @return
+     */
+    @Override
+    public CoursePic findCoursePic(String courseId) {
+        // 调用dao层进行查询
+        Optional<CoursePic> optional = this.coursePicRepository.findById(courseId);
+        // 返回查询结果
+        return optional.orElse(null);
+    }
+
+    /**
+     * 删除课程图片
+     *
+     * @param courseId
+     * @return
+     */
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public ResponseResult deleteCoursePic(String courseId) {
+        // 执行删除，返回1表示删除成功，返回0表示删除失败
+        long result = this.coursePicRepository.deleteByCourseid(courseId);
+        // 校验删除结果
+        if (result > 0) {
+            return ResponseResult.SUCCESS();
+        }
+        return ResponseResult.FAIL();
     }
 
     /**
