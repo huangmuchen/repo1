@@ -80,4 +80,12 @@ public interface ICmsPageService {
      * @return 撤销结果
      */
     ResponseResult rollBack(String pageId);
+
+    /**
+     * 添加Page（课程详情页），提供给课程服务调用，如果已经有了则更新
+     *
+     * @param cmsPage
+     * @return
+     */
+    CmsPageResult saveCoursePage(CmsPage cmsPage);
 }

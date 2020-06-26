@@ -109,4 +109,17 @@ public class CmsPageController implements CmsPageControllerApi {
     public ResponseResult rollBack(@PathVariable("pageId") String pageId) {
         return this.cmsPageService.rollBack(pageId);
     }
+
+    /**
+     * 添加Page（课程详情页），提供给课程服务调用，如果已经有了则更新
+     *
+     * @param cmsPage
+     * @return
+     */
+    @Override
+    @PostMapping("/save")
+    public CmsPageResult saveCoursePage(@RequestBody CmsPage cmsPage) {
+        // 调用service层进行添加或更新
+        return this.cmsPageService.saveCoursePage(cmsPage);
+    }
 }

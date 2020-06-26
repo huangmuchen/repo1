@@ -6,6 +6,7 @@ import com.xuecheng.model.domain.course.CourseBase;
 import com.xuecheng.model.domain.course.CourseMarket;
 import com.xuecheng.model.domain.course.CoursePic;
 import com.xuecheng.model.domain.course.Teachplan;
+import com.xuecheng.model.domain.course.ext.CourseView;
 import com.xuecheng.model.domain.course.ext.TeachplanNode;
 import com.xuecheng.model.domain.course.request.CourseListRequest;
 import com.xuecheng.model.domain.course.response.AddCourseResult;
@@ -20,7 +21,7 @@ import io.swagger.annotations.ApiOperation;
  * @version: V1.0
  * @Description: Course(课程)管理相关的对外暴露的接口：在Course服务工程编写Controller类实现此接口
  */
-@Api(value = "course管理接口", description = "course管理接口，提供课程的查询、新增、修改、营销、计划", tags = "CourseApi")
+@Api(value = "课程管理接口", description = "课程管理接口，提供课程的查询、新增、修改、营销、计划", tags = "CourseApi")
 public interface CourseControllerApi {
 
     /**
@@ -141,4 +142,14 @@ public interface CourseControllerApi {
     @ApiOperation("删除课程图片")
     @ApiImplicitParam(name = "courseId", value = "课程id", required = true, paramType = "path", dataType = "String")
     ResponseResult deleteCoursePic(String courseId);
+
+    /**
+     * 课程数据模型查询
+     *
+     * @param courseId
+     * @return
+     */
+    @ApiOperation("课程视图查询")
+    @ApiImplicitParam(name = "courseId", value = "课程id", required = true, paramType = "path", dataType = "String")
+    CourseView getCourseView(String courseId);
 }

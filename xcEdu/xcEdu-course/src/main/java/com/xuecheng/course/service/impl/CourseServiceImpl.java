@@ -19,6 +19,7 @@ import com.xuecheng.model.domain.course.CourseMarket;
 import com.xuecheng.model.domain.course.CoursePic;
 import com.xuecheng.model.domain.course.Teachplan;
 import com.xuecheng.model.domain.course.ext.CourseInfo;
+import com.xuecheng.model.domain.course.ext.CourseView;
 import com.xuecheng.model.domain.course.ext.TeachplanNode;
 import com.xuecheng.model.domain.course.request.CourseListRequest;
 import com.xuecheng.model.domain.course.response.AddCourseResult;
@@ -327,6 +328,33 @@ public class CourseServiceImpl implements ICourseService {
             return ResponseResult.SUCCESS();
         }
         return ResponseResult.FAIL();
+    }
+
+    /**
+     * 课程数据模型查询
+     *
+     * @param courseId
+     * @return
+     */
+    @Override
+    public CourseView getCourseView(String courseId) {
+        // 查询课程基础信息
+        Optional<CourseBase> courseBaseOptional = this.courseBaseRepository.findById(courseId);
+        // 查询课程营销信息
+        Optional<CourseMarket> courseMarketOptional = this.courseMarketRepository.findById(courseId);
+        // 查询课程图片信息
+        Optional<CoursePic> coursePicOptional = this.coursePicRepository.findById(courseId);
+        // 查询教学计划信息
+        TeachplanNode teachplanNode = this.courseMapper.findTeachplanList(courseId);
+        // 创建响应结果对象
+        CourseView courseView = new CourseView();
+        // 封装数据
+        courseView.setCourseBase(courseBaseOptional.orElse(null));
+        courseView.setCourseMarket(courseMarketOptional.orElse(null));
+        courseView.setCoursePic(coursePicOptional.orElse(null));
+        courseView.setTeachplanNode(teachplanNode);
+        // 返回封装结果
+        return courseView;
     }
 
     /**

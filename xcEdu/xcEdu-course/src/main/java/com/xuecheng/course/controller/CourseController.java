@@ -8,6 +8,7 @@ import com.xuecheng.model.domain.course.CourseBase;
 import com.xuecheng.model.domain.course.CourseMarket;
 import com.xuecheng.model.domain.course.CoursePic;
 import com.xuecheng.model.domain.course.Teachplan;
+import com.xuecheng.model.domain.course.ext.CourseView;
 import com.xuecheng.model.domain.course.ext.TeachplanNode;
 import com.xuecheng.model.domain.course.request.CourseListRequest;
 import com.xuecheng.model.domain.course.response.AddCourseResult;
@@ -87,7 +88,7 @@ public class CourseController implements CourseControllerApi {
      * @return
      */
     @Override
-    @GetMapping("/courseview/get/{courseId}")
+    @GetMapping("/coursebase/get/{courseId}")
     public CourseBase getCourseBaseById(@PathVariable("courseId") String courseId) {
         // 调用service层进行查询
         return this.courseService.getCourseBaseById(courseId);
@@ -172,5 +173,18 @@ public class CourseController implements CourseControllerApi {
     public ResponseResult deleteCoursePic(@PathVariable("courseId") String courseId) {
         // 调用service层进行删除
         return this.courseService.deleteCoursePic(courseId);
+    }
+
+    /**
+     * 课程数据模型查询
+     *
+     * @param courseId
+     * @return
+     */
+    @Override
+    @GetMapping("/courseview/{courseId}")
+    public CourseView getCourseView(@PathVariable("courseId") String courseId) {
+        // 调用service层进行查询
+        return this.courseService.getCourseView(courseId);
     }
 }

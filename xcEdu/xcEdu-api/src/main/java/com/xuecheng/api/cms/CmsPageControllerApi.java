@@ -102,4 +102,13 @@ public interface CmsPageControllerApi {
             @ApiResponse(code = 11111, message = "操作失败")
     })
     ResponseResult rollBack(String pageId);
+
+    /**
+     * 添加Page（课程详情页），提供给课程服务调用，如果已经有了则更新
+     *
+     * @param cmsPage
+     * @return
+     */
+    @ApiOperation("添加Page，提供给课程服务调用，如果已经有了则更新")
+    CmsPageResult saveCoursePage(CmsPage cmsPage);
 }

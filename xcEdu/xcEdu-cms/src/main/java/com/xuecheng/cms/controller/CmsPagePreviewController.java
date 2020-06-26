@@ -38,6 +38,8 @@ public class CmsPagePreviewController extends BaseController {
         try {
             // 调用service层获取静态化页面
             String html = this.cmsPageService.preview(pageId);
+            // 必须设置请求头为html, nginx才能解析ssi，否则nginx不解析
+            response.setHeader("Content-type","text/html;charset=utf-8");
             // 将静态化页面响应给客户端
             response.getOutputStream().write(html.getBytes(StandardCharsets.UTF_8));
         } catch (Exception e) {

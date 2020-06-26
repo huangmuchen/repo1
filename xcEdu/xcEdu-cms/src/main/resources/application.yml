@@ -34,7 +34,7 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:50101/eureka,http://localhost:50102/eureka/
+      defaultZone: http://localhost:50101/eureka/,http://localhost:50102/eureka/
     registry-fetch-interval-seconds: 5 # 拉取服务注册信息的间隔时间，单位s，默认为30秒
   instance:
     lease-renewal-interval-in-seconds: 5 # 5秒钟发送一次心跳

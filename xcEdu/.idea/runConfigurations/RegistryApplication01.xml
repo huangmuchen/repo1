@@ -1,0 +1,17 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="RegistryApplication01" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+    <module name="xcEdu-registry" />
+    <extension name="coverage">
+      <pattern>
+        <option name="PATTERN" value="com.xuecheng.*" />
+        <option name="ENABLED" value="true" />
+      </pattern>
+    </extension>
+    <option name="SPRING_BOOT_MAIN_CLASS" value="com.xuecheng.RegistryApplication" />
+    <option name="VM_PARAMETERS" value="-DPORT=50101 -DEUREKA_SERVER=http://eureka02:50102/eureka/ -DEUREKA_DOMAIN=eureka01" />
+    <option name="ALTERNATIVE_JRE_PATH" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

@@ -4,6 +4,7 @@ import com.xuecheng.common.model.response.ResponseResult;
 import com.xuecheng.common.model.response.ResultCode;
 import com.xuecheng.model.domain.cms.CmsPage;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * @author: HuangMuChen
@@ -12,6 +13,7 @@ import lombok.Data;
  * @Description: cms页面添加/修改响应模型
  */
 @Data
+@NoArgsConstructor
 public class CmsPageResult extends ResponseResult {
     private CmsPage cmsPage;
 

@@ -7,7 +7,7 @@ eureka:
   client:
     registry-fetch-interval-seconds: 10 # 拉取服务的间隔时间，单位s
     service-url:
-      defaultZone: http://127.0.0.1:50101/eureka,http://localhost:50102/eureka/
+      defaultZone: http://127.0.0.1:50101/eureka/,http://localhost:50102/eureka/
   instance:
     preferIpAddress: true # 当调用getHostname获取实例的hostname时，返回ip而不是host名称
     ipAddress: 127.0.0.1 # 指定自己的ip信息，不指定的话会自己寻找

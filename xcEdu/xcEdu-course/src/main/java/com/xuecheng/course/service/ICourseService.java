@@ -6,6 +6,7 @@ import com.xuecheng.model.domain.course.CourseBase;
 import com.xuecheng.model.domain.course.CourseMarket;
 import com.xuecheng.model.domain.course.CoursePic;
 import com.xuecheng.model.domain.course.Teachplan;
+import com.xuecheng.model.domain.course.ext.CourseView;
 import com.xuecheng.model.domain.course.ext.TeachplanNode;
 import com.xuecheng.model.domain.course.request.CourseListRequest;
 import com.xuecheng.model.domain.course.response.AddCourseResult;
@@ -110,4 +111,12 @@ public interface ICourseService {
      * @return
      */
     ResponseResult deleteCoursePic(String courseId);
+
+    /**
+     * 课程数据模型查询
+     *
+     * @param courseId
+     * @return
+     */
+    CourseView getCourseView(String courseId);
 }

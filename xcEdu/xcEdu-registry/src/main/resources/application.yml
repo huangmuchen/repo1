@@ -1,17 +1,18 @@
 server:
-  port: 50101
+  port: ${PORT:50101} #服务端口
 spring:
   application:
-    name: xcEdu-registry
+    name: xcEdu-registry #指定服务名
 eureka:
   client:
-    service-url:
-      defaultZone: http://127.0.0.1:${server.port}/eureka
-    register-with-eureka: false # 把自己注册到eureka服务列表
-    fetch-registry: false # 拉取eureka服务信息
+    serviceUrl: #Eureka客户端与Eureka服务端的交互地址，高可用状态配置对方的地址，单机状态配置自己（如果不配置则默认本机8761端口）
+      defaultZone: ${EUREKA_SERVER:http://eureka02:50102/eureka/}
+    registerWithEureka: true #服务注册，是否将自己注册到Eureka服务中
+    fetchRegistry: true #服务发现，是否从Eureka中获取注册信息
   server:
-    enable-self-preservation: false # 关闭自我保护
-    eviction-interval-timer-in-ms: 6000 # 每隔6秒钟，进行一次服务列表的清理
+    enable-self-preservation: false #是否开启自我保护模式? --如果出现网络异常情况（微服务正常），Eureka server进入自保护模式，不再将微服务从服务列表删除。
+    eviction-interval-timer-in-ms: 6000 #服务注册表清理间隔（单位毫秒，默认是60*1000）,每隔6秒钟，进行一次服务列表的清理(在这个时间段内如果没有收到该结点的上报则将结点从服务列表中剔除)
   instance:
-    prefer-ip-address: true # 当调用getHostname获取实例的hostname时，返回ip而不是host名称
+    hostname: ${EUREKA_DOMAIN:eureka01}
+    prefer-ip-address: true # 当调用getHostname获取实例的hostname时，返回ip而不是host名称(将自己的ip地址注册到Eureka服务中)
     instance-id: ${spring.application.name}:${server.port}

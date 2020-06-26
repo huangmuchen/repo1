@@ -27,7 +27,7 @@ public class CmsPage {
     private String pageWebPath; // 访问地址
     private String pageParameter; // 参数
     private String pagePhysicalPath;  // 物理路径
-    private String pageType; // 类型（静态:"0"/动态:"1"）
+    private String pageType; // 类型（静态:"0" / 动态:"1"）
     private String pageTemplate; // 页面模版
     private String pageHtml; // 页面静态化内容
     private String pageStatus; // 状态

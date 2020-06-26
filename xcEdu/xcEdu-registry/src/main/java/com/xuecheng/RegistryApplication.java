@@ -10,7 +10,7 @@ import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
  * @version: V1.0
  * @Description: 注册中心启动器
  */
-@EnableEurekaServer
+@EnableEurekaServer // 标识这是一个Eureka服务
 @SpringBootApplication
 public class RegistryApplication {
     public static void main(String[] args) {

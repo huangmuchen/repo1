@@ -181,7 +181,7 @@ public class CmsPageServiceImpl implements ICmsPageService, ConfirmCallback, Ret
         cmsPage.setPageId(null);
         // 保存数据到mongodb
         try {
-            // 插入成功返回的对象就是插入的对象(缺主键值)
+            // 插入成功返回的对象就是插入的对象
             CmsPage save = this.cmsPageRepository.save(cmsPage);
             // 返回保存成功结果
             return new CmsPageResult(CommonCode.SUCCESS, save);
@@ -321,6 +321,26 @@ public class CmsPageServiceImpl implements ICmsPageService, ConfirmCallback, Ret
         sendMsgToMq(pageId, "rollBack");
         // 响应撤销结果
         return ResponseResult.SUCCESS();
+    }
+
+    /**
+     * 添加Page（课程详情页），提供给课程服务调用，如果已经有了则更新
+     *
+     * @param cmsPage
+     * @return
+     */
+    @Override
+    public CmsPageResult saveCoursePage(CmsPage cmsPage) {
+        // 校验课程页面是否存在：根据页面名称、站点Id、页面webpath查询
+        CmsPage coursePage = this.cmsPageRepository.findByPageNameAndSiteIdAndPageWebPath(cmsPage.getPageName(), cmsPage.getSiteId(), cmsPage.getPageWebPath());
+        // 校验
+        if (coursePage == null) {
+            // 不存在，添加
+            return this.add(cmsPage);
+        } else {
+            // 存在，更新
+            return this.update(coursePage.getPageId(), cmsPage);
+        }
     }
 
     /**
