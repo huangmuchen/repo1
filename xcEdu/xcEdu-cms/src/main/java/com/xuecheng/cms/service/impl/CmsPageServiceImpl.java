@@ -5,6 +5,7 @@ import com.mongodb.client.gridfs.GridFSBucket;
 import com.mongodb.client.gridfs.GridFSDownloadStream;
 import com.mongodb.client.gridfs.model.GridFSFile;
 import com.xuecheng.cms.dao.CmsPageRepository;
+import com.xuecheng.cms.dao.CmsSiteRepository;
 import com.xuecheng.cms.dao.CmsTemplateRepository;
 import com.xuecheng.cms.service.ICmsPageService;
 import com.xuecheng.common.exception.CustomException;
@@ -13,10 +14,12 @@ import com.xuecheng.common.model.response.QueryResponseResult;
 import com.xuecheng.common.model.response.QueryResult;
 import com.xuecheng.common.model.response.ResponseResult;
 import com.xuecheng.model.domain.cms.CmsPage;
+import com.xuecheng.model.domain.cms.CmsSite;
 import com.xuecheng.model.domain.cms.CmsTemplate;
 import com.xuecheng.model.domain.cms.request.QueryPageRequest;
 import com.xuecheng.model.domain.cms.response.CmsCode;
 import com.xuecheng.model.domain.cms.response.CmsPageResult;
+import com.xuecheng.model.domain.cms.response.CmsPublishPageResult;
 import freemarker.cache.StringTemplateLoader;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
@@ -72,6 +75,8 @@ public class CmsPageServiceImpl implements ICmsPageService, ConfirmCallback, Ret
     private GridFSBucket gridFSBucket;
     @Autowired
     private RabbitTemplate rabbitTemplate;
+    @Autowired
+    private CmsSiteRepository cmsSiteRepository;
 
     /**
      * 分页查询页面信息
@@ -229,6 +234,7 @@ public class CmsPageServiceImpl implements ICmsPageService, ConfirmCallback, Ret
         page.setPagePhysicalPath(cmsPage.getPagePhysicalPath());
         page.setDataUrl(cmsPage.getDataUrl());
         page.setPageType(cmsPage.getPageType());
+        page.setPageCreateTime(cmsPage.getPageCreateTime());
         // 保存更新后的数据到mongodb
         try {
             CmsPage save = this.cmsPageRepository.save(page);
@@ -341,6 +347,49 @@ public class CmsPageServiceImpl implements ICmsPageService, ConfirmCallback, Ret
             // 存在，更新
             return this.update(coursePage.getPageId(), cmsPage);
         }
+    }
+
+    /**
+     * 一键发布页面
+     *
+     * @param cmsPage
+     * @return
+     */
+    @Override
+    public CmsPublishPageResult publishPageQuick(CmsPage cmsPage) {
+        // 将页面信息添加到数据库（mongodb）
+        CmsPageResult cmsPageResult = this.saveCoursePage(cmsPage);
+        // 判断添加结果
+        if (!cmsPageResult.isSuccess()) {
+            return new CmsPublishPageResult(CommonCode.FAIL, null);
+        }
+        // 获取添加成功后的pageId
+        String pageId = cmsPageResult.getCmsPage().getPageId();
+        // 根据pageId发布页面
+        ResponseResult responseResult = this.release(pageId);
+        // 判断发布结果
+        if (!responseResult.isSuccess()) {
+            return new CmsPublishPageResult(CommonCode.FAIL, null);
+        }
+        // 获取站点id
+        String siteId = cmsPageResult.getCmsPage().getSiteId();
+        // 查询站点信息
+        Optional<CmsSite> optional = this.cmsSiteRepository.findById(siteId);
+        // 判断查询结果
+        if (!optional.isPresent()) {
+            return new CmsPublishPageResult(CommonCode.FAIL, null);
+        }
+        /**
+         * pageUrl = 站点域名 + 站点webpath + 页面webpath + 页面名称
+         *
+         * 站点域名：http://www.xuecheng.com
+         * 站点webpath：空
+         * 页面webpath：/course/detail/
+         * 页面名称：297e7c7c62b888f00162b8a7dec20000.html
+         */
+        String pageUrl = optional.get().getSiteDomain() + optional.get().getSiteWebPath() + cmsPageResult.getCmsPage().getPageWebPath() + cmsPageResult.getCmsPage().getPageName();
+        // 返回页面url
+        return new CmsPublishPageResult(CommonCode.SUCCESS, pageUrl);
     }
 
     /**

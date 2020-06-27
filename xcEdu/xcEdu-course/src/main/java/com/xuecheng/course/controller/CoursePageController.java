@@ -30,7 +30,7 @@ public class CoursePageController implements CoursePageControllerApi {
     @Override
     @PostMapping("/preview/{courseId}")
     public CoursePublishResult coursePreview(@PathVariable("courseId") String courseId) {
-        // 调用service层进行预览
+        // 调用service层进行课程预览
         return this.coursePageService.coursePreview(courseId);
     }
 
@@ -43,6 +43,7 @@ public class CoursePageController implements CoursePageControllerApi {
     @Override
     @PostMapping("/publish/{courseId}")
     public CoursePublishResult coursePublish(@PathVariable("courseId") String courseId) {
-        return null;
+        // 调用service层进行课程发布
+        return this.coursePageService.coursePublish(courseId);
     }
 }

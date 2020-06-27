@@ -20,5 +20,7 @@ spring:
 xuecheng:
   mq:
     exchange: xcEdu.cms.releasePage.exchange # 交换机名称
-    queue1: queue_cms_release_01 # 门户页面队列（cms client监控的队列名称--不同的客户端监控的队列不能重复）
+    queue1: queue_cms_release_01 # 门户页面queue（cms client监控的队列名称--不同的客户端监控的队列不能重复）
     routingKey1: 5a751fab6abb5044e0d19ea1 # 此routingKey为门户站点ID
+    queue2: queue_cms_release_02 # 课程详情页面queue
+    routingKey2: 5e5b6b8aa6a4ac40046c05ee #此routingKey为课程详情站点ID

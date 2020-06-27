@@ -37,7 +37,7 @@ public class CmsReleasePageListener {
             value = @Queue(value = "${xuecheng.mq.queue1}", durable = "true"),
             exchange = @Exchange(value = "${xuecheng.mq.exchange}", ignoreDeclarationExceptions = "true", type = ExchangeTypes.DIRECT),
             key = {"${xuecheng.mq.routingKey1}"}))
-    public void listenReleasePage(String msg, Channel channel, Message message) throws IOException {
+    public void listenReleasePage1(String msg, Channel channel, Message message) throws IOException {
         try {
             // 打印监听到的信息
             log.info("监听到页面发布信息：{}", msg);
@@ -78,6 +78,43 @@ public class CmsReleasePageListener {
                  *   2、multipl：是否批量确认消息，true -> 将一次性ack所有小于deliveryTag的消息;  false -> 一次只ack一条消息
                  *   3、requeue：被拒绝的消息是否重新入队列
                  */
+                channel.basicNack(message.getMessageProperties().getDeliveryTag(), false, true);
+            }
+        }
+    }
+
+    /**
+     * 监听页面发布的消息
+     *
+     * @param msg 页面发布的消息
+     */
+    @RabbitListener(bindings = @QueueBinding(
+            value = @Queue(value = "${xuecheng.mq.queue2}", durable = "true"),
+            exchange = @Exchange(value = "${xuecheng.mq.exchange}", ignoreDeclarationExceptions = "true", type = ExchangeTypes.DIRECT),
+            key = {"${xuecheng.mq.routingKey2}"}))
+    public void listenReleasePage2(String msg, Channel channel, Message message) throws IOException {
+        try {
+            // 打印监听到的信息
+            log.info("监听到页面发布信息：{}", msg);
+            // 解析消息：将JSON格式的msg转为Map对象
+            Map map = JSON.parseObject(msg, Map.class);
+            // 获取页面id
+            String pageId = (String) map.get("pageId");
+            // 获取发布类型
+            String type = (String) map.get("type");
+            // 根据pageId，从GridFS中获取html保存到服务器指定路径上
+            this.cmsPageService.savePageToServerPath(pageId, type);
+            channel.basicAck(message.getMessageProperties().getDeliveryTag(), false);
+            // 打印日志
+            log.info("消息：{}消费成功", msg);
+        } catch (Exception e) {
+            // 消息处理失败后的处理逻辑
+            if (message.getMessageProperties().getRedelivered()) {
+                log.error("消息{}消费失败，已经回滚过，拒绝接收消息，失败原因：{}", msg, e.getMessage());
+                // 拒绝消息，并且不再重新进入队列
+                channel.basicReject(message.getMessageProperties().getDeliveryTag(), false);
+            } else {
+                log.error("消息{}消费失败，即将返回队列重新处理，失败原因：{}", msg, e.getMessage());
                 channel.basicNack(message.getMessageProperties().getDeliveryTag(), false, true);
             }
         }

@@ -5,6 +5,7 @@ import com.xuecheng.common.model.response.ResponseResult;
 import com.xuecheng.model.domain.cms.CmsPage;
 import com.xuecheng.model.domain.cms.request.QueryPageRequest;
 import com.xuecheng.model.domain.cms.response.CmsPageResult;
+import com.xuecheng.model.domain.cms.response.CmsPublishPageResult;
 import io.swagger.annotations.*;
 
 /**
@@ -111,4 +112,13 @@ public interface CmsPageControllerApi {
      */
     @ApiOperation("添加Page，提供给课程服务调用，如果已经有了则更新")
     CmsPageResult saveCoursePage(CmsPage cmsPage);
+
+    /**
+     * 一键发布页面
+     *
+     * @param cmsPage
+     * @return
+     */
+    @ApiOperation("一键发布页面，主要为其他服务[课程详情页、教师信息页、教育机构页、各种统计信息页...]调用")
+    CmsPublishPageResult publishPageQuick(CmsPage cmsPage);
 }

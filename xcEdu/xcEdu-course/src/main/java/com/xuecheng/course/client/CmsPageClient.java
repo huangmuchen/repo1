@@ -3,6 +3,7 @@ package com.xuecheng.course.client;
 import com.xuecheng.common.client.XcServiceList;
 import com.xuecheng.model.domain.cms.CmsPage;
 import com.xuecheng.model.domain.cms.response.CmsPageResult;
+import com.xuecheng.model.domain.cms.response.CmsPublishPageResult;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -35,4 +36,13 @@ public interface CmsPageClient {
      */
     @PostMapping("/cms/page/save")
     CmsPageResult saveCoursePage(@RequestBody CmsPage cmsPage);
+
+    /**
+     * 发布课程详情页
+     *
+     * @param cmsPage
+     * @return
+     */
+    @PostMapping("/cms/page/publish")
+    CmsPublishPageResult publishPageQuick(@RequestBody CmsPage cmsPage);
 }

@@ -7,6 +7,7 @@ import com.xuecheng.common.model.response.ResponseResult;
 import com.xuecheng.model.domain.cms.CmsPage;
 import com.xuecheng.model.domain.cms.request.QueryPageRequest;
 import com.xuecheng.model.domain.cms.response.CmsPageResult;
+import com.xuecheng.model.domain.cms.response.CmsPublishPageResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -121,5 +122,18 @@ public class CmsPageController implements CmsPageControllerApi {
     public CmsPageResult saveCoursePage(@RequestBody CmsPage cmsPage) {
         // 调用service层进行添加或更新
         return this.cmsPageService.saveCoursePage(cmsPage);
+    }
+
+    /**
+     * 一键发布页面
+     *
+     * @param cmsPage
+     * @return
+     */
+    @Override
+    @PostMapping("/publish")
+    public CmsPublishPageResult publishPageQuick(@RequestBody CmsPage cmsPage) {
+        // 调用service层进行一键发布
+        return this.cmsPageService.publishPageQuick(cmsPage);
     }
 }

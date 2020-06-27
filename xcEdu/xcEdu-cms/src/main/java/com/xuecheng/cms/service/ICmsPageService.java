@@ -5,6 +5,7 @@ import com.xuecheng.common.model.response.ResponseResult;
 import com.xuecheng.model.domain.cms.CmsPage;
 import com.xuecheng.model.domain.cms.request.QueryPageRequest;
 import com.xuecheng.model.domain.cms.response.CmsPageResult;
+import com.xuecheng.model.domain.cms.response.CmsPublishPageResult;
 
 /**
  * @author: HuangMuChen
@@ -88,4 +89,12 @@ public interface ICmsPageService {
      * @return
      */
     CmsPageResult saveCoursePage(CmsPage cmsPage);
+
+    /**
+     * 一键发布页面
+     *
+     * @param cmsPage
+     * @return
+     */
+    CmsPublishPageResult publishPageQuick(CmsPage cmsPage);
 }

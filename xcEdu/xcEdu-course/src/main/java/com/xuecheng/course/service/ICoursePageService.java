@@ -17,4 +17,12 @@ public interface ICoursePageService {
      * @return
      */
     CoursePublishResult coursePreview(String courseId);
+
+    /**
+     * 课程发布
+     *
+     * @param courseId
+     * @return
+     */
+    CoursePublishResult coursePublish(String courseId);
 }

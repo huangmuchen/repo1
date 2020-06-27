@@ -9,6 +9,7 @@ package com.xuecheng.common.constant;
 public interface CourseConstant {
     String COURSEBASE_STATUS_NO = "202001"; // 课程的发布状态：未发布
     String COURSEBASE_STATUS_YES = "202002"; // 课程的发布状态：发布
+    String COURSEBASE_STATUS_DOWN = "202003"; // 课程的发布状态：已下线
 
     String TEACHPLAN_STATUS_NO = "0"; // 课程计划发布状态：未发布
     String TEACHPLAN_STATUS_YES = "1"; // 课程计划发布状态：已发布
