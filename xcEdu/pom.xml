@@ -18,6 +18,7 @@
         <module>xcEdu-cms-client</module>
         <module>xcEdu-course</module>
         <module>xcEdu-filesystem</module>
+        <module>xcEdu-search</module>
     </modules>
     <packaging>pom</packaging>
     <name>xcEdu</name>
@@ -56,6 +57,7 @@
         <mysql-connector-java.version>5.1.40</mysql-connector-java.version>
         <guava.version>24.0-jre</guava.version>
         <pageHelper.starter.version>1.2.4</pageHelper.starter.version>
+        <elasticsearch.version>6.2.1</elasticsearch.version>
     </properties>
 
     <!-- 锁定jar包版本 -->
@@ -163,10 +165,17 @@
                 <artifactId>fastdfs-client</artifactId>
                 <version>${fastdfs-client-java.version}</version>
             </dependency>
+            <!--elasticsearch高级客户端-->
+            <dependency>
+                <groupId>org.elasticsearch.client</groupId>
+                <artifactId>elasticsearch-rest-high-level-client</artifactId>
+                <version>${elasticsearch.version}</version>
+            </dependency>
             <!--elasticsearch-->
             <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
+                <groupId>org.elasticsearch</groupId>
+                <artifactId>elasticsearch</artifactId>
+                <version>${elasticsearch.version}</version>
             </dependency>
             <!-- Google guava工具类：对Java开发中常用功能进行更优雅的实现，使得编码更加轻松，代码容易理解 -->
             <dependency>

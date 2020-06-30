@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>xcEdu</artifactId>
+        <groupId>com.xuecheng.parent</groupId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.xuecheng.search</groupId>
+    <artifactId>xcEdu-search</artifactId>
+    <description>搜索服务工程：负责门户网站中课程的搜索</description>
+    <version>1.0.0-SNAPSHOT</version>
+
+    <dependencies>
+        <!-- eureka客户端 -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
+        <!-- xcEdu-api工程 -->
+        <dependency>
+            <groupId>com.xuecheng.api</groupId>
+            <artifactId>xcEdu-api</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+        <!--elasticsearch高级客户端-->
+        <dependency>
+            <groupId>org.elasticsearch.client</groupId>
+            <artifactId>elasticsearch-rest-high-level-client</artifactId>
+        </dependency>
+        <!--elasticsearch-->
+        <dependency>
+            <groupId>org.elasticsearch</groupId>
+            <artifactId>elasticsearch</artifactId>
+        </dependency>
+    </dependencies>
+</project>

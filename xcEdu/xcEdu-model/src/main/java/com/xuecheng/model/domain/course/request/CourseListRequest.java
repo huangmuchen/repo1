@@ -1,6 +1,8 @@
 package com.xuecheng.model.domain.course.request;
 
 import com.xuecheng.common.model.request.RequestData;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.ToString;
 
@@ -12,6 +14,8 @@ import lombok.ToString;
  */
 @Data
 @ToString
+@ApiModel(value = "CourseListRequest", description = "封装查询条件")
 public class CourseListRequest extends RequestData {
-    private String companyId; // 公司Id
+    @ApiModelProperty("公司Id")
+    private String companyId;
 }

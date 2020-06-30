@@ -4,6 +4,7 @@ import com.xuecheng.common.model.request.RequestData;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+import lombok.ToString;
 
 /**
  * @author: HuangMuChen
@@ -12,6 +13,7 @@ import lombok.Data;
  * @Description: 请求模型：封装前端CmsPage查询条件
  */
 @Data
+@ToString
 @ApiModel(value = "QueryPageRequest", description = "封装查询条件")
 public class QueryPageRequest extends RequestData {
     @ApiModelProperty("页面ID")

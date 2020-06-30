@@ -22,27 +22,38 @@ import java.util.Date;
 public class CoursePub implements Serializable {
     private static final long serialVersionUID = 5392709964739508348L;
 
-    @Id // 主键
+    @Id // 主键，也是课程id
     @GeneratedValue(generator = "jpa-assigned")
     @Column(length = 32)
-    private String id; // 课程发布id
-    private String name; // 课程名称
-    private String users; // 适用人群
-    private String mt; // 大分类
-    private String st; // 小分类
-    private String grade; // 课程等级
-    private String studymodel; // 学习模式
-    private String teachmode; // 教育模式
-    private String description; // 课程介绍
-    private String pic; // 课程图片
-    private Date timestamp; // 时间戳,logstash使用
-    private String charge; // 收费规则，对应数据字典
-    private String valid; // 有效性，对应数据字典
-    private String qq; // 咨询qq
-    private Float price; // 价格
-    private Float price_old; // 原价格
-    private String expires; // 过期时间
-    private String teachplan; // 课程计划
+    private String id;
+
+    // 课程基础信息（CourseBase）
+    private String name;
+    private String users;
+    private String mt;
+    private String grade;
+    private String studymodel;
+    private String teachmode;
+    private String description;
+    private String st;
+    // 课程图片信息（CoursePic）
+    private String pic;
+    // 课程营销信息（CourseMarket）
+    private String charge;
+    private String valid;
+    private String expires;
+    private String qq;
+    private Float price;
+    private Float price_old;
+    @Column(name = "start_time")
+    private String startTime;
+    @Column(name = "end_time")
+    private String endTime;
+    // 课程计划信息（Teachplan），转成JSON字符串
+    private String teachplan;
+    // 课程发布时间
     @Column(name = "pub_time")
-    private String pubTime; // 课程发布时间
+    private String pubTime;
+    // 时间戳,logstash使用
+    private Date timestamp;
 }

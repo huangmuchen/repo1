@@ -9,7 +9,7 @@ package com.xuecheng.common.client;
 public class XcServiceList {
     public static final String XCEDU_REGISTRY = "xcEdu-registry";
     public static final String XC_SERVICE_PORTALVIEW = "xc-service-portalview";
-    public static final String XC_SERVICE_SEARCH = "xc-service-search";
+    public static final String XCEDU_SEARCH = "xcEdu-search";
     public static final String XCEDU_COURSE = "xcEdu-course";
     public static final String XC_SERVICE_MANAGE_MEDIA = "xc-service-manage-media";
     public static final String XCEDU_CMS = "xcEdu-cms";

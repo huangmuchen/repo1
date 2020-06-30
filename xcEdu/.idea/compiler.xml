@@ -16,6 +16,7 @@
         <module name="xcEdu-model" />
         <module name="xcEdu-course" />
         <module name="xcEdu-filesystem" />
+        <module name="xcEdu-search" />
         <module name="xcEdu-gateway" />
       </profile>
     </annotationProcessing>
@@ -31,6 +32,7 @@
       <module name="xcEdu-gateway" options="-parameters" />
       <module name="xcEdu-model" options="-parameters" />
       <module name="xcEdu-registry" options="-parameters" />
+      <module name="xcEdu-search" options="-parameters" />
       <module name="xcEdu-utils" options="-parameters" />
     </option>
   </component>
