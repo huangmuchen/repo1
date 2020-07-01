@@ -26,7 +26,6 @@ public class CoursePub implements Serializable {
     @GeneratedValue(generator = "jpa-assigned")
     @Column(length = 32)
     private String id;
-
     // 课程基础信息（CourseBase）
     private String name;
     private String users;
@@ -43,8 +42,8 @@ public class CoursePub implements Serializable {
     private String valid;
     private String expires;
     private String qq;
-    private Float price;
-    private Float price_old;
+    private Double price;
+    private Double price_old;
     @Column(name = "start_time")
     private String startTime;
     @Column(name = "end_time")

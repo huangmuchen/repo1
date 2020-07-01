@@ -3,7 +3,8 @@ package com.xuecheng.config;
 import org.apache.http.HttpHost;
 import org.elasticsearch.client.RestClient;
 import org.elasticsearch.client.RestHighLevelClient;
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -14,35 +15,48 @@ import org.springframework.context.annotation.Configuration;
  * @Description: 配置类
  */
 @Configuration
+@EnableConfigurationProperties(SearchProperties.class)
 public class ElasticsearchConfig {
-    @Value("${xuecheng.elasticsearch.hostlist}")
-    private String hostlist;
+    @Autowired
+    private SearchProperties prop;
 
+    /**
+     * 项目主要使用RestHighLevelClient
+     *
+     * @return
+     */
     @Bean
-    public RestHighLevelClient restHighLevelClient(){
-        // 解析hostlist配置信息
-        String[] split = hostlist.split(",");
-        // 创建HttpHost数组，其中存放es主机和端口的配置信息
-        HttpHost[] httpHostArray = new HttpHost[split.length];
-        for(int i=0;i<split.length;i++){
-            String item = split[i];
-            httpHostArray[i] = new HttpHost(item.split(":")[0], Integer.parseInt(item.split(":")[1]), "http");
-        }
+    public RestHighLevelClient restHighLevelClient() {
         // 创建RestHighLevelClient客户端
-        return new RestHighLevelClient(RestClient.builder(httpHostArray));
+        return new RestHighLevelClient(RestClient.builder(getHttpHostArray()));
     }
 
-    // 项目主要使用RestHighLevelClient，对于低级的客户端暂时不用
+    /**
+     * 项目中对于低级的客户端暂时不用
+     *
+     * @return
+     */
     @Bean
-    public RestClient restClient(){
+    public RestClient restClient() {
+        // 创建RestClient客户端
+        return RestClient.builder(getHttpHostArray()).build();
+    }
+
+    /**
+     * 获取httphost数组
+     *
+     * @return
+     */
+    public HttpHost[] getHttpHostArray() {
         // 解析hostlist配置信息
-        String[] split = hostlist.split(",");
+        String[] split = prop.getHostList().split(",");
         // 创建HttpHost数组，其中存放es主机和端口的配置信息
         HttpHost[] httpHostArray = new HttpHost[split.length];
-        for(int i=0;i<split.length;i++){
+        // 遍历数组，取出ip和端口
+        for (int i = 0; i < split.length; i++) {
             String item = split[i];
             httpHostArray[i] = new HttpHost(item.split(":")[0], Integer.parseInt(item.split(":")[1]), "http");
         }
-        return RestClient.builder(httpHostArray).build();
+        return httpHostArray;
     }
 }
