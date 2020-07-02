@@ -164,6 +164,10 @@ public class EsCourseServiceImpl implements IEsCourseService {
                 if (sourceAsMap.get("price_old") != null) {
                     coursePub.setPrice_old((Double) sourceAsMap.get("price_old"));
                 }
+                // 取出收费规则
+                String charge = (String) sourceAsMap.get("charge");
+                coursePub.setCharge(charge);
+                // 将数据对象加入集合
                 list.add(coursePub);
             }
             // 创建QueryResult对象
