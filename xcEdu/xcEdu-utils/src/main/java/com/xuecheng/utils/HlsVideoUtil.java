@@ -11,7 +11,7 @@ import java.util.List;
  */
 public class HlsVideoUtil extends VideoUtil {
     // ffmpeg的安装位置
-    String ffmpeg_path = "D:/ffmpeg-20180227-fa0c9d6-win64-static/bin/ffmpeg.exe";
+    String ffmpeg_path = "D:/ffmpeg/bin/ffmpeg.exe";
     String video_path = "D:/log/video/test1.avi";
     String m3u8_name = "test1.m3u8";
     String m3u8folder_path = "D:/log/Movies/test1/";
@@ -115,17 +115,5 @@ public class HlsVideoUtil extends VideoUtil {
             return fileList;
         }
         return null;
-    }
-
-    public static void main(String[] args) throws IOException {
-        // ffmpeg的安装位置
-        String ffmpeg_path = "D:/ffmpeg-20180227-fa0c9d6-win64-static/bin/ffmpeg.exe";
-        String video_path = "E:/ffmpeg_test/1.mp4";
-        String m3u8_name = "1.m3u8";
-        String m3u8_path = "E:/ffmpeg_test/1/";
-        HlsVideoUtil videoUtil = new HlsVideoUtil(ffmpeg_path, video_path, m3u8_name, m3u8_path);
-        String s = videoUtil.generateM3u8();
-        System.out.println(s);
-        System.out.println(videoUtil.get_ts_list());
     }
 }

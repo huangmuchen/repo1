@@ -28,7 +28,8 @@ public interface CmsPageControllerApi {
     @ApiOperation("分页查询页面列表")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "page", value = "页码", required = true, paramType = "path", dataType = "int"),
-            @ApiImplicitParam(name = "size", value = "每页显示的条数", required = true, paramType = "path", dataType = "int")
+            @ApiImplicitParam(name = "size", value = "每页显示的条数", required = true, paramType = "path", dataType = "int"),
+            @ApiImplicitParam(name = "queryPageRequest", value = "CmsPage查询条件", paramType = "body", required = false, dataTypeClass = QueryPageRequest.class)
     })
     QueryResponseResult findCmsPageList(int page, int size, QueryPageRequest queryPageRequest);
 
@@ -39,6 +40,7 @@ public interface CmsPageControllerApi {
      * @return
      */
     @ApiOperation("页面添加")
+    @ApiImplicitParam(name = "cmsPage", value = "页面信息", paramType = "body", required = true, dataTypeClass = CmsPage.class)
     CmsPageResult add(CmsPage cmsPage);
 
     /**
@@ -59,7 +61,10 @@ public interface CmsPageControllerApi {
      * @return
      */
     @ApiOperation("页面修改")
-    @ApiImplicitParam(name = "pageId", value = "页面id", required = true, paramType = "path", dataType = "String")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "pageId", value = "页面id", required = true, paramType = "path", dataType = "String"),
+            @ApiImplicitParam(name = "cmsPage", value = "页面信息", paramType = "body", required = true, dataTypeClass = CmsPage.class)
+    })
     CmsPageResult edit(String pageId, CmsPage cmsPage);
 
     /**
@@ -111,6 +116,7 @@ public interface CmsPageControllerApi {
      * @return
      */
     @ApiOperation("添加Page，提供给课程服务调用，如果已经有了则更新")
+    @ApiImplicitParam(name = "cmsPage", value = "页面信息", paramType = "body", required = true, dataTypeClass = CmsPage.class)
     CmsPageResult saveCoursePage(CmsPage cmsPage);
 
     /**
@@ -120,5 +126,6 @@ public interface CmsPageControllerApi {
      * @return
      */
     @ApiOperation("一键发布页面，主要为其他服务[课程详情页、教师信息页、教育机构页、各种统计信息页...]调用")
+    @ApiImplicitParam(name = "cmsPage", value = "页面信息", paramType = "body", required = true, dataTypeClass = CmsPage.class)
     CmsPublishPageResult publishPageQuick(CmsPage cmsPage);
 }

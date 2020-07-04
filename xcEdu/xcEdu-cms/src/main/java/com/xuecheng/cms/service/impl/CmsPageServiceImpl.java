@@ -77,6 +77,8 @@ public class CmsPageServiceImpl implements ICmsPageService, ConfirmCallback, Ret
     private RabbitTemplate rabbitTemplate;
     @Autowired
     private CmsSiteRepository cmsSiteRepository;
+    // Cms页面发布交换机名称
+    private static final String CMS_RELEASE_EXCHANGE = "xcEdu.cms.releasePage.exchange";
 
     /**
      * 分页查询页面信息
@@ -545,7 +547,7 @@ public class CmsPageServiceImpl implements ICmsPageService, ConfirmCallback, Ret
         // 关联数据
         CorrelationData correlationData = new CorrelationData(UUID.randomUUID().toString());
         // 发送消息给交换机(如果不指定，将发给.yml文件中默认的交换机))，并将站点id作为routingKey
-        this.rabbitTemplate.convertAndSend("xcEdu.cms.releasePage.exchange", siteId, msg, correlationData);
+        this.rabbitTemplate.convertAndSend(CMS_RELEASE_EXCHANGE, siteId, msg, correlationData);
     }
 
     /**

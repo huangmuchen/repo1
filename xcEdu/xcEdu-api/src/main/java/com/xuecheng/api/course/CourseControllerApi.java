@@ -35,7 +35,8 @@ public interface CourseControllerApi {
     @ApiOperation("分页查询课程列表")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "page", value = "页码", required = true, paramType = "path", dataType = "int"),
-            @ApiImplicitParam(name = "size", value = "每页显示的条数", required = true, paramType = "path", dataType = "int")
+            @ApiImplicitParam(name = "size", value = "每页显示的条数", required = true, paramType = "path", dataType = "int"),
+            @ApiImplicitParam(name = "courseListRequest", value = "课程列表查询条件", paramType = "body", required = false, dataTypeClass = CourseListRequest.class)
     })
     QueryResponseResult findCourseList(int page, int size, CourseListRequest courseListRequest);
 
@@ -56,6 +57,7 @@ public interface CourseControllerApi {
      * @return
      */
     @ApiOperation("添加课程计划")
+    @ApiImplicitParam(name = "teachplan", value = "课程计划信息", paramType = "body", required = true, dataTypeClass = Teachplan.class)
     ResponseResult addTeachplan(Teachplan teachplan);
 
     /**
@@ -65,6 +67,7 @@ public interface CourseControllerApi {
      * @return
      */
     @ApiOperation("添加课程基础信息")
+    @ApiImplicitParam(name = "courseBase", value = "课程信息", paramType = "body", required = true, dataTypeClass = CourseBase.class)
     AddCourseResult addCourseBase(CourseBase courseBase);
 
     /**
@@ -85,7 +88,10 @@ public interface CourseControllerApi {
      * @return
      */
     @ApiOperation("更新课程基础信息")
-    @ApiImplicitParam(name = "courseId", value = "课程id", required = true, paramType = "path", dataType = "String")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "courseId", value = "课程id", required = true, paramType = "path", dataType = "String"),
+            @ApiImplicitParam(name = "courseBase", value = "课程信息", paramType = "body", required = true, dataTypeClass = CourseBase.class)
+    })
     ResponseResult updateCourseBase(String courseId, CourseBase courseBase);
 
     /**
@@ -106,7 +112,10 @@ public interface CourseControllerApi {
      * @return
      */
     @ApiOperation("更新课程营销信息")
-    @ApiImplicitParam(name = "id", value = "课程营销id", required = true, paramType = "path", dataType = "String")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "id", value = "课程营销id", required = true, paramType = "path", dataType = "String"),
+            @ApiImplicitParam(name = "courseMarket", value = "课程营销信息", paramType = "body", required = true, dataTypeClass = CourseMarket.class)
+    })
     ResponseResult updateCourseMarket(String id, CourseMarket courseMarket);
 
     /**

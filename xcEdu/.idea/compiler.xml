@@ -14,10 +14,11 @@
         <module name="xcEdu-utils" />
         <module name="xcEdu-common" />
         <module name="xcEdu-model" />
+        <module name="xcEdu-gateway" />
         <module name="xcEdu-course" />
         <module name="xcEdu-filesystem" />
         <module name="xcEdu-search" />
-        <module name="xcEdu-gateway" />
+        <module name="xcEdu-media" />
       </profile>
     </annotationProcessing>
   </component>
@@ -30,6 +31,7 @@
       <module name="xcEdu-course" options="-parameters" />
       <module name="xcEdu-filesystem" options="-parameters" />
       <module name="xcEdu-gateway" options="-parameters" />
+      <module name="xcEdu-media" options="-parameters" />
       <module name="xcEdu-model" options="-parameters" />
       <module name="xcEdu-registry" options="-parameters" />
       <module name="xcEdu-search" options="-parameters" />

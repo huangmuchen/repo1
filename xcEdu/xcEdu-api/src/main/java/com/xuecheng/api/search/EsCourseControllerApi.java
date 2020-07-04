@@ -28,7 +28,8 @@ public interface EsCourseControllerApi {
     @ApiOperation("分页搜索课程")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "page", value = "页码", required = true, paramType = "path", dataType = "int"),
-            @ApiImplicitParam(name = "size", value = "每页显示的条数", required = true, paramType = "path", dataType = "int")
+            @ApiImplicitParam(name = "size", value = "每页显示的条数", required = true, paramType = "path", dataType = "int"),
+            @ApiImplicitParam(name = "courseSearchParam", value = "课程搜索条件", paramType = "body", required = false, dataTypeClass = CourseSearchParam.class)
     })
     QueryResponseResult<CoursePub> esList(int page, int size, CourseSearchParam courseSearchParam);
 }

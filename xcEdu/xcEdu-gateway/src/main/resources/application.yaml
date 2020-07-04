@@ -21,16 +21,21 @@ zuul:
       serviceId: xcEdu-cms # 指定服务名称
       strip-prefix: false # 代理转发时是否去掉前缀，即把/cms去掉，这里不去掉，因为我们的课程服务就是以/cms打头的
       sensitiveHeaders: # 配置禁止使用的头信息,这里设置为null,不屏蔽cookie,否则set-cookie无效
-    course:  # 这里是路由id，随意写
-      path: /course/** # 路由配置
-      serviceId: xcEdu-course # 服务id
-      strip-prefix: false # 代理转发时是否去掉前缀，即把/course去掉，这里不去掉，因为我们的课程服务就是以/course打头的
-      sensitiveHeaders: # 不屏蔽cookie
-    filesystem:  # 这里是路由id，随意写
-      path: /filesystem/** # 路由配置
-      serviceId: xcEdu-filesystem # 服务id
-      strip-prefix: false # 代理转发时是否去掉前缀，即把/filesystem去掉，这里不去掉，因为我们的课程服务就是以/filesystem打头的
-      sensitiveHeaders: # 不屏蔽cookie
+    course:
+      path: /course/**
+      serviceId: xcEdu-course
+      strip-prefix: false
+      sensitiveHeaders:
+    filesystem:
+      path: /filesystem/**
+      serviceId: xcEdu-filesystem
+      strip-prefix: false
+      sensitiveHeaders:
+    media:
+      path:
+      serviceId: xcEdu-media
+      strip-prefix: false
+      sensitiveHeaders:
 ribbon:
   ConnectTimeout: 100000 # 连接超时时间(ms),如果路由方式是serviceId的方式,那么ribbon的生效
   ReadTimeout: 100000 # 通信超时时间(ms),如果路由方式是serviceId的方式,那么ribbon的生效

@@ -40,7 +40,8 @@ public interface CmsTemplateControllerApi {
     @ApiOperation("分页查询模板列表")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "page", value = "页码", required = true, paramType = "path", dataType = "int"),
-            @ApiImplicitParam(name = "size", value = "每页显示的条数", required = true, paramType = "path", dataType = "int")
+            @ApiImplicitParam(name = "size", value = "每页显示的条数", required = true, paramType = "path", dataType = "int"),
+            @ApiImplicitParam(name = "queryTemplateRequest", value = "模板查询条件", paramType = "body", required = false, dataTypeClass = QueryTemplateRequest.class)
     })
     QueryResponseResult findList(int page, int size, QueryTemplateRequest queryTemplateRequest);
 
@@ -85,6 +86,7 @@ public interface CmsTemplateControllerApi {
      * @return
      */
     @ApiOperation("新增模板")
+    @ApiImplicitParam(name = "cmsTemplate", value = "模板信息", paramType = "body", required = true, dataTypeClass = CmsTemplate.class)
     CmsTemplateResult add(CmsTemplate cmsTemplate);
 
     /**
@@ -115,6 +117,9 @@ public interface CmsTemplateControllerApi {
      * @return
      */
     @ApiOperation("修改模板信息")
-    @ApiImplicitParam(name = "templateId", value = "模板id", required = true, paramType = "path", dataType = "String")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "templateId", value = "模板id", required = true, paramType = "path", dataType = "String"),
+            @ApiImplicitParam(name = "cmsTemplate", value = "模板信息", paramType = "body", required = true, dataTypeClass = CmsTemplate.class)
+    })
     CmsTemplateResult updateTemplate(String templateId, CmsTemplate cmsTemplate);
 }

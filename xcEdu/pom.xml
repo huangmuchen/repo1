@@ -19,6 +19,7 @@
         <module>xcEdu-course</module>
         <module>xcEdu-filesystem</module>
         <module>xcEdu-search</module>
+        <module>xcEdu-media</module>
     </modules>
     <packaging>pom</packaging>
     <name>xcEdu</name>
