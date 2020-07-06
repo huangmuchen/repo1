@@ -4,12 +4,14 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 完成avi转mp4
+ */
 public class Mp4VideoUtil extends VideoUtil {
-    // ffmpeg的安装位置
-    String ffmpeg_path = "D:/ffmpeg/bin/ffmpeg.exe";
-    String video_path = "D:/log/video/test1.avi";
-    String mp4_name = "test1.mp4";
-    String mp4folder_path = "D:/log/Movies/test1/";
+    private String ffmpeg_path = "D:/ffmpeg/bin/ffmpeg.exe";
+    private String video_path = "D:/data/xcEdu/ffmpeg/video/lucene.avi";
+    private String mp4_name = "lucene.mp4";
+    private String mp4folder_path = "D:/data/xcEdu/ffmpeg/video/";
 
     public Mp4VideoUtil(String ffmpeg_path, String video_path, String mp4_name, String mp4folder_path) {
         super(ffmpeg_path);
@@ -65,8 +67,8 @@ public class Mp4VideoUtil extends VideoUtil {
             builder.redirectErrorStream(true);
             Process p = builder.start();
             outstring = waitFor(p);
-        } catch (Exception ex) {
-            ex.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         Boolean check_video_time = this.check_video_time(video_path, mp4folder_path + mp4_name);
         if (!check_video_time) {

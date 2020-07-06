@@ -15,6 +15,7 @@ import lombok.ToString;
 @ToString
 @AllArgsConstructor
 public enum MediaCode implements ResultCode {
+    MEDIA_FILE_NOTEXIST(false,24009,"媒资文件不存在！"),
     CHUNK_FILE_UPLOAD_FAIL(false, 22006, "块文件上传失败！"),
     UPLOAD_FILE_REGISTER_FAIL(false, 22001, "上传文件在系统注册失败，请刷新页面重试！"),
     UPLOAD_FILE_REGISTER_EXIST(false, 22002, "上传文件在系统已存在！"),

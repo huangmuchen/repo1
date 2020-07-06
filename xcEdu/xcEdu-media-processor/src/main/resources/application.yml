@@ -1,0 +1,26 @@
+server:
+  port: 31450
+spring:
+  application:
+    name: xcEdu-media-processor
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017
+      database: xc_media
+  rabbitmq:
+    host: 192.168.222.131
+    port: 5672
+    username: xcEdu
+    password: xcEdu
+    virtualHost: /xcEdu
+    listener:
+      simple:
+        acknowledge-mode: manual # 消息接收后进行手动确认
+        prefetch: 1 # 每个消费者同时只能处理一条消息
+xuecheng:
+  mq:
+    exchange: xcEdu.media.video.exchange # 交换机名称
+    queue: queue_media_video_processor # 队列名称
+    routingKey: xcEdu.media.video.routingkey # 路由键名称
+    location: D:/data/xcEdu/ffmpeg/video/ # 上传文件的路径
+    ffmpegPath: D:/ffmpeg/bin/ffmpeg.exe # 视频编码软件路径

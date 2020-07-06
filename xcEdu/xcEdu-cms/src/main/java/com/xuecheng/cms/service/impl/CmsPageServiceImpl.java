@@ -381,7 +381,7 @@ public class CmsPageServiceImpl implements ICmsPageService, ConfirmCallback, Ret
         if (!optional.isPresent()) {
             return new CmsPublishPageResult(CommonCode.FAIL, null);
         }
-        /**
+        /*
          * pageUrl = 站点域名 + 站点webpath + 页面webpath + 页面名称
          *
          * 站点域名：http://www.xuecheng.com
@@ -523,7 +523,7 @@ public class CmsPageServiceImpl implements ICmsPageService, ConfirmCallback, Ret
      *
      * @param pageId 页面id
      */
-    private void sendMsgToMq(String pageId, String type) {
+    public void sendMsgToMq(String pageId, String type) {
         // 根据id查询cmsPage
         CmsPage cmsPage = this.findByPageId(pageId);
         // 校验cmsPage

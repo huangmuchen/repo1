@@ -1,5 +1,6 @@
 package com.xuecheng.media.service.impl;
 
+import com.alibaba.fastjson.JSON;
 import com.xuecheng.common.constant.MediaConstant;
 import com.xuecheng.common.exception.CustomException;
 import com.xuecheng.common.model.response.CommonCode;
@@ -14,13 +15,16 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.amqp.core.Message;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.amqp.rabbit.support.CorrelationData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.*;
 
 /**
@@ -32,7 +36,7 @@ import java.util.*;
 @Service
 @Slf4j
 @EnableConfigurationProperties(MediaUploadProperties.class)
-public class MediaUploadServiceImpl implements IMediaUploadService {
+public class MediaUploadServiceImpl implements IMediaUploadService, RabbitTemplate.ConfirmCallback, RabbitTemplate.ReturnCallback {
     @Autowired
     private MediaFileRepository mediaFileRepository;
     @Autowired
@@ -175,7 +179,7 @@ public class MediaUploadServiceImpl implements IMediaUploadService {
             // 判断合并文件是否存在，如果存在，则先删除，再创建合并文件
             if (mergeFile.exists()) {
                 mergeFile.delete();
-            }else {
+            } else {
                 mergeFile.createNewFile();
             }
             // 开始合并文件
@@ -199,8 +203,8 @@ public class MediaUploadServiceImpl implements IMediaUploadService {
             mediaFile.setFilePath(fileMd5.substring(0, 1) + "/" + fileMd5.substring(1, 2) + "/" + fileMd5 + "/");
             // 写入mogodb
             this.mediaFileRepository.save(mediaFile);
-            // TODO：上传完毕，需要发送消息给MQ，进行消息处理
-
+            // 向MQ发送视频处理消息
+            sendMsgToMq(fileMd5);
             // 删除Chunk
             deleteChunk(fileMd5);
             // 响应合并成功
@@ -209,6 +213,41 @@ public class MediaUploadServiceImpl implements IMediaUploadService {
             log.error("合并文件失败：{}", e.getMessage());
             throw new CustomException(MediaCode.MERGE_FILE_FAIL);
         }
+    }
+
+    /**
+     * 向MQ发送视频处理消息
+     *
+     * @param mediaId
+     */
+    public void sendMsgToMq(String mediaId) {
+        // 根据id查询MediaFile
+        Optional<MediaFile> optional = this.mediaFileRepository.findById(mediaId);
+        // 校验MediaFile
+        if (!optional.isPresent()) {
+            throw new CustomException(MediaCode.MEDIA_FILE_NOTEXIST);
+        }
+        // 创建map集合
+        Map<String, String> map = new HashMap<>();
+        // 设置消息内容为媒资文件id。（采用json格式，方便日后扩展）
+        map.put("mediaId", mediaId);
+        // 消息内容
+        String msg = JSON.toJSONString(map);
+        // 获取routingKey
+        String routingKey = prop.getRoutingkey();
+        // 获取交换机
+        String exchange = prop.getExchange();
+        // 开启强制委托模式
+        this.rabbitTemplate.setMandatory(true);
+        // 设置消息发送给交换机的回调
+        this.rabbitTemplate.setConfirmCallback(this);
+        // 设置消息从交换机发送给队列的回调
+        this.rabbitTemplate.setReturnCallback(this);
+        // 关联数据
+        CorrelationData correlationData = new CorrelationData(UUID.randomUUID().toString());
+        // 发送消息给交换机(如果不指定，将发给.yml文件中默认的交换机))，并将站点id作为routingKey
+        this.rabbitTemplate.convertAndSend(exchange, routingKey, msg, correlationData);
+
     }
 
     /**
@@ -288,12 +327,8 @@ public class MediaUploadServiceImpl implements IMediaUploadService {
         // 将数组转成集合
         List<File> fileList = Arrays.asList(chunkFolder.listFiles());
         // 对集合中的块文件按名称进行升序排序
-        fileList.sort(new Comparator<File>() {
-            @Override
-            public int compare(File o1, File o2) {
-                return Integer.parseInt(o1.getName()) - Integer.parseInt(o2.getName());
-            }
-        });
+        fileList.sort(Comparator.comparingInt(o -> Integer.parseInt(o.getName())));
+        // 返回集合列表
         return fileList;
     }
 
@@ -319,8 +354,8 @@ public class MediaUploadServiceImpl implements IMediaUploadService {
     /**
      * 根据文件md5得到文件路径：一级目录：md5的第一个字符，二级目录：md5的第二个字符，三级目录：md5，文件名：md5+文件扩展名
      *
-     * @param fileMd5 文件md5值：4207a61ed6b5716926469289bfffa1b3
-     * @param fileExt 文件扩展名：flv
+     * @param fileMd5 文件md5值
+     * @param fileExt 文件扩展名
      * @return 文件路径
      */
     private String getFilePath(String fileMd5, String fileExt) {
@@ -335,5 +370,37 @@ public class MediaUploadServiceImpl implements IMediaUploadService {
      */
     private String getChunkFolderPath(String fileMd5) {
         return prop.getLocation() + fileMd5.substring(0, 1) + "/" + fileMd5.substring(1, 2) + "/" + fileMd5 + "/chunk/";
+    }
+
+    /**
+     * 消息是否成功到达交换机
+     *
+     * @param correlationData
+     * @param ack
+     * @param cause
+     */
+    @Override
+    public void confirm(CorrelationData correlationData, boolean ack, String cause) {
+        if (ack) {
+            // 消息成功到达交换机
+            log.info("回调消息ID为：{}，消息成功发送到交换机！", correlationData.getId());
+        } else {
+            // 消息到达交换机失败
+            log.error("回调消息ID为：{}，消发送到交换机失败！原因：[{}]", correlationData.getId(), cause);
+        }
+    }
+
+    /**
+     * 消息是否成功从交换机到达队列：成功，则returnedMessage方法不会执行，失败，returnedMessage方法会执行
+     *
+     * @param message
+     * @param replyCode
+     * @param replyText
+     * @param exchange
+     * @param routingKey
+     */
+    @Override
+    public void returnedMessage(Message message, int replyCode, String replyText, String exchange, String routingKey) {
+        log.error("发送消息：{}，错误码：{}，错误原因：{}，exchange：{}，routingKey：{}", new String(message.getBody(), StandardCharsets.UTF_8), replyCode, replyText, exchange, routingKey);
     }
 }

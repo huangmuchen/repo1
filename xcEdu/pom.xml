@@ -20,6 +20,8 @@
         <module>xcEdu-filesystem</module>
         <module>xcEdu-search</module>
         <module>xcEdu-media</module>
+        <module>xcEdu-media-processor</module>
+        <module>xcEdu-learning</module>
     </modules>
     <packaging>pom</packaging>
     <name>xcEdu</name>

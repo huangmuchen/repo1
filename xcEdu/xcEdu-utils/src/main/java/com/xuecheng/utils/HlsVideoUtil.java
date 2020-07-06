@@ -5,16 +5,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 此文件用于视频文件处理，步骤如下：
- *    1、生成mp4
- *    2、生成m3u8
+ * 完成mp4转hls
  */
 public class HlsVideoUtil extends VideoUtil {
-    // ffmpeg的安装位置
-    String ffmpeg_path = "D:/ffmpeg/bin/ffmpeg.exe";
-    String video_path = "D:/log/video/test1.avi";
-    String m3u8_name = "test1.m3u8";
-    String m3u8folder_path = "D:/log/Movies/test1/";
+    private String ffmpeg_path = "D:/ffmpeg/bin/ffmpeg.exe";
+    private String video_path = "D:/data/xcEdu/ffmpeg/video/lucene.mp4";
+    private String m3u8_name = "lucene.m3u8";
+    private String m3u8folder_path = "D:/data/xcEdu/ffmpeg/video/hls/";
 
     public HlsVideoUtil(String ffmpeg_path, String video_path, String m3u8_name, String m3u8folder_path) {
         super(ffmpeg_path);
@@ -44,7 +41,7 @@ public class HlsVideoUtil extends VideoUtil {
     public String generateM3u8() {
         // 清理m3u8文件目录
         clear_m3u8(m3u8folder_path);
-        List<String> commend = new ArrayList<String>();
+        List<String> commend = new ArrayList<>();
         commend.add(ffmpeg_path);
         commend.add("-i");
         commend.add(video_path);
@@ -63,8 +60,8 @@ public class HlsVideoUtil extends VideoUtil {
             builder.redirectErrorStream(true);
             Process p = builder.start();
             outstring = waitFor(p);
-        } catch (Exception ex) {
-            ex.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         // 通过查看视频时长判断是否成功
         Boolean check_video_time = check_video_time(video_path, m3u8folder_path + m3u8_name);
@@ -85,11 +82,10 @@ public class HlsVideoUtil extends VideoUtil {
      * @return ts列表
      */
     public List<String> get_ts_list() {
-        List<String> fileList = new ArrayList<String>();
-        List<String> tsList = new ArrayList<String>();
+        List<String> tsList = new ArrayList<>();
         String m3u8file_path = m3u8folder_path + m3u8_name;
         BufferedReader br = null;
-        String str = null;
+        String str;
         String bottomline = "";
         try {
             br = new BufferedReader(new FileReader(m3u8file_path));
@@ -111,8 +107,7 @@ public class HlsVideoUtil extends VideoUtil {
             }
         }
         if (bottomline.contains("#EXT-X-ENDLIST")) {
-            fileList.addAll(tsList);
-            return fileList;
+            return new ArrayList<>(tsList);
         }
         return null;
     }
