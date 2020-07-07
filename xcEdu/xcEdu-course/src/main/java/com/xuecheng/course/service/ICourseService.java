@@ -119,4 +119,28 @@ public interface ICourseService {
      * @return
      */
     CourseView getCourseView(String courseId);
+
+    /**
+     * 修改课程计划
+     *
+     * @param teachplan
+     * @return
+     */
+    ResponseResult updateTeachplan(Teachplan teachplan);
+
+    /**
+     * 根据课程计划id查询课程计划
+     *
+     * @param teachplanId
+     * @return
+     */
+    Teachplan findTeachplan(String teachplanId);
+
+    /**
+     * 删除课程计划
+     *
+     * @param teachplanNode
+     * @return
+     */
+    ResponseResult deleteTeachPlan(TeachplanNode teachplanNode);
 }

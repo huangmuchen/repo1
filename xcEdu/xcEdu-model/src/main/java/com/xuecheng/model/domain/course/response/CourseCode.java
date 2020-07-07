@@ -15,6 +15,8 @@ import lombok.ToString;
 @ToString
 @AllArgsConstructor
 public enum CourseCode implements ResultCode {
+    COURSE_PLAN_UPDATE_ERROR(false,31012,"课程计划信息更新失败！"),
+    COURSE_PLAN_NOTEXIST(false,31011,"课程计划信息为空！"),
     COURSE_PUBLISH_CREATE_INDEX_ERROR(false,31010,"创建课程索引信息失败"),
     COURSE_MARKET_NOTEXIST(false,31008,"课程营销信息为空！"),
     COURSE_MARKET_UPDATE_ERROR(false,31009,"课程营销信息更新失败！"),

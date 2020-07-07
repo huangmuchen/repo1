@@ -10,5 +10,4 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @Description: 课程发布Repository
  */
 public interface CoursePubRepository extends JpaRepository<CoursePub, String> {
-
 }

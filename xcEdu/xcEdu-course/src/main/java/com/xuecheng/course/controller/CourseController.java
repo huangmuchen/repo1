@@ -56,6 +56,19 @@ public class CourseController implements CourseControllerApi {
     }
 
     /**
+     * 根据课程计划id查询课程计划
+     *
+     * @param teachplanId
+     * @return
+     */
+    @Override
+    @GetMapping("/teachplan/get/{teachplanId}")
+    public Teachplan findTeachplan(@PathVariable("teachplanId") String teachplanId) {
+        // 调用Service层进行查询,并返回结果
+        return this.courseService.findTeachplan(teachplanId);
+    }
+
+    /**
      * 添加课程计划
      *
      * @param teachplan
@@ -66,6 +79,32 @@ public class CourseController implements CourseControllerApi {
     public ResponseResult addTeachplan(@RequestBody Teachplan teachplan) { // Vue使用axios请求数据，默认post请求传参是json字符串格式
         // 调用Service层进行添加,并返回添加结果
         return this.courseService.addTeachplan(teachplan);
+    }
+
+    /**
+     * 修改课程计划
+     *
+     * @param teachplan
+     * @return
+     */
+    @Override
+    @PutMapping("/teachplan/edit")
+    public ResponseResult updateTeachplan(@RequestBody Teachplan teachplan) {
+        // 调用Service层进行修改,并返回修改结果
+        return this.courseService.updateTeachplan(teachplan);
+    }
+
+    /**
+     * 删除课程计划
+     *
+     * @param teachplanNode
+     * @return
+     */
+    @Override
+    @DeleteMapping("/teachplan/delete")
+    public ResponseResult deleteTeachPlan(@RequestBody TeachplanNode teachplanNode) {
+        // 调用Service层进行删除,并返回删除结果
+        return this.courseService.deleteTeachPlan(teachplanNode);
     }
 
     /**

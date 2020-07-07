@@ -124,11 +124,10 @@ public class CmsPageServiceImpl implements ICmsPageService, ConfirmCallback, Ret
             // 设置总条数
             queryResult.setTotal(all.getTotalElements());
             // 返回查询成功结果
-            return new QueryResponseResult(CommonCode.SUCCESS, queryResult);
+            return new QueryResponseResult<>(CommonCode.SUCCESS, queryResult);
         } catch (Exception e) {
-            e.printStackTrace();
             // 返回查询失败结果
-            return new QueryResponseResult(CommonCode.FAIL, new QueryResult<CmsPage>());
+            return new QueryResponseResult<CmsPage>(CommonCode.FAIL, new QueryResult<>());
         }
     }
 

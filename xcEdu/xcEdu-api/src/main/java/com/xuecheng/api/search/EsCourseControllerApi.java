@@ -14,7 +14,7 @@ import io.swagger.annotations.ApiOperation;
  * @version: V1.0
  * @Description: 课程搜索相关的对外暴露的接口：在Search服务工程编写Controller类实现此接口
  */
-@Api(value = "课程搜索接口", description = "课程搜索接口，从ElasticSearch中搜索课程信息", tags = "EsCourseApi")
+@Api(value = "课程搜索", description = "课程搜索接口，从ElasticSearch中搜索课程信息", tags = "EsCourseApi")
 public interface EsCourseControllerApi {
 
     /**

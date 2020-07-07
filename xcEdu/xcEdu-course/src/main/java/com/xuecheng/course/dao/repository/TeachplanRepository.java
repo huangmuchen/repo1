@@ -21,4 +21,12 @@ public interface TeachplanRepository extends JpaRepository<Teachplan, String> {
      * @return
      */
     List<Teachplan> findByCourseidAndParentid(String courseid, String parentid);
+
+    /**
+     * 根据父结点id查询出结点列表
+     *
+     * @param parentid
+     * @return
+     */
+    List<Teachplan> findByParentid(String parentid);
 }

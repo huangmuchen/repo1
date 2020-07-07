@@ -11,7 +11,7 @@ import io.swagger.annotations.ApiOperation;
  * @version: V1.0
  * @Description: SysDictionary相关的对外暴露的接口：在CMS服务工程编写Controller类实现此接口
  */
-@Api(value = "数据字典接口", description = "提供数据字典接口的管理、查询功能", tags = "SysDictionaryApi")
+@Api(value = "数据字典管理", description = "数据字典管理接口,提供数据字典查询、新增、修改功能", tags = "SysDictionaryApi")
 public interface SysDictionaryControllerApi {
 
     /**

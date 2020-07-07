@@ -14,7 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
  * @version: V1.0
  * @Description: 媒资文件上传对外暴露的接口：在Media服务工程编写Controller类实现此接口
  */
-@Api(value = "媒资文件管理接口", description = "媒资文件管理接口，提供媒资文件的的查询、上传、删除和视频处理", tags = "MediaUploadApi")
+@Api(value = "媒资文件上传", description = "媒资文件上传管理接口，提供媒资文件的的上传注册、分块检查、上传、合并", tags = "MediaUploadApi")
 public interface MediaUploadControllerApi {
 
     /**

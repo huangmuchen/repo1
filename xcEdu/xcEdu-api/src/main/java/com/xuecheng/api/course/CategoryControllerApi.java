@@ -10,7 +10,7 @@ import io.swagger.annotations.ApiOperation;
  * @version: V1.0
  * @Description: 课程分类相关的对外暴露的接口：在Course服务工程编写Controller类实现此接口
  */
-@Api(value = "课程分类管理接口", description = "课程分类管理接口，提供课程分类的查询", tags = "CategoryApi")
+@Api(value = "课程分类管理", description = "课程分类管理接口，提供课程分类的查询、修改、添加", tags = "CategoryApi")
 public interface CategoryControllerApi {
 
     /**

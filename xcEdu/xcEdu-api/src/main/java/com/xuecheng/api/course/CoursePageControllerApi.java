@@ -11,7 +11,7 @@ import io.swagger.annotations.ApiOperation;
  * @version: V1.0
  * @Description: 课程页面预览/发布相关的对外暴露的接口：在Course服务工程编写Controller类实现此接口
  */
-@Api(value = "课程页面管理接口", description = "课程页面管理接口，提供课程页面的预览、发布", tags = "CoursePageApi")
+@Api(value = "课程页面管理", description = "课程页面管理接口，提供课程页面的预览、发布", tags = "CoursePageApi")
 public interface CoursePageControllerApi {
 
     /**

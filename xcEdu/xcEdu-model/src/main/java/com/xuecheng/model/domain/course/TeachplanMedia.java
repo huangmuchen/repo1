@@ -11,7 +11,7 @@ import java.io.Serializable;
  * @author: HuangMuChen
  * @date: 2019/9/18 11:32
  * @version: V1.0
- * @Description: TODO
+ * @Description: 课程计划与媒资关联实体类
  */
 @Data
 @ToString
@@ -31,5 +31,6 @@ public class TeachplanMedia implements Serializable {
     private String mediaFileOriginalName; // 媒资文件的原始名称
     @Column(name = "media_url")
     private String mediaUrl; // 媒资文件访问地址
+    @Column(name = "courseid")
     private String courseId; // 课程id
 }

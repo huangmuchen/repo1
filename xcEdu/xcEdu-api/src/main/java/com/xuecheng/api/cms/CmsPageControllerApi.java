@@ -14,7 +14,7 @@ import io.swagger.annotations.*;
  * @version: V1.0
  * @Description: CmsPage相关的对外暴露的接口：在CMS服务工程编写Controller类实现此接口
  */
-@Api(value = "cms页面管理接口", description = "cms页面管理接口，提供页面的增、删、改、查", tags = "CmsPageApi")
+@Api(value = "cms页面管理", description = "cms页面管理接口，提供页面的增、删、改、查", tags = "CmsPageApi")
 public interface CmsPageControllerApi {
 
     /**

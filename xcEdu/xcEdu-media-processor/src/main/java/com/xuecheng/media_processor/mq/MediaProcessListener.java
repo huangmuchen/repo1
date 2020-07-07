@@ -36,10 +36,14 @@ public class MediaProcessListener {
      * @param message
      * @throws IOException
      */
-    @RabbitListener(bindings = @QueueBinding(
-            value = @Queue(value = "${xuecheng.mq.queue}", durable = "true"),
-            exchange = @Exchange(value = "${xuecheng.mq.exchange}", ignoreDeclarationExceptions = "true", type = ExchangeTypes.DIRECT),
-            key = {"${xuecheng.mq.routingKey}"}))
+    @RabbitListener(
+            bindings = @QueueBinding(
+                    value = @Queue(value = "${xuecheng.mq.queue}", durable = "true"),
+                    exchange = @Exchange(value = "${xuecheng.mq.exchange}", ignoreDeclarationExceptions = "true", type = ExchangeTypes.DIRECT),
+                    key = {"${xuecheng.mq.routingKey}"}
+            ),
+            containerFactory = "myContainerFactory"
+    )
     public void listenMediaProcessor(String msg, Channel channel, Message message) throws IOException {
         try {
             // 打印监听到的信息

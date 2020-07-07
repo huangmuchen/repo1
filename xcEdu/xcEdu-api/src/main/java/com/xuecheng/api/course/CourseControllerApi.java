@@ -21,7 +21,7 @@ import io.swagger.annotations.ApiOperation;
  * @version: V1.0
  * @Description: Course(课程)管理相关的对外暴露的接口：在Course服务工程编写Controller类实现此接口
  */
-@Api(value = "课程管理接口", description = "课程管理接口，提供课程的查询、新增、修改、营销、计划", tags = "CourseApi")
+@Api(value = "课程管理", description = "课程管理接口，提供课程的查询、新增、修改、营销、计划", tags = "CourseApi")
 public interface CourseControllerApi {
 
     /**
@@ -51,6 +51,16 @@ public interface CourseControllerApi {
     TeachplanNode findTeachplanList(String courseId);
 
     /**
+     * 根据课程计划id查询课程计划
+     *
+     * @param teachplanId
+     * @return
+     */
+    @ApiImplicitParam(name = "teachplanId", value = "课程计划id", required = true, paramType = "path", dataType = "String")
+    @ApiOperation("根据课程计划id查询课程计划")
+    Teachplan findTeachplan(String teachplanId);
+
+    /**
      * 添加课程计划
      *
      * @param teachplan
@@ -59,6 +69,26 @@ public interface CourseControllerApi {
     @ApiOperation("添加课程计划")
     @ApiImplicitParam(name = "teachplan", value = "课程计划信息", paramType = "body", required = true, dataTypeClass = Teachplan.class)
     ResponseResult addTeachplan(Teachplan teachplan);
+
+    /**
+     * 修改课程计划
+     *
+     * @param teachplan
+     * @return
+     */
+    @ApiOperation("修改课程计划")
+    @ApiImplicitParam(name = "teachplan", value = "课程计划信息", paramType = "body", required = true, dataTypeClass = Teachplan.class)
+    ResponseResult updateTeachplan(Teachplan teachplan);
+
+    /**
+     * 删除课程计划
+     *
+     * @param teachplanNode
+     * @return
+     */
+    @ApiOperation("删除课程计划")
+    @ApiImplicitParam(name = "teachplanNode", value = "课程计划树信息", paramType = "body", required = true, dataTypeClass = TeachplanNode.class)
+    ResponseResult deleteTeachPlan(TeachplanNode teachplanNode);
 
     /**
      * 添加课程基础信息

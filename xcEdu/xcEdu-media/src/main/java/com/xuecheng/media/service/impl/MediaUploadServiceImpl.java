@@ -196,13 +196,14 @@ public class MediaUploadServiceImpl implements IMediaUploadService, RabbitTempla
             mediaFile.setFileName(fileMd5 + "." + fileExt);
             mediaFile.setFileOriginalName(fileName);
             mediaFile.setFileSize(fileSize);
-            mediaFile.setFileType(mimetype);
+            mediaFile.setMimeType(mimetype);
             mediaFile.setFileType(fileExt);
             mediaFile.setUploadTime(new Date());
             mediaFile.setFileStatus(MediaConstant.MEDIAFILE_STATUS_SUCCESS);
             mediaFile.setFilePath(fileMd5.substring(0, 1) + "/" + fileMd5.substring(1, 2) + "/" + fileMd5 + "/");
             // 写入mogodb
-            this.mediaFileRepository.save(mediaFile);
+            MediaFile save = this.mediaFileRepository.save(mediaFile);
+            System.out.println(save);
             // 向MQ发送视频处理消息
             sendMsgToMq(fileMd5);
             // 删除Chunk

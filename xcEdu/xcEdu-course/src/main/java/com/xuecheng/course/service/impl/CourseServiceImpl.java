@@ -9,15 +9,9 @@ import com.xuecheng.common.model.response.QueryResponseResult;
 import com.xuecheng.common.model.response.QueryResult;
 import com.xuecheng.common.model.response.ResponseResult;
 import com.xuecheng.course.dao.mapper.CourseMapper;
-import com.xuecheng.course.dao.repository.CourseBaseRepository;
-import com.xuecheng.course.dao.repository.CourseMarketRepository;
-import com.xuecheng.course.dao.repository.CoursePicRepository;
-import com.xuecheng.course.dao.repository.TeachplanRepository;
+import com.xuecheng.course.dao.repository.*;
 import com.xuecheng.course.service.ICourseService;
-import com.xuecheng.model.domain.course.CourseBase;
-import com.xuecheng.model.domain.course.CourseMarket;
-import com.xuecheng.model.domain.course.CoursePic;
-import com.xuecheng.model.domain.course.Teachplan;
+import com.xuecheng.model.domain.course.*;
 import com.xuecheng.model.domain.course.ext.CourseInfo;
 import com.xuecheng.model.domain.course.ext.CourseView;
 import com.xuecheng.model.domain.course.ext.TeachplanNode;
@@ -54,6 +48,10 @@ public class CourseServiceImpl implements ICourseService {
     private TeachplanRepository teachplanRepository;
     @Autowired
     private CourseMarketRepository courseMarketRepository;
+    @Autowired
+    private TeachplanMediaRepository teachplanMediaRepository;
+    @Autowired
+    private TeachplanMediaPubRepository teachplanMediaPubRepository;
 
     /**
      * 分页查询课程列表
@@ -107,6 +105,20 @@ public class CourseServiceImpl implements ICourseService {
     }
 
     /**
+     * 根据课程计划id查询课程计划
+     *
+     * @param teachplanId
+     * @return
+     */
+    @Override
+    public Teachplan findTeachplan(String teachplanId) {
+        // 调用dao进行查询
+        Optional<Teachplan> optional = this.teachplanRepository.findById(teachplanId);
+        // 返回查询结果
+        return optional.orElse(null);
+    }
+
+    /**
      * 添加课程计划
      *
      * @param teachplan
@@ -152,6 +164,96 @@ public class CourseServiceImpl implements ICourseService {
         this.teachplanRepository.save(teachplan);
         // 响应成功结果
         return ResponseResult.SUCCESS();
+    }
+
+    /**
+     * 修改课程计划
+     *
+     * @param teachplan
+     * @return
+     */
+    @Transactional(rollbackFor = Exception.class)
+    @Override
+    public ResponseResult updateTeachplan(Teachplan teachplan) {
+        // 根据课程计划id查询课程计划信息
+        Optional<Teachplan> optional = this.teachplanRepository.findById(teachplan.getId());
+        // 校验课程计划信息
+        if (!optional.isPresent()) {
+            throw new CustomException(CourseCode.COURSE_PLAN_NOTEXIST);
+        }
+        // 取出课程计划
+        Teachplan tp = optional.get();
+        // 封装数据
+        tp.setParentid(teachplan.getParentid());
+        tp.setPname(teachplan.getPname());
+        tp.setPtype(teachplan.getPtype());
+        tp.setTimelength(teachplan.getTimelength());
+        tp.setOrderby(teachplan.getOrderby());
+        tp.setDescription(teachplan.getDescription());
+        tp.setStatus(teachplan.getStatus());
+        try {
+            // 更新数据到数据库
+            this.teachplanRepository.save(tp);
+            // 返回更新成功结果
+            return ResponseResult.SUCCESS();
+        } catch (Exception e) {
+            throw new CustomException(CourseCode.COURSE_PLAN_UPDATE_ERROR);
+        }
+    }
+
+    /**
+     * 删除课程计划
+     *
+     * @param teachplanNode
+     * @return
+     */
+    @Transactional(rollbackFor = Exception.class)
+    @Override
+    public ResponseResult deleteTeachPlan(TeachplanNode teachplanNode) {
+        // 层级判断
+        if (teachplanNode.getGrade().equals(CourseConstant.GRADE_THREE)) {
+            // 如果是删除3级节点，则直接删除即可，同时删除teachplan_media和teachplan_media_pub数据
+            deleteChildNode(teachplanNode.getId());
+        } else if (teachplanNode.getGrade().equals(CourseConstant.GRADE_TWO)) {
+            List<TeachplanNode> children = teachplanNode.getChildren();
+            if (children.size() > 0) {
+                // 如果2级节点有子节点,首先要删除它的所有子节点（3级节点）数据和子节点对应的teachplan_media和teachplan_media_pub数据;
+                children.forEach(tn -> {
+                    deleteChildNode(tn.getId());
+                });
+            }
+            // 删除2级节点数据和对应的teachplan_media和teachplan_media_pub数据
+            deleteChildNode(teachplanNode.getId());
+            // 全部删除后，如果2级节点个数为0，则需要删除根节点;
+            List<Teachplan> list = this.teachplanRepository.findByParentid(teachplanNode.getParentid());
+            if (list.size() == 0) {
+                // 删除根节点数据
+                this.teachplanRepository.deleteById(teachplanNode.getParentid());
+            }
+        } else {
+            throw new CustomException(INVALID_PARAM);
+        }
+        return ResponseResult.SUCCESS();
+    }
+
+    /**
+     * 删除子节点信息
+     *
+     * @param id
+     */
+    public void deleteChildNode(String id) {
+        // 删除teachplan信息
+        this.teachplanRepository.deleteById(id);
+        // 删除对应teachplan_media信息
+        Optional<TeachplanMedia> teachplanMediaOptional = this.teachplanMediaRepository.findById(id);
+        if (teachplanMediaOptional.isPresent()) {
+            this.teachplanMediaRepository.deleteById(id);
+        }
+        // 删除对应teachplan_media_pub信息
+        Optional<TeachplanMediaPub> teachplanMediaPubOptional = this.teachplanMediaPubRepository.findById(id);
+        if (teachplanMediaPubOptional.isPresent()) {
+            this.teachplanMediaPubRepository.deleteById(id);
+        }
     }
 
     /**
