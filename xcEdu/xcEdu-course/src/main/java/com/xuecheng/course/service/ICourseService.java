@@ -2,10 +2,7 @@ package com.xuecheng.course.service;
 
 import com.xuecheng.common.model.response.QueryResponseResult;
 import com.xuecheng.common.model.response.ResponseResult;
-import com.xuecheng.model.domain.course.CourseBase;
-import com.xuecheng.model.domain.course.CourseMarket;
-import com.xuecheng.model.domain.course.CoursePic;
-import com.xuecheng.model.domain.course.Teachplan;
+import com.xuecheng.model.domain.course.*;
 import com.xuecheng.model.domain.course.ext.CourseView;
 import com.xuecheng.model.domain.course.ext.TeachplanNode;
 import com.xuecheng.model.domain.course.request.CourseListRequest;
@@ -143,4 +140,12 @@ public interface ICourseService {
      * @return
      */
     ResponseResult deleteTeachPlan(TeachplanNode teachplanNode);
+
+    /**
+     * 保存课程计划关联的视频
+     *
+     * @param teachplanMedia
+     * @return
+     */
+    ResponseResult saveTeachplanMedia(TeachplanMedia teachplanMedia);
 }

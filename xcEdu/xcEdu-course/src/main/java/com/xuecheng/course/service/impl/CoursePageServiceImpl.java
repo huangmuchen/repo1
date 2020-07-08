@@ -6,7 +6,7 @@ import com.xuecheng.common.exception.CustomException;
 import com.xuecheng.common.model.response.CommonCode;
 import com.xuecheng.course.client.CmsPageClient;
 import com.xuecheng.course.config.CoursePublishProperties;
-import com.xuecheng.course.dao.mapper.CourseMapper;
+import com.xuecheng.course.dao.mapper.TeachplanMapper;
 import com.xuecheng.course.dao.repository.CourseBaseRepository;
 import com.xuecheng.course.dao.repository.CourseMarketRepository;
 import com.xuecheng.course.dao.repository.CoursePicRepository;
@@ -52,7 +52,7 @@ public class CoursePageServiceImpl implements ICoursePageService {
     @Autowired
     private CourseMarketRepository courseMarketRepository;
     @Autowired
-    private CourseMapper courseMapper;
+    private TeachplanMapper teachplanMapper;
     @Autowired
     private CoursePubRepository coursePubRepository;
     // 时间格式化对象
@@ -174,7 +174,7 @@ public class CoursePageServiceImpl implements ICoursePageService {
             }
         }
         // 封装课程计划
-        TeachplanNode teachplanNode = this.courseMapper.findTeachplanList(courseId);
+        TeachplanNode teachplanNode = this.teachplanMapper.findTeachplanList(courseId);
         // 转成JSON字符串存储
         coursePub.setTeachplan(JSON.toJSONString(teachplanNode));
         // 返回coursePub对象

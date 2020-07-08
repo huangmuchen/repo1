@@ -4,10 +4,7 @@ import com.xuecheng.api.course.CourseControllerApi;
 import com.xuecheng.common.model.response.QueryResponseResult;
 import com.xuecheng.common.model.response.ResponseResult;
 import com.xuecheng.course.service.ICourseService;
-import com.xuecheng.model.domain.course.CourseBase;
-import com.xuecheng.model.domain.course.CourseMarket;
-import com.xuecheng.model.domain.course.CoursePic;
-import com.xuecheng.model.domain.course.Teachplan;
+import com.xuecheng.model.domain.course.*;
 import com.xuecheng.model.domain.course.ext.CourseView;
 import com.xuecheng.model.domain.course.ext.TeachplanNode;
 import com.xuecheng.model.domain.course.request.CourseListRequest;
@@ -225,5 +222,18 @@ public class CourseController implements CourseControllerApi {
     public CourseView getCourseView(@PathVariable("courseId") String courseId) {
         // 调用service层进行查询
         return this.courseService.getCourseView(courseId);
+    }
+
+    /**
+     * 保存课程计划关联的视频
+     *
+     * @param teachplanMedia
+     * @return
+     */
+    @Override
+    @PostMapping("/saveTeachplanMedia")
+    public ResponseResult saveTeachplanMedia(@RequestBody TeachplanMedia teachplanMedia) {
+        // 调用service层进行保存，并返回保存结果
+        return this.courseService.saveTeachplanMedia(teachplanMedia);
     }
 }

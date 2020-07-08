@@ -15,6 +15,7 @@ import lombok.ToString;
 @ToString
 @AllArgsConstructor
 public enum CourseCode implements ResultCode {
+    COURSE_MEDIA_TEACHPLAN_ILLEGAL_GRADE(false,31102,"只有三级分类才可以添加视频！"),
     COURSE_PLAN_UPDATE_ERROR(false,31012,"课程计划信息更新失败！"),
     COURSE_PLAN_NOTEXIST(false,31011,"课程计划信息为空！"),
     COURSE_PUBLISH_CREATE_INDEX_ERROR(false,31010,"创建课程索引信息失败"),
@@ -28,7 +29,7 @@ public enum CourseCode implements ResultCode {
     COURSE_PUBLISH_COURSEIDISNULL(false, 31004, "课程Id为空！"),
     COURSE_PUBLISH_VIEWERROR(false, 31005, "发布课程视图出错！"),
     COURSE_MEDIS_URLISNULL(false, 31101, "选择的媒资文件访问地址为空！"),
-    COURSE_MEDIS_NAMEISNULL(false, 31102, "选择的媒资文件名称为空！");
+    COURSE_MEDIS_NAMEISNULL(false, 31103, "选择的媒资文件名称为空！");
 
     // 操作是否成功
     @ApiModelProperty(value = "操作是否成功", example = "true", required = true)

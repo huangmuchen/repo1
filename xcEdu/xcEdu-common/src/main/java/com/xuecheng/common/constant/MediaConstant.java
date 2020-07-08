@@ -14,6 +14,6 @@ public interface MediaConstant {
     // 媒资视频处理状态
     String MEDIAPROCESS_STATUS_SUCCESS = "303002"; // 处理成功
     String MEDIAPROCESS_STATUS_FAIL = "303003"; // 处理失败
-    String MEDIAPROCESS_STATUS_UNPROCESS = "303001"; // 未处理
+    String MEDIAPROCESS_STATUS_UNPROCESS = "303001"; // 未处理(处理中)
     String MEDIAPROCESS_STATUS_PROCESSED = "303004"; // 无需处理
 }

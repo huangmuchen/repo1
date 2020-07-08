@@ -9,6 +9,7 @@ import com.xuecheng.common.model.response.QueryResponseResult;
 import com.xuecheng.common.model.response.QueryResult;
 import com.xuecheng.common.model.response.ResponseResult;
 import com.xuecheng.course.dao.mapper.CourseMapper;
+import com.xuecheng.course.dao.mapper.TeachplanMapper;
 import com.xuecheng.course.dao.repository.*;
 import com.xuecheng.course.service.ICourseService;
 import com.xuecheng.model.domain.course.*;
@@ -40,6 +41,8 @@ import static com.xuecheng.common.model.response.CommonCode.INVALID_PARAM;
 public class CourseServiceImpl implements ICourseService {
     @Autowired
     private CourseMapper courseMapper;
+    @Autowired
+    private TeachplanMapper teachplanMapper;
     @Autowired
     private CourseBaseRepository courseBaseRepository;
     @Autowired
@@ -101,7 +104,7 @@ public class CourseServiceImpl implements ICourseService {
     @Override
     public TeachplanNode findTeachplanList(String courseId) {
         // 调用mapper层进行查询
-        return this.courseMapper.findTeachplanList(courseId);
+        return this.teachplanMapper.findTeachplanList(courseId);
     }
 
     /**
@@ -447,7 +450,7 @@ public class CourseServiceImpl implements ICourseService {
         // 查询课程图片信息
         Optional<CoursePic> coursePicOptional = this.coursePicRepository.findById(courseId);
         // 查询教学计划信息
-        TeachplanNode teachplanNode = this.courseMapper.findTeachplanList(courseId);
+        TeachplanNode teachplanNode = this.teachplanMapper.findTeachplanList(courseId);
         // 创建响应结果对象
         CourseView courseView = new CourseView();
         // 封装数据
@@ -492,5 +495,51 @@ public class CourseServiceImpl implements ICourseService {
         }
         // 直接返回根节点id
         return teachplanList.get(0).getId();
+    }
+
+    /**
+     * 保存课程计划关联的视频
+     *
+     * @param teachplanMedia
+     * @return
+     */
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public ResponseResult saveTeachplanMedia(TeachplanMedia teachplanMedia) {
+        // 判断参数是否为空
+        if (teachplanMedia == null) {
+            throw new CustomException(INVALID_PARAM);
+        }
+        // 查询课程计划
+        Optional<Teachplan> teachplanOptional = this.teachplanRepository.findById(teachplanMedia.getTeachplanId());
+        // 校验课程计划
+        if (!teachplanOptional.isPresent()) {
+            throw new CustomException(CourseCode.COURSE_PLAN_NOTEXIST);
+        }
+        // 获取课程等级
+        String grade = teachplanOptional.get().getGrade();
+        // 只允许为叶子结点课程计划选择视频
+        if (StringUtils.isBlank(grade) || !grade.equals(CourseConstant.GRADE_THREE)) {
+            throw new CustomException(CourseCode.COURSE_MEDIA_TEACHPLAN_ILLEGAL_GRADE);
+        }
+        // 创建要保存的TeachplanMedia对象
+        TeachplanMedia save = new TeachplanMedia();
+        // 查询数据库TeachPlanMedia信息
+        Optional<TeachplanMedia> teachplanMediaOptional = this.teachplanMediaRepository.findById(teachplanMedia.getTeachplanId());
+        // 判断是新增还是修改
+        if (teachplanMediaOptional.isPresent()) {
+            // 如果存在，则修改
+            save = teachplanMediaOptional.get();
+        }
+        // 填充数据
+        save.setCourseId(teachplanMedia.getCourseId());
+        save.setMediaFileOriginalName(teachplanMedia.getMediaFileOriginalName());
+        save.setMediaId(teachplanMedia.getMediaId());
+        save.setMediaUrl(teachplanMedia.getMediaUrl());
+        save.setTeachplanId(teachplanMedia.getTeachplanId());
+        // 保存到数据库
+        teachplanMediaRepository.save(save);
+        // 返回保存成功消息
+        return ResponseResult.SUCCESS();
     }
 }

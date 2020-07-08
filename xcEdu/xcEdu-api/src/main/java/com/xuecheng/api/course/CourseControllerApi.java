@@ -2,10 +2,7 @@ package com.xuecheng.api.course;
 
 import com.xuecheng.common.model.response.QueryResponseResult;
 import com.xuecheng.common.model.response.ResponseResult;
-import com.xuecheng.model.domain.course.CourseBase;
-import com.xuecheng.model.domain.course.CourseMarket;
-import com.xuecheng.model.domain.course.CoursePic;
-import com.xuecheng.model.domain.course.Teachplan;
+import com.xuecheng.model.domain.course.*;
 import com.xuecheng.model.domain.course.ext.CourseView;
 import com.xuecheng.model.domain.course.ext.TeachplanNode;
 import com.xuecheng.model.domain.course.request.CourseListRequest;
@@ -191,4 +188,14 @@ public interface CourseControllerApi {
     @ApiOperation("课程视图查询")
     @ApiImplicitParam(name = "courseId", value = "课程id", required = true, paramType = "path", dataType = "String")
     CourseView getCourseView(String courseId);
+
+    /**
+     * 保存课程计划关联的视频
+     *
+     * @param teachplanMedia
+     * @return
+     */
+    @ApiOperation("保存课程计划关联的视频")
+    @ApiImplicitParam(name = "teachplanMedia", value = "课程计划与媒资关联信息", paramType = "body", required = true, dataTypeClass = TeachplanMedia.class)
+    ResponseResult saveTeachplanMedia(TeachplanMedia teachplanMedia);
 }
