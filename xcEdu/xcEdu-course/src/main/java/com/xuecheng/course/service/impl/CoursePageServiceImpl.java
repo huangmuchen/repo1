@@ -7,18 +7,12 @@ import com.xuecheng.common.model.response.CommonCode;
 import com.xuecheng.course.client.CmsPageClient;
 import com.xuecheng.course.config.CoursePublishProperties;
 import com.xuecheng.course.dao.mapper.TeachplanMapper;
-import com.xuecheng.course.dao.repository.CourseBaseRepository;
-import com.xuecheng.course.dao.repository.CourseMarketRepository;
-import com.xuecheng.course.dao.repository.CoursePicRepository;
-import com.xuecheng.course.dao.repository.CoursePubRepository;
+import com.xuecheng.course.dao.repository.*;
 import com.xuecheng.course.service.ICoursePageService;
 import com.xuecheng.model.domain.cms.CmsPage;
 import com.xuecheng.model.domain.cms.response.CmsPageResult;
 import com.xuecheng.model.domain.cms.response.CmsPublishPageResult;
-import com.xuecheng.model.domain.course.CourseBase;
-import com.xuecheng.model.domain.course.CourseMarket;
-import com.xuecheng.model.domain.course.CoursePic;
-import com.xuecheng.model.domain.course.CoursePub;
+import com.xuecheng.model.domain.course.*;
 import com.xuecheng.model.domain.course.ext.TeachplanNode;
 import com.xuecheng.model.domain.course.response.CourseCode;
 import com.xuecheng.model.domain.course.response.CoursePublishResult;
@@ -29,7 +23,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -53,6 +49,10 @@ public class CoursePageServiceImpl implements ICoursePageService {
     private CourseMarketRepository courseMarketRepository;
     @Autowired
     private TeachplanMapper teachplanMapper;
+    @Autowired
+    private TeachplanMediaPubRepository teachplanMediaPubRepository;
+    @Autowired
+    private TeachplanMediaRepository teachplanMediaRepository;
     @Autowired
     private CoursePubRepository coursePubRepository;
     // 时间格式化对象
@@ -103,12 +103,39 @@ public class CoursePageServiceImpl implements ICoursePageService {
         CoursePub coursePub = createCoursePub(courseId);
         // 保存课程索引信息到数据库，由Logstash自动更新索引
         saveCoursePub(coursePub);
-        // TODO: 发布后，保存课程计划媒资信息到teachplan_media_pub表，方便Logstash同步到ES上
-
+        // 发布后，保存课程计划媒资信息到teachplan_media_pub表，方便Logstash同步到ES上
+        saveTeachplanMediaPub(courseId);
         // 获取页面url
         String pageUrl = cmsPublishPageResult.getPageUrl();
         // 返回发布结果
         return new CoursePublishResult(CommonCode.SUCCESS, pageUrl);
+    }
+
+    /**
+     * 发布后，保存课程计划到pub表，方便Logstash同步到ES上
+     *
+     * @param courseId
+     */
+    public void saveTeachplanMediaPub(String courseId) {
+        // 删除原来的信息
+        this.teachplanMediaPubRepository.deleteByCourseId(courseId);
+        // 查询课程计划与媒资关联信息
+        List<TeachplanMedia> teachplanMediaList = this.teachplanMediaRepository.findByCourseId(courseId);
+        // 创建一个集合，保存TeachplanMediaPub
+        List<TeachplanMediaPub> teachplanMediaPubList = new ArrayList<>();
+        // 遍历集合
+        teachplanMediaList.forEach(teachplanMedia -> {
+            // 新建一个TeachplanMediaPub对象
+            TeachplanMediaPub teachplanMediaPub = new TeachplanMediaPub();
+            // 属性复制
+            BeanUtils.copyProperties(teachplanMedia, teachplanMediaPub);
+            // 设置时间戳
+            teachplanMediaPub.setTimestamp(new Date());
+            // 将对象放入集合
+            teachplanMediaPubList.add(teachplanMediaPub);
+        });
+        // 将数据保存到数据库
+        this.teachplanMediaPubRepository.saveAll(teachplanMediaPubList);
     }
 
     /**
@@ -117,7 +144,7 @@ public class CoursePageServiceImpl implements ICoursePageService {
      * @param coursePub
      * @return
      */
-    private void saveCoursePub(CoursePub coursePub) {
+    public void saveCoursePub(CoursePub coursePub) {
         // 创建要保存的课程发布对象
         CoursePub coursePubNew = new CoursePub();
         // 首先根据id查询，看看是否存在
@@ -146,7 +173,7 @@ public class CoursePageServiceImpl implements ICoursePageService {
      * @param courseId
      * @return
      */
-    private CoursePub createCoursePub(String courseId) {
+    public CoursePub createCoursePub(String courseId) {
         // 创建课程发布对象
         CoursePub coursePub = new CoursePub();
         // 设置主键
@@ -187,7 +214,7 @@ public class CoursePageServiceImpl implements ICoursePageService {
      * @param courseId
      * @return
      */
-    private void updateCourseState(String courseId) {
+    public void updateCourseState(String courseId) {
         // 根据课程id查询课程基础信息
         CourseBase courseBase = getCourseBaseById(courseId);
         // 更新状态为：已发布
@@ -202,7 +229,7 @@ public class CoursePageServiceImpl implements ICoursePageService {
      * @param courseId
      * @return
      */
-    private CourseBase getCourseBaseById(String courseId) {
+    public CourseBase getCourseBaseById(String courseId) {
         // 根据课程id查询课程基础信息
         Optional<CourseBase> optional = this.courseBaseRepository.findById(courseId);
         // 校验查询结果
@@ -219,7 +246,7 @@ public class CoursePageServiceImpl implements ICoursePageService {
      * @param courseId
      * @return
      */
-    private CmsPage toCmsPage(String courseId) {
+    public CmsPage toCmsPage(String courseId) {
         // 根据课程id查询课程基础信息
         CourseBase courseBase = getCourseBaseById(courseId);
         // 创建课程页面对象

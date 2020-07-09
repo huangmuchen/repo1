@@ -32,8 +32,18 @@ zuul:
       strip-prefix: false
       sensitiveHeaders:
     media:
-      path:
+      path: /media/**
       serviceId: xcEdu-media
+      strip-prefix: false
+      sensitiveHeaders:
+    learning:
+      path: /learning/**
+      serviceId: xcEdu-learning
+      strip-prefix: false
+      sensitiveHeaders:
+    search:
+      path: /search/**
+      serviceId: xcEdu-search
       strip-prefix: false
       sensitiveHeaders:
 ribbon:

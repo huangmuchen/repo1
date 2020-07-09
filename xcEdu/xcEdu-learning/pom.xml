@@ -14,4 +14,53 @@
     <description>学习服务工程：处理在线学习业务</description>
     <version>1.0.0-SNAPSHOT</version>
 
+    <dependencies>
+        <!-- xcEdu-api工程 -->
+        <dependency>
+            <groupId>com.xuecheng.api</groupId>
+            <artifactId>xcEdu-api</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+        <!-- 消息中间件RabbitMQ -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-amqp</artifactId>
+        </dependency>
+        <!-- eureka客户端 -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
+        <!-- http客户端：供RestTemplate实现http的请求 -->
+        <dependency>
+            <groupId>com.squareup.okhttp3</groupId>
+            <artifactId>okhttp</artifactId>
+        </dependency>
+        <!-- mysql数据库驱动 -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+        <!-- 数据库连接池 -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid-spring-boot-starter</artifactId>
+        </dependency>
+        <!-- 分页助手启动器 -->
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper-spring-boot-starter</artifactId>
+        </dependency>
+        <!--Spring Data JPA：用于表的基本CRUD-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <!--对象关系映射：将关系数据库中表的数据映射成为对象-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-orm</artifactId>
+            <version>${springframework.version}</version>
+        </dependency>
+    </dependencies>
 </project>

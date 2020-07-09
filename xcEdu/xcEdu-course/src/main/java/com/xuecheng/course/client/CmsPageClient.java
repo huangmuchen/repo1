@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
  * @author: HuangMuChen
  * @date: 2020/6/25 18:13
  * @version: V1.0
- * @Description: 通过Feign远程调研CmsPage服务
+ * @Description: 通过Feign远程调用CmsPage服务
  */
 @FeignClient(value = XcServiceList.XCEDU_CMS)
 public interface CmsPageClient {

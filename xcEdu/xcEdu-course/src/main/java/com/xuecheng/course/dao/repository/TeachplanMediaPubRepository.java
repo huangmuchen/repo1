@@ -15,7 +15,6 @@ public interface TeachplanMediaPubRepository extends JpaRepository<TeachplanMedi
      * 根据课程id删除课程计划与媒资关联发布信息
      *
      * @param courseId
-     * @return
      */
-    Integer deleteByCourseId(String courseId);
+    void deleteByCourseId(String courseId);
 }

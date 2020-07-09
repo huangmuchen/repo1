@@ -12,7 +12,7 @@ import java.util.Date;
  * @author: HuangMuChen
  * @date: 2019/9/18 11:32
  * @version: V1.0
- * @Description: TODO
+ * @Description: 课程学习实体类
  */
 @Data
 @ToString
@@ -25,15 +25,15 @@ public class XcLearningCourse implements Serializable {
     @Id
     @GeneratedValue(generator = "jpa-uuid")
     @Column(length = 32)
-    private String id;
+    private String id; // 主键
     @Column(name = "course_id")
-    private String courseId;
+    private String courseId; // 课程id
     @Column(name = "user_id")
-    private String userId;
-    private String valid;
+    private String userId; // 用户id
+    private String valid; // 有效性
     @Column(name = "start_time")
-    private Date startTime;
+    private Date startTime; // 开始时间
     @Column(name = "end_time")
-    private Date endTime;
-    private String status;
+    private Date endTime; // 结束时间
+    private String status; // 选课状态
 }

@@ -1,17 +1,32 @@
 server:
-  port: 40100
+  port: 40600
 spring:
   application:
-    name: xcEdu-search
-xuecheng:
-  elasticsearch:
-    hostList: 127.0.0.1:9200,127.0.0.1:9201,127.0.0.1:9202 #多个结点中间用逗号分隔
-    courseIndex: xc_course
-    courseType: doc
-    courseSourceFields: id,name,grade,mt,st,charge,valid,pic,qq,price,price_old,status,studymodel,teachmode,expires,pub_time,start_time,end_time
-    mediaIndex: xc_course_media
-    mediaType: doc
-    mediaSourceFields: courseid,media_id,media_url,teachplan_id,media_fileoriginalname
+    name: xcEdu-learning
+  datasource:
+    druid:
+      url: jdbc:mysql://localhost:3306/xc_learning?characterEncoding=utf-8
+      username: root
+      password: 123
+      driverClassName: com.mysql.jdbc.Driver
+      initialSize: 5  #初始建立连接数量
+      minIdle: 5  #最小连接数量
+      maxActive: 20 #最大连接数量
+      maxWait: 10000  #获取连接最大等待时间，毫秒
+      testOnBorrow: true #申请连接时检测连接是否有效
+      testOnReturn: false #归还连接时检测连接是否有效
+      timeBetweenEvictionRunsMillis: 60000 #配置间隔检测连接是否有效的时间（单位是毫秒）
+      minEvictableIdleTimeMillis: 300000  #连接在连接池的最小生存时间（毫秒
+  rabbitmq:
+    host: 192.168.222.131
+    port: 5672
+    username: xcEdu
+    password: xcEdu
+    virtualHost: /xcEdu
+    listener:
+      simple:
+        acknowledge-mode: manual # 消息接收后进行手动确认
+        prefetch: 1 # 每个消费者同时只能处理一条消息
 eureka:
   client:
     service-url:
@@ -23,6 +38,7 @@ eureka:
     prefer-ip-address: true # 当调用getHostname获取实例的hostname时，返回ip而不是host名称
     ip-address: 127.0.0.1 # 指定自己的ip信息，不指定的话会自己寻找
     instance-id: ${spring.application.name}:${server.port}
+# 设置feign调用超时时间
 ribbon:
   ConnectTimeout: 5000 #请求连接的超时时间
   ReadTimeout: 6000 #请求处理的超时时间

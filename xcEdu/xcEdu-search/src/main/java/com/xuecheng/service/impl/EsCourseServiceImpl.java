@@ -5,6 +5,7 @@ import com.xuecheng.common.model.response.QueryResponseResult;
 import com.xuecheng.common.model.response.QueryResult;
 import com.xuecheng.config.SearchProperties;
 import com.xuecheng.model.domain.course.CoursePub;
+import com.xuecheng.model.domain.course.TeachplanMediaPub;
 import com.xuecheng.model.domain.search.CourseSearchParam;
 import com.xuecheng.service.IEsCourseService;
 import lombok.extern.slf4j.Slf4j;
@@ -181,6 +182,121 @@ public class EsCourseServiceImpl implements IEsCourseService {
         } catch (Exception e) {
             log.error("xuecheng search error！异常信息：{}", e.getMessage());
             return new QueryResponseResult<>(CommonCode.FAIL, new QueryResult<>());
+        }
+    }
+
+    /**
+     * 根据课程ID，查询课程信息
+     *
+     * @param courseId
+     * @return
+     */
+    @Override
+    public CoursePub getDetail(String courseId) {
+        try {
+            // 创建搜索请求对象，指定索引
+            SearchRequest searchRequest = new SearchRequest(prop.getCourseIndex());
+            // 指定类型
+            searchRequest.types(prop.getCourseType());
+            // 创建搜索源构建对象
+            SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
+            // 根据课程id进行精确搜索
+            searchSourceBuilder.query(QueryBuilders.termQuery("id", courseId));
+            // 向搜索请求对象中设置搜索源
+            searchRequest.source(searchSourceBuilder);
+            // 执行搜索,向ES发起http请求
+            SearchResponse searchResponse = client.search(searchRequest);
+            // 得到匹配度高的文档
+            SearchHit[] searchHits = searchResponse.getHits().getHits();
+            // 构建CoursePub返回对象
+            CoursePub coursePub = new CoursePub();
+            // 遍历搜索结果
+            for (SearchHit hit : searchHits) {
+                // 取出源文档内容
+                Map<String, Object> sourceAsMap = hit.getSourceAsMap();
+                // 课程id
+                String id = (String) sourceAsMap.get("id");
+                // 课程名称
+                String name = (String) sourceAsMap.get("name");
+                // 课程等级
+                String grade = (String) sourceAsMap.get("grade");
+                // 课程收费
+                String charge = (String) sourceAsMap.get("charge");
+                // 课程图片
+                String pic = (String) sourceAsMap.get("pic");
+                // 课程描述
+                String description = (String) sourceAsMap.get("description");
+                // 课程计划
+                String teachplan = (String) sourceAsMap.get("teachplan");
+                // 封装数据
+                coursePub.setId(id);
+                coursePub.setName(name);
+                coursePub.setPic(pic);
+                coursePub.setGrade(grade);
+                coursePub.setCharge(charge);
+                coursePub.setTeachplan(teachplan);
+                coursePub.setDescription(description);
+            }
+            return coursePub;
+        } catch (Exception e) {
+            log.error("xuecheng search error！异常信息：{}", e.getMessage());
+            return new CoursePub();
+        }
+    }
+
+    /**
+     * 根据课程计划ID，查询播放地址
+     *
+     * @param teachplanId
+     * @return
+     */
+    @Override
+    public TeachplanMediaPub getMedia(String teachplanId) {
+        try {
+            // 创建搜索请求对象，指定索引
+            SearchRequest searchRequest = new SearchRequest(prop.getMediaIndex());
+            // 指定类型
+            searchRequest.types(prop.getMediaType());
+            // 创建搜索源构建对象
+            SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
+            // source源字段过虑
+            String[] source_fields = prop.getMediaSourceFields().split(",");
+            searchSourceBuilder.fetchSource(source_fields, new String[]{});
+            // 根据课程计划id进行精确搜索
+            searchSourceBuilder.query(QueryBuilders.termQuery("teachplan_id", teachplanId));
+            // 向搜索请求对象中设置搜索源
+            searchRequest.source(searchSourceBuilder);
+            // 执行搜索,向ES发起http请求
+            SearchResponse searchResponse = client.search(searchRequest);
+            // 得到匹配度高的文档
+            SearchHit[] searchHits = searchResponse.getHits().getHits();
+            // 构建CoursePub返回对象
+            TeachplanMediaPub teachplanMediaPub = new TeachplanMediaPub();
+            // 遍历搜索结果
+            for (SearchHit hit : searchHits) {
+                // 取出源文档内容
+                Map<String, Object> sourceAsMap = hit.getSourceAsMap();
+                // 课程计划id
+                String teachplan_id = (String) sourceAsMap.get("teachplan_id");
+                // 媒资id
+                String media_id = (String) sourceAsMap.get("media_id");
+                // 媒资文件路径
+                String media_url = (String) sourceAsMap.get("media_url");
+                // 媒资文件原始名称
+                String media_fileoriginalname = (String) sourceAsMap.get("media_fileoriginalname");
+                // 课程id
+                String courseid = (String) sourceAsMap.get("courseid");
+                // 封装数据
+                teachplanMediaPub.setTeachplanId(teachplan_id);
+                teachplanMediaPub.setMediaId(media_id);
+                teachplanMediaPub.setMediaUrl(media_url);
+                teachplanMediaPub.setMediaFileOriginalName(media_fileoriginalname);
+                teachplanMediaPub.setCourseId(courseid);
+            }
+            return teachplanMediaPub;
+        } catch (Exception e) {
+            log.error("xuecheng search error！异常信息：{}", e.getMessage());
+            return new TeachplanMediaPub();
         }
     }
 }

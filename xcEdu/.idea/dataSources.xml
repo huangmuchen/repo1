@@ -1,11 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="MySQL for 5.1 - xc_course@localhost" uuid="877065f9-e553-4d7c-83c9-a84d507b704f">
+    <data-source source="LOCAL" name="xc_course@localhost" uuid="877065f9-e553-4d7c-83c9-a84d507b704f">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://localhost:3306/xc_course</jdbc-url>
+      <driver-properties>
+        <property name="serverTimezone" value="Asia/Shanghai" />
+      </driver-properties>
+    </data-source>
+    <data-source source="LOCAL" name="xc_learning@localhost" uuid="b89b7cb3-f978-4599-aad8-ef78a8b0f6c8">
+      <driver-ref>mysql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/xc_learning</jdbc-url>
+      <driver-properties>
+        <property name="serverTimezone" value="Asia/Shanghai" />
+      </driver-properties>
+    </data-source>
+    <data-source source="LOCAL" name="xc_user@localhost" uuid="e31a5584-1350-4914-9442-f4240e597ebd">
+      <driver-ref>mysql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/xc_user</jdbc-url>
+      <driver-properties>
+        <property name="serverTimezone" value="Asia/Shanghai" />
+      </driver-properties>
+    </data-source>
+    <data-source source="LOCAL" name="xc_order@localhost" uuid="09872489-c584-45a5-8737-15606f65fc1b">
+      <driver-ref>mysql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/xc_order</jdbc-url>
       <driver-properties>
         <property name="serverTimezone" value="Asia/Shanghai" />
       </driver-properties>

@@ -3,6 +3,7 @@ package com.xuecheng.controller;
 import com.xuecheng.api.search.EsCourseControllerApi;
 import com.xuecheng.common.model.response.QueryResponseResult;
 import com.xuecheng.model.domain.course.CoursePub;
+import com.xuecheng.model.domain.course.TeachplanMediaPub;
 import com.xuecheng.model.domain.search.CourseSearchParam;
 import com.xuecheng.service.IEsCourseService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,5 +37,31 @@ public class EsCourseController implements EsCourseControllerApi {
     public QueryResponseResult<CoursePub> esList(@PathVariable("page") int page, @PathVariable("size") int size, CourseSearchParam courseSearchParam) {
         // 调用Service层进行搜索，并返回搜索结果
         return this.esCourseService.esList(page, size, courseSearchParam);
+    }
+
+    /**
+     * 根据课程ID，查询课程信息
+     *
+     * @param courseId
+     * @return
+     */
+    @Override
+    @GetMapping("/getDetail/{id}")
+    public CoursePub getDetail(@PathVariable("id") String courseId) {
+        // 调用Service层进行搜索，并返回搜索结果
+        return this.esCourseService.getDetail(courseId);
+    }
+
+    /**
+     * 根据课程计划ID，查询播放地址
+     *
+     * @param teachplanId
+     * @return
+     */
+    @Override
+    @GetMapping("/getMedia/{teachplanId}")
+    public TeachplanMediaPub getMedia(@PathVariable("teachplanId") String teachplanId) {
+        // 调用Service层进行搜索，并返回搜索结果
+        return this.esCourseService.getMedia(teachplanId);
     }
 }
