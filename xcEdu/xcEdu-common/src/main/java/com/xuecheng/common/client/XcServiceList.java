@@ -13,7 +13,7 @@ public class XcServiceList {
     public static final String XCEDU_MEDIA = "xcEdu-media";
     public static final String XCEDU_CMS = "xcEdu-cms";
     public static final String XCEDU_UCENTER = "xcEdu-ucenter";
-    public static final String XCEDU_UCENTER_AUTH = "xcEdu-ucenter-auth";
+    public static final String XCEDU_AUTH = "xcEdu-auth";
     public static final String XCEDU_FILESYSTEM = "xcEdu-filesystem";
     public static final String XCEDU_GATEWAY = "xcEdu-gateway";
     public static final String XCEDU_ORDER = "xcEdu-order";

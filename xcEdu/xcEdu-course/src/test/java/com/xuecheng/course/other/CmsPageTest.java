@@ -42,7 +42,7 @@ public class CmsPageTest {
      * 测试Feign远程调用功能
      */
     @Test
-    public void testFeign(){
+    public void testFeign() {
         // 通过Feign远程调用CmsPage服务
         CmsPage cmsPage = this.cmsPageClient.findByPageId("5e4fd031392c022514c5122e");
         // 打印查询结果

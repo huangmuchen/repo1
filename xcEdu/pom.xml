@@ -22,6 +22,8 @@
         <module>xcEdu-media</module>
         <module>xcEdu-media-processor</module>
         <module>xcEdu-learning</module>
+        <module>xcEdu-auth</module>
+        <module>xcEdu-ucenter</module>
     </modules>
     <packaging>pom</packaging>
     <name>xcEdu</name>
@@ -52,7 +54,7 @@
         <commons-lang3.version>3.7</commons-lang3.version>
         <okhttp.version>3.9.1</okhttp.version>
         <feign-okhttp.version>8.18.0</feign-okhttp.version>
-        <lombok.version>1.16.20</lombok.version>
+        <lombok.version>1.18.10</lombok.version>
         <springfox-swagger.version>2.8.0</springfox-swagger.version>
         <fastjson.version>1.2.30</fastjson.version>
         <fastdfs-client-java.version>1.26.1-RELEASE</fastdfs-client-java.version>

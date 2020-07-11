@@ -12,6 +12,7 @@
         <module name="xcEdu-gateway" />
         <module name="xcEdu-registry" />
         <module name="xcEdu-cms" />
+        <module name="xcEdu-auth" />
         <module name="xcEdu-filesystem" />
         <module name="xcEdu-cms-client" />
         <module name="xcEdu-learning" />
@@ -20,6 +21,7 @@
         <module name="xcEdu-course" />
         <module name="xcEdu-search" />
         <module name="xcEdu-api" />
+        <module name="xcEdu-ucenter" />
         <module name="xcEdu-utils" />
       </profile>
     </annotationProcessing>
@@ -27,6 +29,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="xcEdu-api" options="-parameters" />
+      <module name="xcEdu-auth" options="-parameters" />
       <module name="xcEdu-cms" options="-parameters" />
       <module name="xcEdu-cms-client" options="-parameters" />
       <module name="xcEdu-common" options="-parameters" />
@@ -39,6 +42,7 @@
       <module name="xcEdu-model" options="-parameters" />
       <module name="xcEdu-registry" options="-parameters" />
       <module name="xcEdu-search" options="-parameters" />
+      <module name="xcEdu-ucenter" options="-parameters" />
       <module name="xcEdu-utils" options="-parameters" />
     </option>
   </component>

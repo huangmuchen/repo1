@@ -29,8 +29,8 @@ public class CourseMarket implements Serializable {
     private String charge; // 收费规则，对应数据字典
     private String valid; // 有效性，对应数据字典
     private String qq; // 咨询qq
-    private Float price; // 价格
-    private Float price_old; // 原价
+    private Double price; // 价格
+    private Double price_old; // 原价
     private Date expires; // 过期时间
     @Column(name = "start_time")
     private Date startTime; // 课程有效期-开始时间
