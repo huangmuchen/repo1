@@ -6,6 +6,7 @@ spring:
   application:
     name: xcEdu-auth
   redis:
+    database: 1 # 数据库索引
     host: 192.168.222.131
     port: 6379
     timeout: 5000 #连接超时 毫秒
@@ -32,10 +33,13 @@ spring:
 xuecheng:
   auth:
     tokenValiditySeconds: 1200 # token存储到redis的过期时间，单位：秒
-    clientId: XcWebApp
-    clientSecret: XcWebApp
-    cookieDomain: xuecheng.com
+    clientId: XcWebApp # 客户端id
+    clientSecret: XcWebApp # 客户端密码
+    cookieDomain: xuecheng.com # cookie域名
     cookieMaxAge: -1 # 浏览器关闭，cookie就删除
+    cookieName: uid # cookie名称
+    grantType: password # 授权模式：密码模式授权
+    prefixKey: user_token： # redis的key前缀
 encrypt:
   key-store:
     location: classpath:/xc.keystore

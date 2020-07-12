@@ -10,7 +10,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3637ca18-00b3-47fa-8770-412f4aca64b0" name="Default Changelist" comment="完成在线学习视频点播功能开发">
+    <list default="true" id="3637ca18-00b3-47fa-8770-412f4aca64b0" name="Default Changelist" comment="完成用户认证功能开发">
       <change afterPath="$PROJECT_DIR$/../leiyou/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../leiyou/.idea/compiler.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../leiyou/.idea/encodings.xml" afterDir="false" />
@@ -200,59 +200,18 @@
       <change afterPath="$PROJECT_DIR$/../leiyou/leyou-user/leyou-user-service/src/test/java/com/leyou/user/UserTest.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../leiyou/leyou-user/pom.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../leiyou/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations/AuthApplication.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations/UcenterApplication.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xcEdu-api/src/main/java/com/xuecheng/api/auth/AuthControllerApi.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xcEdu-api/src/main/java/com/xuecheng/api/ucenter/UcenterControllerApi.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xcEdu-auth/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xcEdu-auth/src/main/java/com/xuecheng/AuthApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xcEdu-auth/src/main/java/com/xuecheng/auth/client/UserClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xcEdu-auth/src/main/java/com/xuecheng/auth/config/AuthProperties.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xcEdu-auth/src/main/java/com/xuecheng/auth/config/AuthorizationServerConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xcEdu-auth/src/main/java/com/xuecheng/auth/config/CustomUserAuthenticationConverter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xcEdu-auth/src/main/java/com/xuecheng/auth/config/WebSecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xcEdu-auth/src/main/java/com/xuecheng/auth/controller/AuthController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xcEdu-auth/src/main/java/com/xuecheng/auth/pojo/UserJwt.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xcEdu-auth/src/main/java/com/xuecheng/auth/service/IAuthService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xcEdu-auth/src/main/java/com/xuecheng/auth/service/impl/AuthServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xcEdu-auth/src/main/java/com/xuecheng/auth/service/impl/UserDetailsServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xcEdu-auth/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xcEdu-auth/src/main/resources/logback-spring.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xcEdu-auth/src/main/resources/xc.keystore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xcEdu-auth/src/test/java/com/xuecheng/auth/test/TestAuth.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xcEdu-auth/src/test/java/com/xuecheng/auth/test/TestJWT.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xcEdu-auth/src/test/java/com/xuecheng/auth/test/TestRedis.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xcEdu-auth/xcEdu-auth.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xcEdu-cms/src/main/java/com/xuecheng/cms/config/ResourceServerConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xcEdu-cms/src/main/resources/publickey.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xcEdu-course/src/main/java/com/xuecheng/course/config/ResourceServerConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xcEdu-course/src/main/resources/publickey.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xcEdu-ucenter/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xcEdu-ucenter/src/main/java/com/xuecheng/UcenterApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xcEdu-ucenter/src/main/java/com/xuecheng/ucenter/controller/UcenterController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xcEdu-ucenter/src/main/java/com/xuecheng/ucenter/dao/mapper/XcMenuMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xcEdu-ucenter/src/main/java/com/xuecheng/ucenter/dao/repository/XcCompanyUserRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xcEdu-ucenter/src/main/java/com/xuecheng/ucenter/dao/repository/XcUserRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xcEdu-ucenter/src/main/java/com/xuecheng/ucenter/service/IUcenterService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xcEdu-ucenter/src/main/java/com/xuecheng/ucenter/service/impl/UcenterServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xcEdu-ucenter/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xcEdu-ucenter/src/main/resources/logback-spring.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xcEdu-ucenter/xcEdu-ucenter.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xcEdu-cms/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-cms/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xcEdu-common/src/main/java/com/xuecheng/common/client/XcServiceList.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-common/src/main/java/com/xuecheng/common/client/XcServiceList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xcEdu-course/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-course/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xcEdu-course/src/test/java/com/xuecheng/course/other/CmsPageTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-course/src/test/java/com/xuecheng/course/other/CmsPageTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xcEdu-gateway/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-gateway/src/main/resources/application.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/course/CourseMarket.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/course/CourseMarket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/ucenter/XcCompany.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/ucenter/XcCompany.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/ucenter/XcCompanyUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/ucenter/XcCompanyUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/ucenter/XcUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/ucenter/XcUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/ucenter/ext/XcUserExt.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/ucenter/ext/XcUserExt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xcEdu-api/src/main/java/com/xuecheng/api/auth/AuthControllerApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-api/src/main/java/com/xuecheng/api/auth/AuthControllerApi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xcEdu-auth/src/main/java/com/xuecheng/auth/config/AuthProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-auth/src/main/java/com/xuecheng/auth/config/AuthProperties.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xcEdu-auth/src/main/java/com/xuecheng/auth/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-auth/src/main/java/com/xuecheng/auth/controller/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xcEdu-auth/src/main/java/com/xuecheng/auth/service/IAuthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-auth/src/main/java/com/xuecheng/auth/service/IAuthService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xcEdu-auth/src/main/java/com/xuecheng/auth/service/impl/AuthServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-auth/src/main/java/com/xuecheng/auth/service/impl/AuthServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xcEdu-auth/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-auth/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xcEdu-auth/src/test/java/com/xuecheng/auth/test/TestAuth.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-auth/src/test/java/com/xuecheng/auth/test/TestAuth.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/ucenter/ext/AuthToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/ucenter/ext/AuthToken.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/ucenter/request/LoginRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/ucenter/request/LoginRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/ucenter/response/AuthCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/ucenter/response/AuthCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/ucenter/response/LoginResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/xcEdu-model/src/main/java/com/xuecheng/model/domain/ucenter/response/LoginResult.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -341,16 +300,16 @@
       <recent name="com.xuecheng.cms.service.impl" />
       <recent name="com.xuecheng.cms.dao" />
     </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="junit.framework.TestCase" />
+      <recent name="" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.xuecheng.cms.config" />
       <recent name="com.xuecheng.media_processor.config" />
       <recent name="com.xuecheng.media_processor.dao" />
       <recent name="com.xuecheng.media.config" />
       <recent name="com.xuecheng.config" />
-    </key>
-    <key name="CreateTestDialog.Recents.Supers">
-      <recent name="junit.framework.TestCase" />
-      <recent name="" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\IdeaProjects\xcEdu\xcEdu-auth\src\test\java\com\xuecheng\auth\test" />
@@ -384,54 +343,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestJWT.createJWT" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="xcEdu-auth" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.xuecheng.auth.test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.xuecheng.auth.test" />
-      <option name="MAIN_CLASS_NAME" value="com.xuecheng.auth.test.TestJWT" />
-      <option name="METHOD_NAME" value="createJWT" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestJWT.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="xcEdu-auth" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.xuecheng.auth.test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.xuecheng.auth.test" />
-      <option name="MAIN_CLASS_NAME" value="com.xuecheng.auth.test.TestJWT" />
-      <option name="METHOD_NAME" value="test" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestJWT.verifyJWT" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="xcEdu-auth" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.xuecheng.auth.test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.xuecheng.auth.test" />
-      <option name="MAIN_CLASS_NAME" value="com.xuecheng.auth.test.TestJWT" />
-      <option name="METHOD_NAME" value="verifyJWT" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="LearningApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="xcEdu-learning" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.xuecheng.LearningApplication" />
@@ -453,18 +364,11 @@
       <item itemvalue="Spring Boot.LearningApplication" />
       <item itemvalue="Spring Boot.AuthApplication" />
       <item itemvalue="Spring Boot.UcenterApplication" />
-      <item itemvalue="JUnit.TestJWT.test" />
-      <item itemvalue="JUnit.TestJWT.createJWT" />
-      <item itemvalue="JUnit.TestJWT.verifyJWT" />
       <item itemvalue="JUnit.TestAuth.testAuth" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.TestAuth.testAuth" />
-        <item itemvalue="JUnit.TestJWT.verifyJWT" />
-        <item itemvalue="JUnit.TestJWT.createJWT" />
-        <item itemvalue="JUnit.TestJWT.test" />
-        <item itemvalue="Spring Boot.UcenterApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -543,7 +447,8 @@
       <workItem from="1594356394422" duration="9880000" />
       <workItem from="1594388651002" duration="1480000" />
       <workItem from="1594428113343" duration="3512000" />
-      <workItem from="1594467518998" duration="14066000" />
+      <workItem from="1594467518998" duration="14112000" />
+      <workItem from="1594516579408" duration="13186000" />
     </task>
     <task id="LOCAL-00001" summary="搭建学成在线基础工程">
       <created>1590256307928</created>
@@ -720,7 +625,14 @@
       <option name="project" value="LOCAL" />
       <updated>1594307415196</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="完成用户认证功能开发">
+      <created>1594483209551</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1594483209551</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -762,7 +674,8 @@
     <MESSAGE value="完成媒资分页查询功能开发" />
     <MESSAGE value="完成课程计划与媒资视频关联功能开发" />
     <MESSAGE value="完成在线学习视频点播功能开发" />
-    <option name="LAST_COMMIT_MESSAGE" value="完成在线学习视频点播功能开发" />
+    <MESSAGE value="完成用户认证功能开发" />
+    <option name="LAST_COMMIT_MESSAGE" value="完成用户认证功能开发" />
   </component>
   <component name="WindowStateProjectService">
     <state x="582" y="252" width="455" height="223" key="#Assign_Data_Sources" timestamp="1594429914571">
@@ -841,18 +754,18 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="313" y="0" width="753" height="728" key="#UcenterApplication/0.0.1366.728@0.0.1366.728" timestamp="1594475085785" />
-    <state x="256" y="3" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1594362052500">
+    <state x="256" y="3" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1594522054256">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="256" y="3" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1594362052500" />
+    <state x="256" y="3" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1594522054256" />
     <state x="414" y="163" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1594387563092">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="414" y="163" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1594387563092" />
-    <state x="788" y="107" key="#com.intellij.ide.util.MemberChooser" timestamp="1594472678477">
+    <state x="788" y="107" key="#com.intellij.ide.util.MemberChooser" timestamp="1594522223692">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="788" y="107" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1594472678477" />
+    <state x="788" y="107" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1594522223692" />
     <state x="269" y="286" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1593759870744">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -869,38 +782,38 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="485" y="118" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1592469454363" />
-    <state width="1322" height="180" key="GridCell.Tab.0.bottom" timestamp="1594483176486">
+    <state width="1322" height="237" key="GridCell.Tab.0.bottom" timestamp="1594529978656">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1322" height="180" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1594483176486" />
-    <state width="1322" height="180" key="GridCell.Tab.0.center" timestamp="1594483176485">
+    <state width="1322" height="237" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1594529978656" />
+    <state width="1322" height="237" key="GridCell.Tab.0.center" timestamp="1594529978655">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1322" height="180" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1594483176485" />
-    <state width="1322" height="180" key="GridCell.Tab.0.left" timestamp="1594483176485">
+    <state width="1322" height="237" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1594529978655" />
+    <state width="1322" height="237" key="GridCell.Tab.0.left" timestamp="1594529978655">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1322" height="180" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1594483176485" />
-    <state width="1322" height="180" key="GridCell.Tab.0.right" timestamp="1594483176485">
+    <state width="1322" height="237" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1594529978655" />
+    <state width="1322" height="237" key="GridCell.Tab.0.right" timestamp="1594529978655">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1322" height="180" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1594483176485" />
-    <state width="1012" height="249" key="GridCell.Tab.1.bottom" timestamp="1594483119237">
+    <state width="1322" height="237" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1594529978655" />
+    <state width="1012" height="508" key="GridCell.Tab.1.bottom" timestamp="1594529964281">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1012" height="249" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1594483119237" />
-    <state width="1012" height="249" key="GridCell.Tab.1.center" timestamp="1594483119237">
+    <state width="1012" height="508" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1594529964281" />
+    <state width="1012" height="508" key="GridCell.Tab.1.center" timestamp="1594529964281">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1012" height="249" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1594483119237" />
-    <state width="1012" height="249" key="GridCell.Tab.1.left" timestamp="1594483119237">
+    <state width="1012" height="508" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1594529964281" />
+    <state width="1012" height="508" key="GridCell.Tab.1.left" timestamp="1594529964281">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1012" height="249" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1594483119237" />
-    <state width="1012" height="249" key="GridCell.Tab.1.right" timestamp="1594483119237">
+    <state width="1012" height="508" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1594529964281" />
+    <state width="1012" height="508" key="GridCell.Tab.1.right" timestamp="1594529964281">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1012" height="249" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1594483119237" />
+    <state width="1012" height="508" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1594529964281" />
     <state width="1012" height="147" key="GridCell.Tab.2.bottom" timestamp="1594362077167">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -925,10 +838,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="184" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1593080995364" />
-    <state x="275" y="96" key="Vcs.Push.Dialog.v2" timestamp="1594307422838">
+    <state x="275" y="96" key="Vcs.Push.Dialog.v2" timestamp="1594483217426">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="96" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1594307422838" />
+    <state x="275" y="96" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1594483217426" />
     <state x="482" y="140" key="chooseDestDirectoryDialog" timestamp="1591685775832">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

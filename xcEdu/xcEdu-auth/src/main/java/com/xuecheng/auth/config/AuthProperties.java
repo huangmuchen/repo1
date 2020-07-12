@@ -17,4 +17,7 @@ public class AuthProperties {
     private String clientSecret; // 客户端密码
     private String cookieDomain; // cookie域名
     private int cookieMaxAge; // cookie最大存活时间
+    private String cookieName; // cookie名称
+    private String grantType; // 授权模式
+    private String prefixKey; // redis的key前缀
 }
