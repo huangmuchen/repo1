@@ -10,7 +10,7 @@ import lombok.ToString;
  * @author: HuangMuChen
  * @date: 2019/9/18 11:32
  * @version: V1.0
- * @Description: TODO
+ * @Description: jwt令牌响应模型
  */
 @Data
 @ToString

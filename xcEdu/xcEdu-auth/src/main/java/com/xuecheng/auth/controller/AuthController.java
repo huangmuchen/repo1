@@ -7,12 +7,13 @@ import com.xuecheng.common.model.response.CommonCode;
 import com.xuecheng.common.model.response.ResponseResult;
 import com.xuecheng.model.domain.ucenter.ext.AuthToken;
 import com.xuecheng.model.domain.ucenter.request.LoginRequest;
+import com.xuecheng.model.domain.ucenter.response.JwtResult;
 import com.xuecheng.model.domain.ucenter.response.LoginResult;
 import com.xuecheng.utils.CookieUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
-import org.springframework.util.CollectionUtils;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.request.RequestContextHolder;
@@ -86,21 +87,22 @@ public class AuthController implements AuthControllerApi {
     }
 
     /**
-     * 从cookie中获取令牌
+     * 从cookie中获取用户令牌
      *
      * @return
      */
     public String getToken(String cookieName) {
         // SpringMVC中直接获取HttpServletRequest对象
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
-        // 从cookie中获取令牌
+        // 从cookie中获取身份令牌
         Map<String, String> map = CookieUtil.readCookie(request, cookieName);
+        String jti_token = map.get(cookieName);
         // 判断
-        if (CollectionUtils.isEmpty(map) || StringUtils.isBlank(map.get(cookieName))) {
+        if (StringUtils.isBlank(jti_token)) {
             return null;
         }
-        // 返回令牌
-        return map.get(cookieName);
+        // 返回身份令牌
+        return jti_token;
     }
 
     /**
@@ -113,5 +115,19 @@ public class AuthController implements AuthControllerApi {
         HttpServletResponse response = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getResponse();
         // 将令牌保存到cookie中，并返回给浏览器
         CookieUtil.addCookie(response, prop.getCookieDomain(), "/", prop.getCookieName(), token, prop.getCookieMaxAge(), false);
+    }
+
+    /**
+     * 查询用户的jwt令牌
+     *
+     * @return
+     */
+    @Override
+    @GetMapping("/userjwt")
+    public JwtResult getUserJwt() {
+        // 根据cookieName获取cookie中的用户令牌
+        String token = getToken(prop.getCookieName());
+        // 调用service层进行查询
+        return this.authService.getUserJwt(token);
     }
 }

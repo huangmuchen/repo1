@@ -14,6 +14,7 @@
         <module name="xcEdu-cms" />
         <module name="xcEdu-auth" />
         <module name="xcEdu-filesystem" />
+        <module name="xcEdu-order" />
         <module name="xcEdu-cms-client" />
         <module name="xcEdu-learning" />
         <module name="xcEdu-media" />
@@ -40,6 +41,7 @@
       <module name="xcEdu-media" options="-parameters" />
       <module name="xcEdu-media-processor" options="-parameters" />
       <module name="xcEdu-model" options="-parameters" />
+      <module name="xcEdu-order" options="-parameters" />
       <module name="xcEdu-registry" options="-parameters" />
       <module name="xcEdu-search" options="-parameters" />
       <module name="xcEdu-ucenter" options="-parameters" />

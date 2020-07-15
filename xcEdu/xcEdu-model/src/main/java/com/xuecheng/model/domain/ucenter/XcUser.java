@@ -11,7 +11,7 @@ import java.util.Date;
  * @author: HuangMuChen
  * @date: 2019/9/18 11:32
  * @version: V1.0
- * @Description: 用户实体类
+ * @Description: 用户实体类，存储了系统用户信息
  */
 @Data
 @ToString
@@ -27,7 +27,7 @@ public class XcUser {
     private String password;
     private String salt;
     private String name;
-    private String utype;
+    private String utype; // 用户类型包括：学生、老师、管理员等
     private String birthday;
     private String userpic;
     private String sex;

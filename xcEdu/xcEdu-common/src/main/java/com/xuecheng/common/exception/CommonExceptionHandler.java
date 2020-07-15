@@ -19,12 +19,12 @@ import java.nio.charset.IllegalCharsetNameException;
  * @version: V1.0
  * @Description: 通用异常处理器(统一异常捕获类)
  */
-@RestControllerAdvice // 对所有的Controller进行“切面”环绕，并向前端响应JSON格式的数据
+@RestControllerAdvice // 对所有的Controller进行“切面”环绕，并向前端响应JSON格式的数据，如果只是个别方法响应JSON格式数据，可以使用@ControllerAdvice注解，并在对应方法上加@ResponseBody注解
 @Slf4j
 public class CommonExceptionHandler {
     // 定义map，配置异常类型所对应的错误代码
     private static ImmutableMap<Class<? extends Throwable>, ResultCode> EXCEPTIONS;
-    // 定义map的builder对象，去构建ImmutableMap
+    // 定义map的builder对象，去构建ImmutableMap，修饰符采用protected是为了子类也可以使用该变量
     protected static ImmutableMap.Builder<Class<? extends Throwable>, ResultCode> builder = ImmutableMap.builder();
 
     // 在静态代码块中定义异常类型所对应的错误代码
@@ -35,6 +35,12 @@ public class CommonExceptionHandler {
         builder.put(HttpRequestMethodNotSupportedException.class, CommonCode.REQUIRED_METHOD_ERROR);
     }
 
+    /**
+     * 捕获自定义异常
+     *
+     * @param e
+     * @return
+     */
     @ExceptionHandler(CustomException.class)
     public ResponseResult handlerCustomException(CustomException e) {
         // 记录日志
@@ -42,6 +48,12 @@ public class CommonExceptionHandler {
         return new ResponseResult(e.getResultCode());
     }
 
+    /**
+     * 捕获未知异常
+     *
+     * @param e
+     * @return
+     */
     @ExceptionHandler(Exception.class)
     public ResponseResult handlerException(Exception e) {
         // 记录日志

@@ -11,7 +11,7 @@ import java.util.Date;
  * @author: HuangMuChen
  * @date: 2019/9/18 11:32
  * @version: V1.0
- * @Description: TODO
+ * @Description: 菜单实体类（也就是权限表，不同权限可以点击不同菜单），记录了菜单及菜单下的权限
  */
 @Data
 @ToString
@@ -24,8 +24,6 @@ public class XcMenu {
     @Column(length = 32)
     private String id;
     private String code;
-    @Column(name = "p_code")
-    private String pCode;
     @Column(name = "p_id")
     private String pId;
     @Column(name = "menu_name")

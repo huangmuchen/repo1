@@ -47,8 +47,11 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
      */
     @Bean
     public JwtAccessTokenConverter jwtAccessTokenConverter() {
+        // 新建一个生成token的转换器对象
         JwtAccessTokenConverter converter = new JwtAccessTokenConverter();
+        // 导入证书
         converter.setVerifierKey(this.getPubKey());
+        // 返回转换器
         return converter;
     }
 
@@ -58,10 +61,14 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
      * @return 公钥 Key
      */
     private String getPubKey() {
-        Resource resource = new ClassPathResource(PUBLIC_KEY);
         try {
+            // 加载类路径下的资源
+            Resource resource = new ClassPathResource(PUBLIC_KEY);
+            // 获取当前资源代表的输入流
             InputStreamReader inputStreamReader = new InputStreamReader(resource.getInputStream());
+            // 加入缓冲功能
             BufferedReader br = new BufferedReader(inputStreamReader);
+            // 读取数据并返回
             return br.lines().collect(Collectors.joining("\n"));
         } catch (IOException ioe) {
             return null;
@@ -79,7 +86,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
         // 所有请求必须进行用户认证
         http.authorizeRequests()
                 // 下边的路径放行,如果设置为：/** ，则代表所有请求均放行
-                .antMatchers("/v2/api-docs", "/swagger-resources/configuration/ui", "/swagger-resources", "/swagger-resources/configuration/security", "/swagger-ui.html", "/webjars/**", "/course/coursepic/get/**").permitAll()
+                .antMatchers("/v2/api-docs", "/swagger-resources/configuration/ui", "/swagger-resources", "/swagger-resources/configuration/security", "/swagger-ui.html", "/webjars/**").permitAll()
                 // 除上面url外的其他所有url都必须进行用户认证
                 .anyRequest().authenticated();
     }

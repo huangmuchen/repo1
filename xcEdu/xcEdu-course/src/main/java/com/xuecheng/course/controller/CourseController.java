@@ -10,6 +10,7 @@ import com.xuecheng.model.domain.course.ext.TeachplanNode;
 import com.xuecheng.model.domain.course.request.CourseListRequest;
 import com.xuecheng.model.domain.course.response.AddCourseResult;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -45,6 +46,7 @@ public class CourseController implements CourseControllerApi {
      * @param courseId
      * @return
      */
+    @PreAuthorize("hasAuthority('xc_teachmanager_course_plan_list')")
     @Override
     @GetMapping("/teachplan/list/{courseId}")
     public TeachplanNode findTeachplanList(@PathVariable("courseId") String courseId) {

@@ -50,7 +50,7 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-orm</artifactId>
-            <version>${springframework.version}</version>
+            <version>${orm.version}</version>
         </dependency>
         <!--Spring Data JPA：用于表的基本CRUD-->
         <dependency>

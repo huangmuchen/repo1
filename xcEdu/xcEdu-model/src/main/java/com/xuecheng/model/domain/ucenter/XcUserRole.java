@@ -11,7 +11,7 @@ import java.util.Date;
  * @author: HuangMuChen
  * @date: 2019/9/18 11:32
  * @version: V1.0
- * @Description: TODO
+ * @Description: 用户角色中间表：不同用户拥有不同角色（多对多关系：一个用户可以有多个角色，一个角色可以对应多个用户）
  */
 @Data
 @ToString

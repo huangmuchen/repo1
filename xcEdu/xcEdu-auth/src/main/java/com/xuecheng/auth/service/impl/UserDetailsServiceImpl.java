@@ -54,6 +54,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         XcUserExt userExt = userClient.getUserExt(username);
         // 判断
         if (userExt == null) {
+            // 返回NULL表示用户不存在，Spring Security会抛出异常
             return null;
         }
         // 从数据库获取权限
@@ -63,11 +64,11 @@ public class UserDetailsServiceImpl implements UserDetailsService {
             permissions = new ArrayList<>();
         }
         // new一个权限集合
-        List<String> user_permission = new ArrayList<>();
+        List<String> permissionList = new ArrayList<>();
         // 遍历权限集合
-        permissions.forEach(item -> user_permission.add(item.getCode()));
+        permissions.forEach(p -> permissionList.add(p.getCode()));
         // 权限拼接
-        String user_permission_string = StringUtils.join(user_permission.toArray(), ",");
+        String user_permission_string = StringUtils.join(permissionList.toArray(), ",");
         // 取出正确密码（hash值）
         String password = userExt.getPassword();
         // 拼装用户信息到UserDetails，第三个参数是用户权限

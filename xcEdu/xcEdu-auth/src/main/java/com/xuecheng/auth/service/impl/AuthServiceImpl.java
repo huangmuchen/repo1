@@ -5,9 +5,11 @@ import com.xuecheng.auth.config.AuthProperties;
 import com.xuecheng.auth.service.IAuthService;
 import com.xuecheng.common.client.XcServiceList;
 import com.xuecheng.common.exception.CustomException;
+import com.xuecheng.common.model.response.CommonCode;
 import com.xuecheng.model.domain.ucenter.ext.AuthToken;
 import com.xuecheng.model.domain.ucenter.request.LoginRequest;
 import com.xuecheng.model.domain.ucenter.response.AuthCode;
+import com.xuecheng.model.domain.ucenter.response.JwtResult;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -95,12 +97,9 @@ public class AuthServiceImpl implements IAuthService {
         // 保存到redis中
         this.redisTemplate.boundValueOps(key).set(value, prop.getTokenValiditySeconds(), TimeUnit.SECONDS);
         // 通过过期时间判断是否存放成功：-2代表保存失败
-        Long expire = this.redisTemplate.getExpire(key);
+        Long expire = this.redisTemplate.getExpire(key, TimeUnit.SECONDS);
         // 判断
-        if (expire != null) {
-            return expire > 0;
-        }
-        return false;
+        return expire > 0;
     }
 
     /**
@@ -143,7 +142,18 @@ public class AuthServiceImpl implements IAuthService {
         // 获取令牌信息
         Map map = entity.getBody();
         // 判断令牌
-        if (CollectionUtils.isEmpty(map) || map.get("access_token") == null || map.get("refresh_token") == null || map.get("jti") == null) {
+        if (CollectionUtils.isEmpty(map)) {
+            return null;
+        } else if (map.get("access_token") == null || map.get("refresh_token") == null || map.get("jti") == null) {
+            // 解析spring security返回的错误信息
+            String errorMsg = (String) map.get("error_description");
+            if (StringUtils.isNotBlank(errorMsg)) {
+                if (errorMsg.contains("UserDetailsService returned null")) {
+                    throw new CustomException(AuthCode.AUTH_ACCOUNT_NOTEXISTS);
+                } else if (errorMsg.contains("坏的凭证")) {
+                    throw new CustomException(AuthCode.AUTH_CREDENTIAL_ERROR);
+                }
+            }
             return null;
         }
         // 创建一个令牌封装对象
@@ -185,5 +195,29 @@ public class AuthServiceImpl implements IAuthService {
         byte[] encode = Base64Utils.encode(code.getBytes());
         // 返回编码后的字符串
         return new String(encode);
+    }
+
+    /**
+     * 查询用户的jwt令牌
+     *
+     * @param token
+     * @return
+     */
+    @Override
+    public JwtResult getUserJwt(String token) {
+        // 拼接key
+        String key = prop.getPrefixKey() + token;
+        // 从redis中查询jwt令牌
+        String json = this.redisTemplate.opsForValue().get(key);
+        // 判断
+        if (StringUtils.isBlank(json)) {
+            return new JwtResult(CommonCode.FAIL, null);
+        }
+        // 将json转成AuthToken对象
+        AuthToken authToken = JSON.parseObject(json, AuthToken.class);
+        // 获取jwt令牌
+        String jwt_token = authToken.getJwt_token();
+        // 响应查询结果
+        return new JwtResult(CommonCode.SUCCESS, jwt_token);
     }
 }

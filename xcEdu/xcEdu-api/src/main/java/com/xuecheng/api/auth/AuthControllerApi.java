@@ -2,6 +2,7 @@ package com.xuecheng.api.auth;
 
 import com.xuecheng.common.model.response.ResponseResult;
 import com.xuecheng.model.domain.ucenter.request.LoginRequest;
+import com.xuecheng.model.domain.ucenter.response.JwtResult;
 import com.xuecheng.model.domain.ucenter.response.LoginResult;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
@@ -33,4 +34,12 @@ public interface AuthControllerApi {
      */
     @ApiOperation("退出")
     ResponseResult logout();
+
+    /**
+     * 查询用户的jwt令牌
+     *
+     * @return
+     */
+    @ApiOperation("查询用户的jwt令牌")
+    JwtResult getUserJwt();
 }

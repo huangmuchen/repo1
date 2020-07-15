@@ -2,6 +2,7 @@ package com.xuecheng.auth.service;
 
 import com.xuecheng.model.domain.ucenter.ext.AuthToken;
 import com.xuecheng.model.domain.ucenter.request.LoginRequest;
+import com.xuecheng.model.domain.ucenter.response.JwtResult;
 
 /**
  * @author: HuangMuChen
@@ -25,4 +26,12 @@ public interface IAuthService {
      * @return
      */
     void logout(String token);
+
+    /**
+     * 查询用户的jwt令牌
+     *
+     * @return
+     * @param token
+     */
+    JwtResult getUserJwt(String token);
 }

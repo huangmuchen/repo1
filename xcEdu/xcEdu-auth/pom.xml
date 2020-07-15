@@ -55,7 +55,7 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-orm</artifactId>
-            <version>${springframework.version}</version>
+            <version>${orm.version}</version>
         </dependency>
         <!-- http客户端：供RestTemplate实现http的请求 -->
         <dependency>

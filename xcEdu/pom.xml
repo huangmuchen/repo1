@@ -24,6 +24,7 @@
         <module>xcEdu-learning</module>
         <module>xcEdu-auth</module>
         <module>xcEdu-ucenter</module>
+        <module>xcEdu-order</module>
     </modules>
     <packaging>pom</packaging>
     <name>xcEdu</name>
@@ -43,7 +44,7 @@
         <spring-cloud.version>Finchley.SR2</spring-cloud.version>
         <tomcat.version>8.5.32</tomcat.version>
         <spring-boot.version>2.0.2.RELEASE</spring-boot.version>
-        <springframework.version>5.0.5.RELEASE</springframework.version>
+        <orm.version>5.0.5.RELEASE</orm.version>
         <mybatis-spring-boot.version>1.3.2</mybatis-spring-boot.version>
         <druid.version>1.1.10</druid.version>
         <mysql-connector-java.version>5.1.32</mysql-connector-java.version>
@@ -62,6 +63,7 @@
         <guava.version>24.0-jre</guava.version>
         <pageHelper.starter.version>1.2.4</pageHelper.starter.version>
         <elasticsearch.version>6.2.1</elasticsearch.version>
+        <wxpay-sdk.version>0.0.3</wxpay-sdk.version>
     </properties>
 
     <!-- 锁定jar包版本 -->

@@ -1,8 +1,21 @@
 server:
   port: 50201
+  servlet:
+    context-path: /api
 spring:
   application:
     name: xcEdu-gateway
+  redis:
+    host: 192.168.222.131
+    port: 6379
+    timeout: 5000 #连接超时 毫秒
+    database: 1
+    jedis:
+      pool:
+        maxActive: 3
+        maxIdle: 3
+        minIdle: 1
+        maxWait: -1 #连接池最大等行时间 -1没有限制
 eureka:
   client:
     registry-fetch-interval-seconds: 10 # 拉取服务的间隔时间，单位s
@@ -13,7 +26,6 @@ eureka:
     ipAddress: 127.0.0.1 # 指定自己的ip信息，不指定的话会自己寻找
     instanceId: ${spring.application.name}:${server.port}
 zuul:
-  prefix: /api # 添加路由前缀
   retryable: true # 开启zuul网关的请求重试策略
   routes:
     cms: # 这里是路由id，随意写
@@ -21,19 +33,19 @@ zuul:
       serviceId: xcEdu-cms # 指定服务名称
       strip-prefix: false # 代理转发时是否去掉前缀，即把/cms去掉，这里不去掉，因为我们的课程服务就是以/cms打头的
       sensitiveHeaders: # 配置禁止使用的头信息,这里设置为null,不屏蔽cookie,否则set-cookie无效
+    sys:
+      path: /sys/**
+      serviceId: xcEdu-cms
+      strip-prefix: false
+      sensitiveHeaders:
     course:
       path: /course/**
       serviceId: xcEdu-course
       strip-prefix: false
       sensitiveHeaders:
-    filesystem:
-      path: /filesystem/**
-      serviceId: xcEdu-filesystem
-      strip-prefix: false
-      sensitiveHeaders:
-    media:
-      path: /media/**
-      serviceId: xcEdu-media
+    category:
+      path: /category/**
+      serviceId: xcEdu-course
       strip-prefix: false
       sensitiveHeaders:
     learning:
@@ -41,14 +53,14 @@ zuul:
       serviceId: xcEdu-learning
       strip-prefix: false
       sensitiveHeaders:
-    search:
-      path: /search/**
-      serviceId: xcEdu-search
-      strip-prefix: false
-      sensitiveHeaders:
     ucenter:
       path: /ucenter/**
       serviceId: xcEdu-ucenter
+      strip-prefix: false
+      sensitiveHeaders:
+    order:
+      path: /order/**
+      serviceId: xcEdu-order
       strip-prefix: false
       sensitiveHeaders:
 ribbon:
@@ -57,3 +69,7 @@ ribbon:
   MaxAutoRetriesNextServer: 0 # 同一服务不同实例的重试次数
   MaxAutoRetries: 2 # 同一实例的最大重试次数，当Eureka中可以找到服务，但是服务连不上时将会重试，如果eureka中找不到服务则直接走断路器
   OkToRetryOnAllOperations: false #对所有操作请求都进行重试，如果是get则可以，如果是post，put等操作没有实现幂等的情况下是很危险的,所以设置为false
+xuecheng:
+  filter:
+    cookieName: uid # cookie的名称
+    prefixKey: user_token： # redis的key前缀

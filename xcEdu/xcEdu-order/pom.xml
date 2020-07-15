@@ -9,9 +9,9 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.xuecheng.learning</groupId>
-    <artifactId>xcEdu-learning</artifactId>
-    <description>学习服务工程：处理在线学习业务</description>
+    <groupId>com.xuecheng.order</groupId>
+    <artifactId>xcEdu-order</artifactId>
+    <description>订单服务工程：负责学成在线订单管理</description>
     <version>1.0.0-SNAPSHOT</version>
 
     <dependencies>
@@ -31,6 +31,33 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
+        <!--对象关系映射：将关系数据库中表的数据映射成为对象-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-orm</artifactId>
+            <version>${orm.version}</version>
+        </dependency>
+        <!--Spring Data JPA：用于表的基本CRUD-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <!-- 分页助手启动器 -->
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper-spring-boot-starter</artifactId>
+        </dependency>
+        <!-- mybatis启动器 -->
+        <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+        </dependency>
+       <!-- 微信支付-->
+        <dependency>
+            <groupId>com.github.wxpay</groupId>
+            <artifactId>wxpay-sdk</artifactId>
+            <version>${wxpay-sdk.version}</version>
+        </dependency>
         <!-- http客户端：供RestTemplate实现http的请求 -->
         <dependency>
             <groupId>com.squareup.okhttp3</groupId>
@@ -45,22 +72,6 @@
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid-spring-boot-starter</artifactId>
-        </dependency>
-        <!-- 分页助手启动器 -->
-        <dependency>
-            <groupId>com.github.pagehelper</groupId>
-            <artifactId>pagehelper-spring-boot-starter</artifactId>
-        </dependency>
-        <!--Spring Data JPA：用于表的基本CRUD-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
-        </dependency>
-        <!--对象关系映射：将关系数据库中表的数据映射成为对象-->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-orm</artifactId>
-            <version>${orm.version}</version>
         </dependency>
     </dependencies>
 </project>
