@@ -12,7 +12,7 @@ import java.util.Date;
  * @author: HuangMuChen
  * @date: 2019/9/18 11:32
  * @version: V1.0
- * @Description: TODO
+ * @Description: 已完成任务(历史)实体类
  */
 @Data
 @ToString
@@ -38,6 +38,6 @@ public class XcTaskHis implements Serializable {
     private String mqRoutingkey;
     @Column(name = "request_body")
     private String requestBody;
-    private String version;
+    private Integer version;
     private String status;
 }

@@ -5,6 +5,9 @@ import com.xuecheng.model.domain.course.CoursePub;
 import com.xuecheng.model.domain.course.TeachplanMediaPub;
 import com.xuecheng.model.domain.search.CourseSearchParam;
 
+import java.util.List;
+import java.util.Map;
+
 /**
  * @author: HuangMuChen
  * @date: 2020/6/30 22:26
@@ -38,4 +41,12 @@ public interface IEsCourseService {
      * @return
      */
     TeachplanMediaPub getMedia(String teachplanId);
+
+    /**
+     * 根据课程ids，查询课程信息集合
+     *
+     * @param courseIds
+     * @return
+     */
+    Map getBase(List<String> courseIds);
 }

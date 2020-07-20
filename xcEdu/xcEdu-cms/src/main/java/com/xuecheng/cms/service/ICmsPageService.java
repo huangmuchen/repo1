@@ -62,17 +62,19 @@ public interface ICmsPageService {
      * 页面预览
      *
      * @param pageId 页面id
+     * @param jwt
      * @return htmlString
      */
-    String preview(String pageId);
+    String preview(String pageId, String jwt);
 
     /**
      * 根据pageId发布页面
      *
      * @param pageId 页面id
+     * @param jwt
      * @return 发布结果
      */
-    ResponseResult release(String pageId);
+    ResponseResult release(String pageId, String jwt);
 
     /**
      * 根据pageId撤销页面发布
@@ -94,7 +96,8 @@ public interface ICmsPageService {
      * 一键发布页面
      *
      * @param cmsPage
+     * @param jwt
      * @return
      */
-    CmsPublishPageResult publishPageQuick(CmsPage cmsPage);
+    CmsPublishPageResult publishPageQuick(CmsPage cmsPage, String jwt);
 }

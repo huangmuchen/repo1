@@ -65,7 +65,7 @@ public class CourseServiceImpl implements ICourseService {
      * @return
      */
     @Override
-    public QueryResponseResult findCourseList(int page, int size, CourseListRequest courseListRequest) {
+    public QueryResponseResult findCourseList(int page, int size, String companyId, CourseListRequest courseListRequest) {
         try {
             if (courseListRequest == null) {
                 courseListRequest = new CourseListRequest(); // 初始化查询条件
@@ -76,6 +76,8 @@ public class CourseServiceImpl implements ICourseService {
             if (size <= 0) {
                 size = 5; // 初始化size
             }
+            // 设置companyId
+            courseListRequest.setCompanyId(companyId);
             // 设置分页
             PageHelper.startPage(page, size);
             // 调用mapper层进行查询
@@ -87,11 +89,11 @@ public class CourseServiceImpl implements ICourseService {
             // 设置总条数
             queryResult.setTotal(pageList.getTotal());
             // 返回查询成功结果
-            return new QueryResponseResult(CommonCode.SUCCESS, queryResult);
+            return new QueryResponseResult<>(CommonCode.SUCCESS, queryResult);
         } catch (Exception e) {
             e.printStackTrace();
             // 返回查询失败结果
-            return new QueryResponseResult(CommonCode.FAIL, new QueryResult<CourseBase>());
+            return new QueryResponseResult<>(CommonCode.FAIL, new QueryResult<CourseBase>());
         }
     }
 

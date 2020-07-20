@@ -23,6 +23,10 @@ spring:
     username: xcEdu
     password: xcEdu
     virtualHost: /xcEdu
+    listener:
+      simple:
+        acknowledge-mode: manual # 消息接收后进行手动确认
+        prefetch: 1 # 每个消费者同时只能处理一条消息
     template:
       exchange: xcEdu.order.exchange # 缺省的交换机名称，此处配置后，发送消息如果不指定交换机就会使用这个
       retry:
@@ -44,6 +48,11 @@ eureka:
     prefer-ip-address: true # 当调用getHostname获取实例的hostname时，返回ip而不是host名称
     ip-address: 127.0.0.1 # 指定自己的ip信息，不指定的话会自己寻找
     instance-id: ${spring.application.name}:${server.port}
+xuecheng:
+  mq:
+    exchange: xcEdu.learning.choosecourse.exchange # 交换机名称
+    queue_finish: queue_learning_finish_choosecourse # 队列名称
+    routingKey_finish: xcEdu.finish.choosecourse.routingkey # 路由键名称
 ribbon:
   MaxAutoRetries: 2 #最大重试次数，当Eureka中可以找到服务，但是服务连不上时将会重试，如果eureka中找不到服务则直接走断路器
   MaxAutoRetriesNextServer: 3 #切换实例的重试次数

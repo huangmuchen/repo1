@@ -1,7 +1,11 @@
 package com.xuecheng.api.learning;
 
+import com.xuecheng.common.model.response.QueryResponseResult;
+import com.xuecheng.model.domain.course.request.CourseListRequest;
 import com.xuecheng.model.domain.learning.response.GetMediaResult;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 
 /**
@@ -22,4 +26,20 @@ public interface LearningControllerApi {
      */
     @ApiOperation("查询录播课程学习地址")
     GetMediaResult getMedia(String courseId, String teachplanId);
+
+    /**
+     * 查询用户已选课程
+     *
+     * @param page
+     * @param size
+     * @param courseListRequest
+     * @return
+     */
+    @ApiOperation("查询用户已选课程")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "page", value = "页码", required = true, paramType = "path", dataType = "int"),
+            @ApiImplicitParam(name = "size", value = "每页显示的条数", required = true, paramType = "path", dataType = "int"),
+            @ApiImplicitParam(name = "courseListRequest", value = "课程列表查询条件", paramType = "body", required = false, dataTypeClass = CourseListRequest.class)
+    })
+    QueryResponseResult chooseCourseList(int page, int size, CourseListRequest courseListRequest);
 }

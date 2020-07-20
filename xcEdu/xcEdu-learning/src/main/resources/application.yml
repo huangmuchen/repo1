@@ -38,6 +38,13 @@ eureka:
     prefer-ip-address: true # 当调用getHostname获取实例的hostname时，返回ip而不是host名称
     ip-address: 127.0.0.1 # 指定自己的ip信息，不指定的话会自己寻找
     instance-id: ${spring.application.name}:${server.port}
+xuecheng:
+  mq:
+    exchange: xcEdu.learning.choosecourse.exchange # 交换机名称
+    queue_add: queue_learning_add_choosecourse # 队列名称
+    routingKey_add: xcEdu.add.choosecourse.routingkey # 路由键名称
+    queue_finish: queue_learning_finish_choosecourse # 队列名称
+    routingKey_finish: xcEdu.finish.choosecourse.routingkey # 路由键名称
 # 设置feign调用超时时间
 ribbon:
   ConnectTimeout: 5000 #请求连接的超时时间

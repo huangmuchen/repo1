@@ -18,4 +18,6 @@ import lombok.ToString;
 public class CourseListRequest extends RequestData {
     @ApiModelProperty("公司Id")
     private String companyId;
+    @ApiModelProperty("用户Id")
+    private String userId;
 }

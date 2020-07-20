@@ -27,6 +27,7 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -298,5 +299,32 @@ public class EsCourseServiceImpl implements IEsCourseService {
             log.error("xuecheng search error！异常信息：{}", e.getMessage());
             return new TeachplanMediaPub();
         }
+    }
+
+    /**
+     * 根据课程ids，查询课程信息集合
+     *
+     * @param courseIds
+     * @return
+     */
+    @Override
+    public Map getBase(List<String> courseIds) {
+        // 创建一个返回map对象
+        Map<String, Map<String, String>> courseMap = new HashMap<>();
+        // 遍历集合，根据课程id查询ES库
+        for (String courseId : courseIds) {
+            // 创建封装数据的map对象
+            Map<String, String> resultMap = new HashMap<>();
+            // 查询ES库
+            CoursePub coursePub = this.getDetail(courseId);
+            // 非空判断
+            if (coursePub != null && StringUtils.isNotBlank(coursePub.getName())) {
+                resultMap.put("name", coursePub.getName());
+            }
+            // 加入集合
+            courseMap.put(courseId, resultMap);
+        }
+        // 返回查询结果
+        return courseMap;
     }
 }

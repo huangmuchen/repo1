@@ -2,6 +2,7 @@ package com.xuecheng.cms.controller;
 
 import com.xuecheng.cms.service.ICmsPageService;
 import com.xuecheng.common.web.BaseController;
+import com.xuecheng.utils.Oauth2Util;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
@@ -36,8 +37,10 @@ public class CmsPagePreviewController extends BaseController {
     @GetMapping("/{pageId}")
     public void preview(@PathVariable("pageId") String pageId) { // 当路径上的参数名和形参相同，@PathVariable注解后面的"pageId"可以省略
         try {
+            // 从请求头中取出jwt信息
+            String jwt = Oauth2Util.getJwtFromHeader(request);
             // 调用service层获取静态化页面
-            String html = this.cmsPageService.preview(pageId);
+            String html = this.cmsPageService.preview(pageId,jwt);
             // 必须设置请求头为html, nginx才能解析ssi，否则nginx不解析
             response.setHeader("Content-type","text/html;charset=utf-8");
             // 将静态化页面响应给客户端

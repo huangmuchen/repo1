@@ -12,6 +12,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+
 /**
  * @author: HuangMuChen
  * @date: 2020/6/30 22:24
@@ -63,5 +67,19 @@ public class EsCourseController implements EsCourseControllerApi {
     public TeachplanMediaPub getMedia(@PathVariable("teachplanId") String teachplanId) {
         // 调用Service层进行搜索，并返回搜索结果
         return this.esCourseService.getMedia(teachplanId);
+    }
+
+    /**
+     * 根据课程ids，查询课程信息集合
+     *
+     * @param ids
+     * @return
+     */
+    @GetMapping("/getBase/{ids}")
+    public Map getBase(@PathVariable("ids") String ids) {
+        // 取出课程ids
+        List<String> courseIds = Arrays.asList(ids.split(","));
+        // 调用Service层进行搜索，并返回搜索结果
+        return this.esCourseService.getBase(courseIds);
     }
 }

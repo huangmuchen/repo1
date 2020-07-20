@@ -41,6 +41,9 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.gridfs.GridFsResource;
 import org.springframework.data.mongodb.gridfs.GridFsTemplate;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.freemarker.FreeMarkerTemplateUtils;
@@ -271,12 +274,13 @@ public class CmsPageServiceImpl implements ICmsPageService, ConfirmCallback, Ret
      * 页面预览
      *
      * @param pageId 页面id
+     * @param jwt
      * @return htmlString
      */
     @Override
-    public String preview(String pageId) {
+    public String preview(String pageId, String jwt) {
         // 1. 获取页面模型数据
-        Map model = getModelByPageId(pageId);
+        Map model = getModelByPageId(pageId, jwt);
         // 判断
         if (CollectionUtils.isEmpty(model)) {
             // 获取页面模型数据为空
@@ -302,12 +306,13 @@ public class CmsPageServiceImpl implements ICmsPageService, ConfirmCallback, Ret
      * 根据pageId发布页面
      *
      * @param pageId 页面id
+     * @param jwt
      * @return 发布结果
      */
     @Override
-    public ResponseResult release(String pageId) {
+    public ResponseResult release(String pageId, String jwt) {
         // 根据pageId获取html文件
-        String html = this.preview(pageId);
+        String html = this.preview(pageId, jwt);
         // 保存html文件到GridFS
         saveHtml(pageId, html);
         // 发送消息到RabbitMQ
@@ -354,10 +359,11 @@ public class CmsPageServiceImpl implements ICmsPageService, ConfirmCallback, Ret
      * 一键发布页面
      *
      * @param cmsPage
+     * @param jwt
      * @return
      */
     @Override
-    public CmsPublishPageResult publishPageQuick(CmsPage cmsPage) {
+    public CmsPublishPageResult publishPageQuick(CmsPage cmsPage, String jwt) {
         // 将页面信息添加到数据库（mongodb）
         CmsPageResult cmsPageResult = this.saveCoursePage(cmsPage);
         // 判断添加结果
@@ -367,7 +373,7 @@ public class CmsPageServiceImpl implements ICmsPageService, ConfirmCallback, Ret
         // 获取添加成功后的pageId
         String pageId = cmsPageResult.getCmsPage().getPageId();
         // 根据pageId发布页面
-        ResponseResult responseResult = this.release(pageId);
+        ResponseResult responseResult = this.release(pageId, jwt);
         // 判断发布结果
         if (!responseResult.isSuccess()) {
             return new CmsPublishPageResult(CommonCode.FAIL, null);
@@ -496,9 +502,10 @@ public class CmsPageServiceImpl implements ICmsPageService, ConfirmCallback, Ret
      * 获取数据模型
      *
      * @param pageId 页面id
+     * @param jwt
      * @return 数据模型
      */
-    private Map getModelByPageId(String pageId) {
+    private Map getModelByPageId(String pageId, String jwt) {
         // 根据pageId获取cmsPage
         CmsPage cmsPage = findByPageId(pageId);
         // 判断页面是否存在
@@ -511,8 +518,18 @@ public class CmsPageServiceImpl implements ICmsPageService, ConfirmCallback, Ret
         if (StringUtils.isBlank(dataUrl)) {
             throw new CustomException(CmsCode.CMS_GENERATEHTML_DATAURL_ISNULL);
         }
-        // 根据dataUrl远程获取数据模型  TODO：如果jwt存在，拼接请求头认证
-        ResponseEntity<Map> entity = this.restTemplate.getForEntity(dataUrl, Map.class);
+        // 根据dataUrl远程获取数据模型，如果jwt存在，拼接请求头认证
+        ResponseEntity<Map> entity;
+        // 如果jwt存在，拼接请求头认证
+        if (jwt != null || StringUtils.isNotEmpty(jwt)) {
+            // new一个请求头map对象
+            HttpHeaders header = new HttpHeaders();
+            // 设置key和value
+            header.set("authorization", jwt);
+            entity = restTemplate.exchange(dataUrl, HttpMethod.GET, new HttpEntity<>(null, header), Map.class);
+        } else {
+            entity = this.restTemplate.getForEntity(dataUrl, Map.class);
+        }
         // 返回查询结果
         return entity.getBody();
     }

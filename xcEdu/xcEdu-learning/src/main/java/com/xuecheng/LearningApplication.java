@@ -1,5 +1,6 @@
 package com.xuecheng;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
@@ -15,6 +16,7 @@ import org.springframework.web.client.RestTemplate;
  * @version: V1.0
  * @Description: 学习引导类
  */
+@MapperScan("com.xuecheng.learning.dao.mapper") // mapper接口的包扫描
 @EnableDiscoveryClient
 @EnableFeignClients // 开启FeignClient，扫描标记了@FeignClient注解的接口，生成此接口的代理对象
 @SpringBootApplication

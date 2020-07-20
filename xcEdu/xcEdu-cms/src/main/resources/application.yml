@@ -27,10 +27,6 @@ spring:
       mandatory: true # 开启强制委托模式
     publisher-confirms: true # 生产者确认机制，确保消息会正确发送到交换机(Exchange)，如果发送失败会有错误回执，从而触发重试
     publisher-returns: true # 生产者确认机制，确保消息从交换机(Exchange)发送到对应队列(queue)，如果发送失败会有错误回执，从而触发重试
-  security:
-    user:
-      name: huangmuchen
-      password: 123456
 eureka:
   client:
     service-url:

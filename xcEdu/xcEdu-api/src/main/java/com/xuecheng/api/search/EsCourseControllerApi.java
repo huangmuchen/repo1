@@ -9,6 +9,8 @@ import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 
+import java.util.Map;
+
 /**
  * @author: HuangMuChen
  * @date: 2020/6/30 22:21
@@ -40,8 +42,8 @@ public interface EsCourseControllerApi {
      * @param courseId
      * @return
      */
-    @ApiOperation("根据课程ID，查询课程信息")
-    @ApiImplicitParam(name = "courseId", value = "课程ID", required = true, paramType = "path", dataType = "String")
+    @ApiOperation("根据课程id，查询课程信息")
+    @ApiImplicitParam(name = "courseId", value = "课程id", required = true, paramType = "path", dataType = "String")
     CoursePub getDetail(String courseId);
 
     /**
@@ -50,7 +52,17 @@ public interface EsCourseControllerApi {
      * @param teachplanId
      * @return
      */
-    @ApiOperation("根据课程计划ID，查询播放地址")
+    @ApiOperation("根据课程计划id，查询播放地址")
     @ApiImplicitParam(name = "teachplanId", value = "课程计划ID", required = true, paramType = "path", dataType = "String")
     TeachplanMediaPub getMedia(String teachplanId);
+
+    /**
+     * 根据课程ids，查询课程信息集合
+     *
+     * @param ids
+     * @return
+     */
+    @ApiOperation("根据课程ids，查询课程信息集合")
+    @ApiImplicitParam(name = "ids", value = "课程id集合", required = true, paramType = "path", dataType = "String")
+    Map getBase(String ids);
 }

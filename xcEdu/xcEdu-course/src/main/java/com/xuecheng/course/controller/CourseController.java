@@ -3,12 +3,14 @@ package com.xuecheng.course.controller;
 import com.xuecheng.api.course.CourseControllerApi;
 import com.xuecheng.common.model.response.QueryResponseResult;
 import com.xuecheng.common.model.response.ResponseResult;
+import com.xuecheng.common.web.BaseController;
 import com.xuecheng.course.service.ICourseService;
 import com.xuecheng.model.domain.course.*;
 import com.xuecheng.model.domain.course.ext.CourseView;
 import com.xuecheng.model.domain.course.ext.TeachplanNode;
 import com.xuecheng.model.domain.course.request.CourseListRequest;
 import com.xuecheng.model.domain.course.response.AddCourseResult;
+import com.xuecheng.utils.XcOauth2Util;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -21,7 +23,7 @@ import org.springframework.web.bind.annotation.*;
  */
 @RestController
 @RequestMapping("/course")
-public class CourseController implements CourseControllerApi {
+public class CourseController extends BaseController implements CourseControllerApi {
     @Autowired
     private ICourseService courseService;
 
@@ -36,8 +38,12 @@ public class CourseController implements CourseControllerApi {
     @Override
     @GetMapping("/coursebase/list/{page}/{size}")
     public QueryResponseResult findCourseList(@PathVariable("page") int page, @PathVariable("size") int size, CourseListRequest courseListRequest) {
+        // 通过工具类获取Jwt中的用户信息
+        XcOauth2Util.UserJwt userJwt = XcOauth2Util.getUserJwtFromHeader(request);
+        // 取出机构id
+        String companyId = userJwt.getCompanyId();
         // 调用Service层进行查询,并返回结果
-        return this.courseService.findCourseList(page, size, courseListRequest);
+        return this.courseService.findCourseList(page, size, companyId,courseListRequest);
     }
 
     /**

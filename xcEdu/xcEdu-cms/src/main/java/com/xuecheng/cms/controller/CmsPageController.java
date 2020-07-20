@@ -4,10 +4,12 @@ import com.xuecheng.api.cms.CmsPageControllerApi;
 import com.xuecheng.cms.service.ICmsPageService;
 import com.xuecheng.common.model.response.QueryResponseResult;
 import com.xuecheng.common.model.response.ResponseResult;
+import com.xuecheng.common.web.BaseController;
 import com.xuecheng.model.domain.cms.CmsPage;
 import com.xuecheng.model.domain.cms.request.QueryPageRequest;
 import com.xuecheng.model.domain.cms.response.CmsPageResult;
 import com.xuecheng.model.domain.cms.response.CmsPublishPageResult;
+import com.xuecheng.utils.Oauth2Util;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,7 +21,7 @@ import org.springframework.web.bind.annotation.*;
  */
 @RestController
 @RequestMapping("/cms/page")
-public class CmsPageController implements CmsPageControllerApi {
+public class CmsPageController extends BaseController implements CmsPageControllerApi {
     @Autowired
     private ICmsPageService cmsPageService;
 
@@ -96,7 +98,10 @@ public class CmsPageController implements CmsPageControllerApi {
     @Override
     @PostMapping("/release/{pageId}")
     public ResponseResult release(@PathVariable("pageId") String pageId) {
-        return this.cmsPageService.release(pageId);
+        // 从请求头中取出jwt信息
+        String jwt = Oauth2Util.getJwtFromHeader(request);
+        // 调用service层进行发布
+        return this.cmsPageService.release(pageId,jwt);
     }
 
     /**
@@ -133,7 +138,9 @@ public class CmsPageController implements CmsPageControllerApi {
     @Override
     @PostMapping("/publish")
     public CmsPublishPageResult publishPageQuick(@RequestBody CmsPage cmsPage) {
+        // 从请求头中取出jwt信息
+        String jwt = Oauth2Util.getJwtFromHeader(request);
         // 调用service层进行一键发布
-        return this.cmsPageService.publishPageQuick(cmsPage);
+        return this.cmsPageService.publishPageQuick(cmsPage,jwt);
     }
 }

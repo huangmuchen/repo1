@@ -16,7 +16,7 @@ public class Oauth2Util {
         }
         // 取出头信息
         String authorization = request.getHeader("Authorization");
-        if (StringUtils.isEmpty(authorization) || authorization.indexOf("Bearer") < 0) {
+        if (StringUtils.isEmpty(authorization) || !authorization.contains("Bearer")) {
             return null;
         }
         // 从Bearer 后边开始取出token
@@ -33,5 +33,24 @@ public class Oauth2Util {
             e.printStackTrace();
         }
         return map;
+    }
+
+    /**
+     * 从请求头中获取jwt令牌：Bearer eyJhbGc.....
+     *
+     * @param request
+     * @return
+     */
+    public static String getJwtFromHeader(HttpServletRequest request) {
+        String authorization = request.getHeader("Authorization");
+        if (StringUtils.isBlank(authorization)) {
+            // 拒绝访问
+            return null;
+        }
+        if (!authorization.startsWith("Bearer ")) {
+            // 拒绝访问
+            return null;
+        }
+        return authorization;
     }
 }

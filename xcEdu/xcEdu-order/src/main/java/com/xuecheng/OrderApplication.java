@@ -16,7 +16,7 @@ import org.springframework.web.client.RestTemplate;
  * @version: V1.0
  * @Description: 订单引导类
  */
-@EnableScheduling // 定时任务
+@EnableScheduling // 开启定时任务
 @EnableDiscoveryClient
 @EnableFeignClients
 @SpringBootApplication

@@ -24,7 +24,7 @@ public interface ICourseService {
      * @param courseListRequest
      * @return
      */
-    QueryResponseResult findCourseList(int page, int size, CourseListRequest courseListRequest);
+    QueryResponseResult findCourseList(int page, int size, String companyId, CourseListRequest courseListRequest);
 
     /**
      * 根据课程id查询课程计划列表

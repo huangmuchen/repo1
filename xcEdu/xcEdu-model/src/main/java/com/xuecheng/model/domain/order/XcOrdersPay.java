@@ -11,7 +11,7 @@ import java.io.Serializable;
  * @author: HuangMuChen
  * @date: 2019/9/18 11:32
  * @version: V1.0
- * @Description: TODO
+ * @Description: 订单支付实体类
  */
 @Data
 @ToString
