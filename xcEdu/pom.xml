@@ -47,7 +47,7 @@
         <orm.version>5.0.5.RELEASE</orm.version>
         <mybatis-spring-boot.version>1.3.2</mybatis-spring-boot.version>
         <druid.version>1.1.10</druid.version>
-        <mysql-connector-java.version>5.1.32</mysql-connector-java.version>
+        <mysql-connector-java.version>8.0.28</mysql-connector-java.version>
         <commons-io.version>2.6</commons-io.version>
         <org.apache.commons.io.version>1.3.2</org.apache.commons.io.version>
         <commons-fileupload.version>1.3.3</commons-fileupload.version>
